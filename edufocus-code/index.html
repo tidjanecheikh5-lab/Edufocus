@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>EduFocus — Où investir dans l'éducation en Mauritanie</title>
+<meta name="description" content="EduFocus classe les 13 wilayas de Mauritanie selon la priorité éducative et dit, pour chacune, quoi faire.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<!-- Aperçu lorsque le lien est partagé (WhatsApp, LinkedIn, X) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="EduFocus — 365 231 enfants hors de l'école">
+<meta property="og:description" content="Où investir dans l'éducation en Mauritanie. Les 13 wilayas classées, expliquées, et le levier d'action pour chacune.">
+<meta property="og:image" content="apercu.png">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1A4A6B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Nunito+Sans:wght@400;600;700;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════════════════════════════
+   CHARTE — 5 couleurs de marque + 1 échelle de priorité à 4 crans
+   Pour changer la charte : ne toucher qu'à ce bloc.
+   ══════════════════════════════════════════════════════════════════════════ */
+:root{
+  /* ── Ardoise ── neutres froids, marque bleu-ardoise ─────────────────── */
+  --sable:#F5F7F8;   /* fond          */
+  --encre:#171B1F;   /* texte         */
+  --gris:#6A7480;    /* secondaire    */
+  --acc:#1A4A6B;     /* marque, accent unique */
+  --acc2:#2A6B94;    /* accent clair (dégradés, survol) */
+  --acc0:#163F5C;    /* accent sombre */
+
+  /* échelle de PRIORITÉ : quatre intensités d'une même teinte, du plus
+     urgent au moins urgent. C'est une donnée ordonnée, pas des catégories. */
+  --p1:#1C4E70; --p2:#3E799E; --p3:#8FB3C9; --p4:#CBDCE6;
+  --p1t:#FFFFFF; --p2t:#FFFFFF; --p3t:#122B3A; --p4t:#122B3A;   /* texte lisible dessus */
+
+  /* couleurs SÉMANTIQUES, réservées à une seule signification chacune */
+  --or:#C08A2E;      /* mahadra ou école coranique */
+  --ri:#A6413B;      /* aucune instruction — la seule alerte de la page */
+  --ok:#3F7D5F;      /* objectif atteint */
+
+  --papier:#FFFFFF; --trait:#E2E6EA; --trait2:#EDF0F2;
+
+  --serif:'Poppins','Nunito Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --sans:'Nunito Sans','IBM Plex Sans Arabic','Noto Naskh Arabic','Geeza Pro',system-ui,
+    -apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  --r:4px;
+  --safe:env(safe-area-inset-bottom,0px);
+}
+html[dir=rtl]{
+  --serif:'IBM Plex Sans Arabic','Noto Naskh Arabic','Geeza Pro','Traditional Arabic',
+    'Poppins',sans-serif;
+  --sans:'IBM Plex Sans Arabic','Noto Naskh Arabic','Geeza Pro','Nunito Sans',sans-serif;
+}
+h1,h2,h3,.count,.sval,.keys dd,.mets dd,.synth strong{letter-spacing:-.02em}
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--sable); color:var(--encre);
+  font-family:var(--sans); font-size:16px; line-height:1.55;
+  font-variant-numeric:tabular-nums; -webkit-font-smoothing:antialiased;
+  padding-bottom:calc(64px + var(--safe));
+}
+h1,h2,h3{font-family:var(--serif); font-weight:600; line-height:1.2; margin:0}
+p{margin:0}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+a{color:var(--acc)}
+:focus-visible{outline:2px solid var(--acc); outline-offset:2px; border-radius:2px}
+table{border-collapse:collapse;width:100%}
+
+/* ─────────────────────────────────────────────── entête ─────────────── */
+/* En-tête. NE PAS nommer « .bar » : cette classe sert aussi aux lignes de
+   graphique, qui hériteraient alors du fond bleu et du position:sticky. */
+.topbar{
+  position:sticky; top:0; z-index:40; display:flex; align-items:center;
+  gap:12px; padding:10px 16px; background:var(--acc); color:#fff;
+}
+.brand{font-family:var(--serif); font-size:19px; font-weight:700; letter-spacing:-.01em;
+  white-space:nowrap; flex:none; min-width:0}
+.brand span{opacity:.62; font-weight:400; font-size:14px; display:none}
+.spacer{flex:1}
+.langs{display:flex; gap:1px; background:rgba(255,255,255,.22); border-radius:var(--r); overflow:hidden}
+.langs button{padding:5px 9px; font-size:12px; font-weight:600; letter-spacing:.04em; color:#fff; opacity:.72}
+.langs button[aria-pressed=true]{background:#fff; color:var(--acc); opacity:1}
+
+/* ─────────────────────────────────────────────── navigation ─────────── */
+.tabs{
+  position:fixed; left:0; right:0; bottom:0; z-index:30; display:flex;
+  background:var(--papier); border-top:1px solid var(--trait);
+  padding-bottom:var(--safe);
+}
+.tabs button{
+  flex:1; display:flex; flex-direction:column; align-items:center; gap:3px;
+  padding:8px 2px 9px; font-size:10.5px; font-weight:500; color:var(--gris);
+  letter-spacing:.01em; border-top:2px solid transparent; margin-top:-1px;
+}
+.tabs button svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.6;
+  stroke-linecap:round;stroke-linejoin:round}
+.tabs button[aria-current=page]{color:var(--acc); border-top-color:var(--acc)}
+
+/* ─────────────────────────────────────────────── mise en page ───────── */
+.wrap{max-width:900px; margin:0 auto; padding:20px 16px 28px;
+  transition:max-width .2s ease}
+.screen{display:none; animation:in .28s ease}
+.screen.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.eyebrow{font-size:11px; font-weight:600; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--gris); margin-bottom:8px}
+.lede{color:var(--gris); font-size:14.5px; margin-top:8px}
+h2.title{font-size:24px; letter-spacing:-.01em}
+.card{background:var(--papier); border:1px solid var(--trait); border-radius:10px; padding:16px;
+  box-shadow:0 1px 2px rgba(22,33,28,.04)}
+.mt{margin-top:20px} .mt2{margin-top:32px}
+
+/* ─────────────────────── SIGNATURE : la grille de 100 personnes ─────── */
+:root{
+  --pers:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 16'%3E%3Ccircle cx='6' cy='3.3' r='3.05'/%3E%3Cpath d='M6 7.5c3.3 0 6 2.7 6 6V16H0v-2.5c0-3.3 2.7-6 6-6z'/%3E%3C/svg%3E");
+}
+.waffle{display:grid; grid-template-columns:repeat(10,1fr); gap:3px 4px; direction:ltr}
+.waffle i{display:block; aspect-ratio:12/16; background-color:var(--trait2);
+  -webkit-mask:var(--pers) center/contain no-repeat;
+  mask:var(--pers) center/contain no-repeat;
+  transform:scale(.4); opacity:0; animation:pop .34s ease forwards}
+@keyframes pop{to{transform:scale(1); opacity:1}}
+.waffle i.f{background-color:var(--p3)}   /* école formelle */
+.waffle i.m{background-color:var(--or)}   /* mahadra / coranique */
+.waffle i.n{background-color:var(--ri)}   /* aucune instruction */
+.wkey{display:flex; flex-wrap:wrap; gap:6px 16px; margin-top:13px; font-size:13px}
+.wkey span{display:flex; align-items:center; gap:7px; color:var(--gris)}
+.wkey b{width:11px; height:15px; flex:none;
+  -webkit-mask:var(--pers) center/contain no-repeat;
+  mask:var(--pers) center/contain no-repeat}
+.wkey em{font-style:normal; color:var(--encre); font-weight:700}
+@media (prefers-reduced-motion:reduce){
+  .waffle i{animation:none; transform:none; opacity:1}
+  .screen{animation:none}
+}
+
+/* ─────────────────────────────────────────────── accueil ────────────── */
+/* L'accroche est posée sur un bandeau vert pleine largeur — vert et or du
+   drapeau mauritanien — qui la détache nettement du tableau de bord. */
+.hero{position:relative; text-align:center; margin:-20px -16px 0; padding:26px 20px 30px;
+  background:
+    radial-gradient(120% 90% at 50% 0%, var(--acc2) 0%, var(--acc) 55%, var(--acc0) 100%);
+  color:#fff; overflow:hidden}
+.hero::after{content:''; position:absolute; left:0; right:0; bottom:0; height:3px;
+  background:linear-gradient(90deg,var(--p3) 0 67%,var(--or) 67% 84%,var(--ri) 84% 100%)}
+.kicker{font-size:10.5px; font-weight:700; letter-spacing:.19em; text-transform:uppercase;
+  color:rgba(255,255,255,.62); margin-bottom:12px}
+.count{font-family:var(--serif); font-size:clamp(52px,17vw,88px); line-height:.92;
+  letter-spacing:-.05em; color:#fff; font-weight:800; text-shadow:0 2px 18px rgba(0,0,0,.22)}
+.count-sub{font-size:14.5px; margin:12px auto 0; max-width:31ch; color:rgba(255,255,255,.9);
+  font-weight:500; line-height:1.5}
+
+/* trois repères compacts, tous à la même hauteur */
+.kpis{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:16px}
+.kpis div{background:var(--papier); border:1px solid var(--trait); border-radius:10px;
+  padding:12px 8px; text-align:center; box-shadow:0 1px 2px rgba(22,33,28,.04)}
+.kpis b{display:block; font-family:var(--serif); font-size:clamp(21px,6.6vw,28px);
+  font-weight:800; color:var(--acc); letter-spacing:-.035em; line-height:1}
+.kpis i{display:block; font-style:normal; font-size:10.5px; color:var(--gris);
+  line-height:1.35; margin-top:6px}
+
+/* chaque tuile garde sa hauteur naturelle : plus de grands vides */
+.dashgrid{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:10px;
+  align-items:start}
+.tile{background:var(--papier); border:1px solid var(--trait); border-radius:10px;
+  padding:15px; box-shadow:0 1px 2px rgba(22,33,28,.04)}
+.tile-wide{grid-column:1/-1}
+.tile-accent{background:linear-gradient(160deg,var(--acc2),var(--acc0)); border-color:transparent;
+  color:#fff; box-shadow:0 2px 10px rgba(26,74,107,.22)}
+.tile-accent .tile-lab,.tile-accent .tile-note{color:rgba(255,255,255,.72)}
+.tile-quote{border:none; border-inline-start:3px solid var(--or); border-radius:0 10px 10px 0;
+  padding:16px 18px; box-shadow:none; background:#fff}
+.tile-quote p{font-family:var(--serif); font-size:16px; font-weight:600; line-height:1.5;
+  letter-spacing:-.015em}
+.tile-lab{font-size:10px; font-weight:700; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--gris); margin-bottom:12px; line-height:1.4}
+.tile-note{font-size:12px; color:var(--gris); line-height:1.5; margin-top:10px}
+
+/* camembert en anneau, tracé en SVG pur */
+.donut{display:grid; place-items:center; gap:9px}
+.donut svg{width:118px; height:118px; display:block}
+.donut svg circle{transition:stroke-dasharray .8s cubic-bezier(.2,.8,.3,1)}
+.donut .mid{font-family:var(--serif); font-weight:800; fill:var(--encre);
+  letter-spacing:-.03em}
+.dleg .dom{font-weight:700}
+.dleg{display:grid; gap:5px; width:100%}
+.dleg span{display:flex; align-items:center; gap:7px; font-size:12px; line-height:1.3}
+.dleg b{width:10px; height:10px; border-radius:2px; flex:none}
+.dleg em{font-style:normal; color:var(--gris); margin-inline-start:auto;
+  font-variant-numeric:tabular-nums}
+
+.bars{display:grid; gap:8px}
+.bars-13{gap:4px}
+.bars-13 .bar{grid-template-columns:104px 1fr 46px; font-size:11.5px}
+.bars-13 .bar-t{height:14px}
+.segs.segs-sm{grid-template-columns:repeat(3,1fr); gap:5px; margin-bottom:13px}
+.segs.segs-sm button{padding:7px 6px; text-align:center; font-size:12px; font-weight:600}
+.bar{display:grid; grid-template-columns:88px 1fr auto; align-items:center; gap:9px;
+  font-size:12.5px; cursor:pointer}
+.bar:hover .bar-n{color:var(--acc)}
+.bar-n{font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.bar-t{height:17px; background:var(--trait2); border-radius:3px; overflow:hidden}
+.bar-t i{display:block; height:100%; border-radius:3px; width:0;
+  transition:width .7s cubic-bezier(.2,.8,.3,1)}
+.bar-v{font-variant-numeric:tabular-nums; font-weight:600; font-size:12px}
+
+.split{display:flex; height:40px; border-radius:5px; overflow:hidden; gap:2px}
+.split div{display:grid; place-items:center; font-size:12px; font-weight:700; color:#fff;
+  min-width:0; overflow:hidden; white-space:nowrap; transition:flex-grow .6s ease}
+.ctx{margin-top:14px; font-size:12.5px; color:var(--gris); text-align:center; max-width:48ch;
+  margin-inline:auto; line-height:1.5}
+.cta{display:block; width:100%; margin-top:20px; padding:16px; background:var(--acc);
+  color:#fff; font-weight:700; font-size:15.5px; border-radius:10px; text-align:center;
+  letter-spacing:.01em; box-shadow:0 2px 8px rgba(26,74,107,.2); transition:.15s}
+.cta:hover{background:var(--acc2); box-shadow:0 4px 14px rgba(26,74,107,.28)}
+
+
+/* ── Disposition Atlas : la carte reste à gauche, le reste défile ──────── */
+.atlas{display:block}
+.atlas-map{display:none}                    /* petit écran : l'onglet Carte suffit */
+.mapcard{background:var(--papier); border:1px solid var(--trait); border-radius:10px;
+  padding:15px; box-shadow:0 1px 2px rgba(22,33,28,.04)}
+.mapbox-home{border:none; box-shadow:none; padding:0; background:none}
+@media (min-width:1024px){
+  .atlas{display:grid; grid-template-columns:minmax(380px,44fr) minmax(0,56fr);
+    gap:14px; align-items:start; margin-top:14px}
+  .atlas-map{display:block; position:sticky;
+    top:calc(var(--barh,53px) + var(--tabsh,46px) + 14px)}
+  .atlas-flow{min-width:0}
+  .atlas-flow .kpis{margin-top:0}
+  .atlas-flow .dashgrid{margin-top:10px}
+  .mapcard .legend{margin-top:10px; font-size:12px}
+  .mapcard .lbl span{font-size:11px}
+  .mapcard .lbl u{width:17px; height:17px; font-size:10px}
+  /* La colonne droite est plus étroite que la fenêtre : 2 colonnes, pas 4. */
+  .atlas-flow .dashgrid{grid-template-columns:repeat(2,1fr); gap:12px}
+  /* 20 colonnes plutôt que 10 : la grille reste lisible sans manger la page. */
+  .atlas-flow .waffle{grid-template-columns:repeat(20,1fr); gap:3px 5px}
+  .atlas-flow .tile-wide{grid-column:1/-1}
+  .atlas-flow .kpis{grid-template-columns:repeat(3,1fr)}
+  .atlas-flow .bars-13 .bar{grid-template-columns:118px 1fr 48px; font-size:12px}
+  .atlas-flow .bars-13{gap:5px}
+  .atlas-flow .bar{grid-template-columns:112px 1fr auto}
+  .cta{margin-top:14px}
+  .ctx{margin-top:12px; text-align:start; max-width:none}
+}
+
+/* ─────────────────────────────────────────────── carte ──────────────── */
+.mapbox{position:relative; background:var(--papier); border:1px solid var(--trait);
+  border-radius:10px; padding:8px; direction:ltr; box-shadow:0 1px 2px rgba(22,33,28,.04)}
+.stage{position:relative}
+.mapbox svg{display:block; width:100%; height:auto}
+.mapbox path{stroke:var(--papier); stroke-width:2.2; cursor:pointer;
+  transition:filter .15s, opacity .15s}
+.mapbox path:hover,.mapbox path.sel{filter:brightness(1.14); stroke:var(--encre); stroke-width:2.6}
+.badges{position:absolute; inset:0; pointer-events:none}
+.lbl{position:absolute; transform:translate(-50%,-50%); pointer-events:auto;
+  display:flex; align-items:center; gap:4px; padding:2px 6px 2px 2px;
+  background:rgba(255,255,255,.93); border-radius:100px; cursor:pointer;
+  box-shadow:0 1px 4px rgba(22,33,28,.22); white-space:nowrap;
+  transition:box-shadow .15s, transform .15s}
+.lbl u{width:15px; height:15px; border-radius:50%; color:#fff; font-size:9px;
+  font-weight:800; display:grid; place-items:center; text-decoration:none; flex:none}
+.lbl span{font-size:9.5px; font-weight:700; color:var(--encre); letter-spacing:-.01em}
+.lbl:hover,.lbl.sel{box-shadow:0 0 0 2px var(--acc),0 2px 8px rgba(22,33,28,.3);
+  transform:translate(-50%,-50%) scale(1.06); z-index:4}
+.lbl.out{background:rgba(255,255,255,.97)}
+/* Sur un petit écran, 13 noms ne tiennent pas sans se chevaucher : la carte
+   ne porte que les rangs, les noms restent lisibles dans la liste en dessous. */
+@media (max-width:759px){
+  .lbl{padding:0; background:none; box-shadow:none; gap:0}
+  .lbl span{display:none}
+  .lbl u{width:20px; height:20px; font-size:10.5px;
+    box-shadow:0 0 0 1.5px rgba(255,255,255,.92),0 1px 3px rgba(22,33,28,.35)}
+  .lbl:hover,.lbl.sel{box-shadow:none}
+  .lbl.sel u{box-shadow:0 0 0 2.5px var(--encre)}
+}
+.chips{display:flex; flex-wrap:wrap; gap:6px; margin-top:14px}
+.chip{display:inline-flex; align-items:center; gap:7px; padding:5px 11px 5px 5px;
+  border:1px solid var(--trait); background:var(--papier); border-radius:100px;
+  font-size:12.5px; font-weight:500; white-space:nowrap}
+.chip u{width:19px; height:19px; border-radius:50%; color:#fff; font-size:10.5px;
+  font-weight:700; display:grid; place-items:center; text-decoration:none; flex:none}
+.chip:hover{border-color:var(--acc)}
+.chip.sel{border-color:var(--acc); box-shadow:inset 0 0 0 1px var(--acc)}
+.tip{position:absolute; pointer-events:none; background:var(--encre); color:#fff;
+  padding:7px 10px; border-radius:var(--r); font-size:12.5px; line-height:1.4;
+  transform:translate(-50%,-118%); opacity:0; transition:opacity .12s; white-space:nowrap; z-index:5}
+.tip.on{opacity:1}
+.tip b{display:block; font-size:13.5px; margin-bottom:1px}
+.legend{display:flex; flex-wrap:wrap; gap:8px 14px; margin-top:12px; font-size:13px}
+.legend span{display:flex; align-items:center; gap:7px; color:var(--gris)}
+.legend b{width:13px;height:13px;border-radius:2px;flex:none}
+.pick{margin-top:14px; background:var(--papier); border:1px solid var(--trait);
+  border-radius:var(--r); padding:14px; display:flex; align-items:center; gap:12px}
+.pick .txt{flex:1; min-width:0}
+.pick h3{font-size:17px}
+.pick p{font-size:13px; color:var(--gris); margin-top:2px}
+.pick button{background:var(--acc); color:#fff; padding:9px 13px; border-radius:var(--r);
+  font-size:13.5px; font-weight:600; white-space:nowrap}
+
+/* ─────────────────────────────────────────────── tableau ────────────── */
+.scroll{overflow-x:auto; -webkit-overflow-scrolling:touch; border:1px solid var(--trait);
+  border-radius:10px; background:var(--papier); box-shadow:0 1px 2px rgba(22,33,28,.04)}
+th,td{padding:9px 10px; text-align:start; font-size:13.5px; border-bottom:1px solid var(--trait2)}
+thead th{position:sticky; top:0; background:var(--papier); font-size:11px; font-weight:600;
+  letter-spacing:.07em; text-transform:uppercase; color:var(--gris); white-space:nowrap;
+  cursor:pointer; user-select:none; border-bottom:1px solid var(--trait)}
+thead th:hover{color:var(--acc)}
+thead th.s::after{content:'↓'; margin-inline-start:4px; color:var(--acc)}
+tbody tr{cursor:pointer}
+tbody tr:hover{background:var(--sable)}
+tbody tr:last-child td{border-bottom:none}
+.num{text-align:end; font-variant-numeric:tabular-nums}
+.dot{display:inline-block; width:9px; height:9px; border-radius:50%; margin-inline-end:7px;
+  vertical-align:middle; flex:none}
+.rk{font-family:var(--serif); font-weight:600; color:var(--gris)}
+.btn{display:inline-flex; align-items:center; gap:7px; margin-top:14px; padding:10px 14px;
+  border:1px solid var(--trait); background:var(--papier); border-radius:var(--r);
+  font-size:13.5px; font-weight:500}
+.btn:hover{border-color:var(--acc); color:var(--acc)}
+
+/* ─────────────────────────────────────────────── fiche ──────────────── */
+.back{display:inline-flex; align-items:center; gap:6px; font-size:13.5px; color:var(--gris);
+  margin-bottom:12px}
+.back:hover{color:var(--acc)}
+html[dir=rtl] .back svg{transform:scaleX(-1)}
+.fh{display:flex; align-items:flex-start; gap:12px; flex-wrap:wrap}
+.fh h2{font-size:29px; letter-spacing:-.015em}
+.badge{display:inline-block; padding:4px 10px; border-radius:100px; color:#fff;
+  font-size:12px; font-weight:600; white-space:nowrap}
+.keys{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--trait);
+  border:1px solid var(--trait); border-radius:var(--r); overflow:hidden; margin-top:18px}
+.keys div{background:var(--papier); padding:12px 13px}
+.keys dt{font-size:11.5px; color:var(--gris); line-height:1.3}
+.keys dd{margin:3px 0 0; font-family:var(--serif); font-size:22px; font-weight:600}
+.why{margin-top:20px; background:var(--papier); border:1px solid var(--trait);
+  border-inline-start:4px solid var(--or); border-radius:var(--r); padding:16px}
+.why h3{font-size:16px; margin-bottom:8px}
+.why p{font-size:15px; line-height:1.62}
+.lever{margin-top:14px; background:var(--acc); color:#fff; border-radius:var(--r); padding:14px 16px}
+.lever small{display:block; font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  opacity:.66; margin-bottom:4px}
+.lever strong{font-size:16px; font-weight:600; line-height:1.4}
+.gen{display:grid; gap:9px; margin-top:12px}
+.grow{display:grid; grid-template-columns:70px 1fr auto; align-items:center; gap:10px; font-size:13.5px}
+.gbar{height:22px; background:var(--trait2); border-radius:2px; overflow:hidden}
+.gbar i{display:block; height:100%; background:var(--acc); border-radius:2px;
+  transition:width .5s ease}
+.gap{margin-top:10px; font-size:13.5px; color:var(--gris)}
+.acts{margin-top:14px; background:var(--papier); border:1px solid var(--trait);
+  border-radius:8px; padding:16px}
+.acts h3{font-size:16px; margin-bottom:12px}
+.actlist{list-style:none; counter-reset:a; margin:0; padding:0; display:grid; gap:12px}
+.actlist li{counter-increment:a; position:relative; padding-inline-start:34px}
+.actlist li::before{content:counter(a); position:absolute; inset-inline-start:0; top:1px;
+  width:23px; height:23px; border-radius:50%; background:var(--acc); color:#fff;
+  font-size:12px; font-weight:700; display:grid; place-items:center}
+.actlist b{display:block; font-size:14.5px; font-weight:700; line-height:1.35}
+.actlist span{display:block; font-size:13.5px; color:var(--gris); line-height:1.55;
+  margin-top:3px}
+
+/* ─────────────────────────────────────────────── simulateur ─────────── */
+.slider{margin-top:6px}
+.slider input{width:100%; accent-color:var(--acc); height:32px}
+.sval{font-family:var(--serif); font-size:34px; font-weight:600; color:var(--acc); line-height:1}
+.segs{display:grid; grid-template-columns:1fr; gap:6px}
+.segs button{text-align:start; padding:10px 12px; border:1px solid var(--trait);
+  background:var(--sable); border-radius:var(--r); font-size:13.5px; line-height:1.35}
+.segs button b{display:block; font-weight:600; font-size:14px}
+.segs button small{color:var(--gris); font-size:12.5px}
+.segs button[aria-pressed=true]{background:var(--acc); border-color:var(--acc); color:#fff}
+.segs button[aria-pressed=true] small{color:rgba(255,255,255,.78)}
+.synth{margin-top:18px; background:var(--acc); color:#fff; border-radius:var(--r);
+  padding:18px 16px; text-align:center}
+.synth strong{font-family:var(--serif); font-size:24px; font-weight:600; display:block;
+  margin:4px 0}
+.synth small{display:block; font-size:13px; opacity:.78}
+.note{margin-top:9px; font-size:12.5px; color:var(--gris); line-height:1.5;
+  border-inline-start:3px solid var(--or); padding-inline-start:10px}
+.hyps{display:grid; grid-template-columns:1fr 1fr; gap:9px}
+.hyps label{display:block; font-size:12.5px; color:var(--gris); line-height:1.35}
+.hyps input{width:100%; margin-top:5px; padding:9px 10px; font:inherit; font-size:15px;
+  font-weight:700; font-family:var(--serif); color:var(--acc); background:var(--sable);
+  border:1px solid var(--trait); border-radius:8px; text-align:center}
+.hyps input:focus{outline:2px solid var(--acc); outline-offset:1px}
+.moyens{display:grid; grid-template-columns:repeat(3,1fr); gap:9px}
+.moyens div{background:var(--papier); border:1px solid var(--trait); border-radius:10px;
+  padding:13px 10px; text-align:center; box-shadow:0 1px 2px rgba(22,33,28,.04)}
+.moyens b{display:block; font-family:var(--serif); font-size:clamp(20px,6vw,27px);
+  font-weight:800; color:var(--acc); letter-spacing:-.03em; line-height:1}
+.moyens i{display:block; font-style:normal; font-size:11px; color:var(--gris);
+  line-height:1.35; margin-top:6px}
+.moyens small{display:block; font-size:10px; color:var(--gris); opacity:.8; margin-top:3px}
+.mets{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--trait);
+  border:1px solid var(--trait); border-radius:var(--r); overflow:hidden; margin-top:16px}
+.mets div{background:var(--papier); padding:13px}
+.mets dt{font-size:11.5px; color:var(--gris); line-height:1.3}
+.mets dd{margin:4px 0 0; font-family:var(--serif); font-size:24px; font-weight:600}
+.arw{color:var(--gris); font-size:11px; margin:0 4px}
+.aft{color:var(--acc); font-weight:600}
+.aft.zero{color:var(--ok)}
+@media (min-width:760px){ .segs{grid-template-columns:repeat(3,1fr)} }
+
+/* ─────────────────────────────────────────────── comparateur ────────── */
+.cmp{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+select{width:100%; padding:10px; font:inherit; font-size:14px; background:var(--papier);
+  border:1px solid var(--trait); border-radius:var(--r); color:var(--encre)}
+.cmp-row{display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:10px 0;
+  border-top:1px solid var(--trait2)}
+.cmp-lab{grid-column:1/-1; font-size:11px; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--gris); margin-bottom:-4px}
+.cmp-val{font-family:var(--serif); font-size:19px; font-weight:600}
+.cmp-val.hi{color:var(--ri)}
+
+/* ─────────────────────────────────────────────── méthodologie ───────── */
+.meth h3{font-size:17px; margin:22px 0 7px}
+.meth p,.meth li{font-size:14.5px; color:var(--encre); line-height:1.65}
+.meth ul{margin:6px 0; padding-inline-start:20px}
+.meth li{margin:4px 0}
+.formula{background:var(--papier); border:1px solid var(--trait); border-radius:var(--r);
+  padding:14px; margin-top:10px; font-size:14px; line-height:1.9; direction:ltr;
+  text-align:start}
+.formula code{font-family:var(--sans); font-weight:600; color:var(--acc)}
+.warn{border-inline-start:4px solid var(--or)}
+.src{font-size:12.5px; color:var(--gris); line-height:1.6}
+
+/* ─────────────────────────────────────────────── desktop ────────────── */
+@media (min-width:1240px){ .wrap.wide{max-width:1240px} }
+@media (min-width:760px){
+  body{padding-bottom:0; padding-top:0}
+  /* Pleine largeur : sinon le contenu défile visiblement à côté de la barre. */
+  .tabs{position:sticky; top:var(--barh,53px); bottom:auto; border-top:none;
+    border-bottom:1px solid var(--trait); max-width:none; margin:0;
+    padding:0 16px; justify-content:center; z-index:29}
+  .tabs button{flex:0 0 auto; flex-direction:row; gap:7px; padding:11px 16px; font-size:13.5px;
+    border-top:none; border-bottom:2px solid transparent; margin-top:0}
+  .tabs button[aria-current=page]{border-top-color:transparent; border-bottom-color:var(--acc)}
+  .tabs button svg{width:17px;height:17px}
+  .topbar{padding:12px 20px}
+  .wrap{padding:26px 20px 60px}
+  .keys{grid-template-columns:repeat(3,1fr)}
+  .stats strong{font-size:25px}
+  .hero{margin:-26px -20px 0; padding:40px 24px 44px; border-radius:0 0 14px 14px}
+  .kpis{margin-top:20px; gap:10px}
+  .dashgrid{grid-template-columns:repeat(4,1fr); gap:12px}
+  .tile-wide{grid-column:span 2}
+  .tile{padding:18px}
+  .kpis b{font-size:30px}
+  .kpis i{font-size:11.5px}
+  .count{font-size:clamp(56px,7vw,86px)}
+  .brand span{display:inline}
+  .donut svg{width:132px; height:132px}
+  .mapbox{padding:14px}
+  .lbl span{font-size:12px} .lbl u{width:19px;height:19px;font-size:11px}
+  .chip{font-size:13.5px}
+}
+
+/* ─────────────────────────────────────────────── impression ─────────── */
+@media print{
+  .topbar,.tabs,.back,.btn,.cta,.pick button{display:none!important}
+  body{background:#fff; padding:0}
+  .screen{display:none!important}
+  .screen.on{display:block!important}
+  .card,.keys div,.mapbox,.scroll{background:#fff}
+  .lever{background:#fff!important; color:var(--encre)!important; border:2px solid var(--acc)}
+  .lever small{opacity:1; color:var(--acc)}
+  .waffle i{animation:none; transform:none; opacity:1;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact}
+  *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">EduFocus<span> · <t data-t="tagline"></t></span></div>
+  <div class="spacer"></div>
+  <div class="langs" role="group" aria-label="Langue">
+    <button data-lang="fr" aria-pressed="true">FR</button>
+    <button data-lang="ar" aria-pressed="false">ع</button>
+    <button data-lang="en" aria-pressed="false">EN</button>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs" aria-label="Sections"></nav>
+
+<main class="wrap">
+
+<!-- ══════════════════════════════ 1 · ACCUEIL ══════════════════════════ -->
+<section class="screen on" id="s-home">
+  <div class="hero">
+    <p class="kicker" data-t="homeKicker"></p>
+    <div class="count" id="counter">0</div>
+    <p class="count-sub" data-t="homeSub"></p>
+  </div>
+
+  <div class="atlas">
+    <aside class="atlas-map" id="homeMapCol">
+      <div class="mapcard">
+        <p class="tile-lab" data-t="homeMapLab"></p>
+        <div class="mapbox mapbox-home" id="homeMap"></div>
+        <div class="legend" id="homeLegend"></div>
+        <p class="tile-note" data-t="homeMapNote"></p>
+      </div>
+    </aside>
+
+    <div class="atlas-flow">
+      <div class="kpis">
+        <div><b id="k1">—</b><i data-t="kpi1"></i></div>
+        <div><b id="k2">—</b><i data-t="kpi2"></i></div>
+        <div><b id="k3">—</b><i data-t="kpi3"></i></div>
+      </div>
+
+      <div class="dashgrid">
+        <div class="tile tile-wide">
+          <p class="tile-lab" data-t="tileWaffle"></p>
+          <div class="waffle" id="natWaffle" aria-hidden="true"></div>
+          <div class="wkey" id="natKey"></div>
+        </div>
+
+        <div class="tile">
+          <p class="tile-lab" data-t="tileSex"></p>
+          <div class="donut" id="dSex"></div>
+        </div>
+
+        <div class="tile">
+          <p class="tile-lab" data-t="tileMil"></p>
+          <div class="donut" id="dMil"></div>
+        </div>
+
+        <div class="tile tile-wide tile-quote">
+          <p data-t="homeInsight"></p>
+        </div>
+
+        <div class="tile tile-wide">
+          <p class="tile-lab" data-t="tileTop"></p>
+          <div class="bars" id="natBars"></div>
+          <p class="tile-note" data-t="tileTopN"></p>
+        </div>
+
+        <div class="tile tile-wide">
+          <p class="tile-lab" data-t="tileCmp"></p>
+          <div class="segs segs-sm" id="cmpSegs"></div>
+          <div class="bars bars-13" id="cmpBars"></div>
+          <p class="tile-note" id="cmpNote"></p>
+        </div>
+
+        <div class="tile tile-wide tile-accent">
+          <p class="tile-lab" data-t="tileSplit"></p>
+          <div class="split" id="natSplit"></div>
+          <p class="tile-note" data-t="tileSplitN"></p>
+        </div>
+      </div>
+
+      <button class="cta" data-go="map" data-t="seeMap"></button>
+      <p class="ctx" data-t="homeCtx"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ 2 · CARTE ════════════════════════════ -->
+<section class="screen" id="s-map">
+  <p class="eyebrow" data-t="nMap"></p>
+  <h2 class="title" data-t="mapTitle"></h2>
+  <p class="lede" data-t="mapLede"></p>
+  <div class="mapbox mt" id="mapbox"></div>
+  <div class="legend" id="legend"></div>
+  <div class="chips" id="chips"></div>
+  <div class="pick" id="pick" hidden>
+    <div class="txt"><h3 id="pickName"></h3><p id="pickInfo"></p></div>
+    <button id="pickGo" data-t="openSheet"></button>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ 3 · CLASSEMENT ═══════════════════════ -->
+<section class="screen" id="s-rank">
+  <p class="eyebrow" data-t="nRank"></p>
+  <h2 class="title" data-t="rankTitle"></h2>
+  <p class="lede" data-t="rankLede"></p>
+  <div class="scroll mt"><table id="rankTable"><thead></thead><tbody></tbody></table></div>
+  <button class="btn" id="dlCsv">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 19h16"/></svg>
+    <span data-t="dlCsv"></span></button>
+</section>
+
+<!-- ══════════════════════════════ 4 · FICHE ════════════════════════════ -->
+<section class="screen" id="s-sheet">
+  <button class="back" data-go="map">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round"><path d="M14 6l-6 6 6 6"/></svg>
+    <span data-t="back"></span></button>
+  <div id="sheet"></div>
+</section>
+
+<!-- ══════════════════════════════ 5 · SIMULATEUR ═══════════════════════ -->
+<section class="screen" id="s-sim">
+  <p class="eyebrow" data-t="nSim"></p>
+  <h2 class="title" data-t="simTitle"></h2>
+  <p class="lede" data-t="simLede"></p>
+
+  <div class="card mt">
+    <label for="simRange" style="font-size:14.5px;font-weight:600" data-t="simQ"></label>
+    <div style="display:flex;align-items:baseline;gap:10px;margin-top:6px;flex-wrap:wrap">
+      <span class="sval" id="simVal">—</span>
+      <span style="font-size:13.5px;color:var(--gris)" id="simShare"></span>
+    </div>
+    <div class="slider"><input type="range" id="simRange" min="10000" max="365231"
+      value="100000" step="5000"></div>
+    <p class="eyebrow" style="margin:14px 0 8px" data-t="simRule"></p>
+    <div class="segs" id="simSegs"></div>
+
+    <p class="eyebrow" style="margin:16px 0 8px" data-t="simHyp"></p>
+    <div class="hyps">
+      <label><span data-t="hypSalle"></span>
+        <input type="number" id="hypSalle" value="40" min="15" max="80" step="1"></label>
+      <label><span data-t="hypEcole"></span>
+        <input type="number" id="hypEcole" value="6" min="1" max="20" step="1"></label>
+    </div>
+    <p class="note" data-t="hypNote"></p>
+  </div>
+
+  <div class="synth" id="simSynth"></div>
+  <p class="note" id="simNote"></p>
+
+  <div class="mets" id="simMets"></div>
+  <p class="eyebrow" style="margin:18px 0 9px" data-t="simMoyens"></p>
+  <div class="moyens" id="simMoyens"></div>
+  <div class="scroll mt"><table id="simTable"><thead></thead><tbody></tbody></table></div>
+  <p class="note" id="simSort"></p>
+</section>
+
+<!-- ══════════════════════════════ 6 · COMPARATEUR ══════════════════════ -->
+<section class="screen" id="s-cmp">
+  <p class="eyebrow" data-t="nCmp"></p>
+  <h2 class="title" data-t="cmpTitle"></h2>
+  <p class="lede" data-t="cmpLede"></p>
+  <div class="cmp mt"><select id="cmpA"></select><select id="cmpB"></select></div>
+  <div id="cmpOut"></div>
+</section>
+
+<!-- ══════════════════════════════ 7 · MÉTHODOLOGIE ═════════════════════ -->
+<section class="screen meth" id="s-meth">
+  <p class="eyebrow" data-t="nMeth"></p>
+  <h2 class="title" data-t="methTitle"></h2>
+  <div id="methBody"></div>
+</section>
+
+</main>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════════════
+   EduFocus — IndabaX Mauritanie 2026
+   L'application lit UNE seule source de données (wilayas.csv) et se contente
+   de l'afficher. Aucun indicateur n'est recalculé ici : indice, rang, niveau
+   de priorité et mécanisme sont produits en amont par l'analyste.
+   Seule exception assumée : la répartition proportionnelle du simulateur.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── 1. Source de données ──────────────────────────────────────────────── */
+const CSV_EMBARQUE = `wilaya,wilaya_ar,wilaya_en,population_2019,enfants_6_14,enfants_hors_ecole,taux_hors_ecole,taux_pauvrete,part_rurale,taux_garcons,taux_filles,pct_mahadra,pct_aucune_instruction,ratio_dependance,indice,rang,niveau_priorite,mecanisme,explication,explication_ar,explication_en,n_echantillon,part_nationale,actions,actions_ar,actions_en,enfants_sans_instruction,enfants_mahadra,salles_necessaires
+Guidimakha,كيدي ماغة,Guidimakha,308457,93317,41469,44.4,54.3,85.9,45.8,43.1,1.9,42.5,111,81,1,Très élevée,Exclusion,"Guidimakha est classé en priorité très élevée (rang 1 sur 13). 41 469 enfants de 6 à 14 ans n'ont jamais fréquenté l'école formelle, soit 44,4 % de cette classe d'âge. Le taux de pauvreté y atteint 54 % et 86 % de la population vit en milieu rural. 42,5 % des enfants ne reçoivent aucune instruction, contre 1,9 % en mahadra ou école coranique : ces enfants sont hors de tout circuit d'apprentissage. Le levier prioritaire est la création d'offre scolaire.","تُصنَّف ولاية كيدي ماغة ضمن أولوية قصوى (الرتبة 1 من 13). 41,469 طفلاً تتراوح أعمارهم بين 6 و14 سنة لم يلتحقوا قط بالمدرسة النظامية، أي 44.4 % من هذه الفئة العمرية. يبلغ معدل الفقر 54 % ويعيش 86 % من السكان في الوسط الريفي. 42.5 % من الأطفال لا يتلقون أي تعليم، مقابل 1.9 % في المحظرة أو الكتّاب: هؤلاء الأطفال خارج كل مسار تعليمي. الأولوية هي بناء المدارس.","Guidimakha ranks 1 of 13, very high priority. 41,469 children aged 6 to 14 have never attended formal school — 44.4 % of that age group. The poverty rate reaches 54 % and 86 % of the population lives in rural areas. 42.5 % of children receive no instruction at all, against 1.9 % in mahadra or Quranic school: these children are outside every learning path. The priority is to build schools.",1879,11.4,"Ouvrir des écoles::39 660 enfants ne reçoivent aucune instruction. Il faut environ 992 salles de classe pour les accueillir. | S'appuyer sur les mahadras existantes::1 773 enfants y suivent déjà un enseignement. Les certifier coûte moins cher que de construire, et donne un résultat plus vite. | Lever l'obstacle du coût::54 % de la population vit dans la pauvreté. Cantines scolaires, gratuité des fournitures et transferts aux familles conditionnent la fréquentation réelle.","فتح مدارس::39,660 طفلاً لا يتلقون أي تعليم. يلزم نحو 992 قاعة دراسية لاستقبالهم. | الاعتماد على المحاظر القائمة::1,773 طفلاً يدرسون فيها بالفعل. اعتمادها أقل كلفة من البناء ويعطي نتيجة أسرع. | رفع عائق التكلفة::54 % من السكان يعيشون في فقر. المطاعم المدرسية ومجانية اللوازم والتحويلات للأسر هي ما يحدد الحضور الفعلي.","Open schools::39,660 children receive no instruction at all. About 992 classrooms are needed to take them in. | Build on the existing mahadras::1,773 children already study there. Certifying them costs less than building and delivers results faster. | Remove the cost barrier::54 % of the population lives in poverty. School canteens, free supplies and cash transfers to families decide whether children actually attend.",39660,1773,1037
+Hodh El Charghi,الحوض الشرقي,Hodh Ech Chargui,502594,145750,59368,40.7,24.5,82.0,41.7,39.7,33.4,7.3,116,77,2,Très élevée,Substitution,"Hodh El Charghi est classé en priorité très élevée (rang 2 sur 13). 59 368 enfants de 6 à 14 ans n'ont jamais fréquenté l'école formelle, soit 40,7 % de cette classe d'âge. Le taux de pauvreté y atteint 24 % et 82 % de la population vit en milieu rural. 33,4 % des enfants suivent une mahadra ou une école coranique et 7,3 % seulement ne reçoivent aucune instruction : la majorité apprend déjà, mais hors du système reconnu. Le levier prioritaire est la passerelle vers le formel.","تُصنَّف ولاية الحوض الشرقي ضمن أولوية قصوى (الرتبة 2 من 13). 59,368 طفلاً تتراوح أعمارهم بين 6 و14 سنة لم يلتحقوا قط بالمدرسة النظامية، أي 40.7 % من هذه الفئة العمرية. يبلغ معدل الفقر 24 % ويعيش 82 % من السكان في الوسط الريفي. 33.4 % من الأطفال يدرسون في المحظرة أو الكتّاب و7.3 % فقط لا يتلقون أي تعليم: الأغلبية تتعلم بالفعل لكن خارج النظام المعترف به. الأولوية هي إنشاء جسور نحو التعليم النظامي.","Hodh Ech Chargui ranks 2 of 13, very high priority. 59,368 children aged 6 to 14 have never attended formal school — 40.7 % of that age group. The poverty rate reaches 24 % and 82 % of the population lives in rural areas. 33.4 % of children attend a mahadra or Quranic school and only 7.3 % receive no instruction: most are already learning, but outside the recognised system. The priority is bridges into formal schooling.",2293,16.3,"Créer des passerelles::48 680 enfants sont en mahadra ou école coranique. Ils apprennent déjà : il faut reconnaître leurs acquis et leur ouvrir l'accès au diplôme. | Ne pas oublier les enfants sans aucune instruction::10 640 enfants ne sont nulle part, ni à l'école ni en mahadra. Les passerelles ne les atteindront pas : il leur faut une école. | Rapprocher l'école des familles::82 % de la population vit à la campagne. Mieux vaut plusieurs petites écoles de proximité qu'un grand établissement loin de tout.","إنشاء جسور::48,680 طفلاً يدرسون في المحظرة أو الكتّاب. هم يتعلمون بالفعل: يجب الاعتراف بمكتسباتهم وفتح الطريق أمامهم نحو الشهادة. | عدم نسيان الأطفال بلا أي تعليم::10,640 طفلاً ليسوا في أي مكان، لا في المدرسة ولا في المحظرة. الجسور لن تصل إليهم: يحتاجون إلى مدرسة. | تقريب المدرسة من الأسر::82 % من السكان يعيشون في الريف. عدة مدارس صغيرة قريبة أفضل من مؤسسة كبيرة بعيدة عن كل شيء.","Build bridges::48,680 children attend a mahadra or Quranic school. They are already learning: recognise what they know and open the path to a qualification. | Do not forget children with no instruction::10,640 children are nowhere — neither school nor mahadra. Bridges will not reach them: they need a school. | Bring school closer to families::82 % of the population lives in rural areas. Several small local schools work better than one large one far from everything.",10640,48680,1484
+Hodh El Gharbi,الحوض الغربي,Hodh El Gharbi,324165,92485,43696,47.2,35.5,79.6,46.2,48.3,32.9,14.3,113,76,3,Très élevée,Substitution,"Hodh El Gharbi est classé en priorité très élevée (rang 3 sur 13). 43 696 enfants de 6 à 14 ans n'ont jamais fréquenté l'école formelle, soit 47,2 % de cette classe d'âge. Le taux de pauvreté y atteint 36 % et 80 % de la population vit en milieu rural. 32,9 % des enfants suivent une mahadra ou une école coranique et 14,3 % seulement ne reçoivent aucune instruction : la majorité apprend déjà, mais hors du système reconnu. Le levier prioritaire est la passerelle vers le formel.","تُصنَّف ولاية الحوض الغربي ضمن أولوية قصوى (الرتبة 3 من 13). 43,696 طفلاً تتراوح أعمارهم بين 6 و14 سنة لم يلتحقوا قط بالمدرسة النظامية، أي 47.2 % من هذه الفئة العمرية. يبلغ معدل الفقر 36 % ويعيش 80 % من السكان في الوسط الريفي. 32.9 % من الأطفال يدرسون في المحظرة أو الكتّاب و14.3 % فقط لا يتلقون أي تعليم: الأغلبية تتعلم بالفعل لكن خارج النظام المعترف به. الأولوية هي إنشاء جسور نحو التعليم النظامي.","Hodh El Gharbi ranks 3 of 13, very high priority. 43,696 children aged 6 to 14 have never attended formal school — 47.2 % of that age group. The poverty rate reaches 36 % and 80 % of the population lives in rural areas. 32.9 % of children attend a mahadra or Quranic school and only 14.3 % receive no instruction: most are already learning, but outside the recognised system. The priority is bridges into formal schooling.",1380,12.0,"Créer des passerelles::30 428 enfants sont en mahadra ou école coranique. Ils apprennent déjà : il faut reconnaître leurs acquis et leur ouvrir l'accès au diplôme. | Ne pas oublier les enfants sans aucune instruction::13 225 enfants ne sont nulle part, ni à l'école ni en mahadra. Les passerelles ne les atteindront pas : il leur faut une école. | Lever l'obstacle du coût::36 % de la population vit dans la pauvreté. Cantines scolaires, gratuité des fournitures et transferts aux familles conditionnent la fréquentation réelle.","إنشاء جسور::30,428 طفلاً يدرسون في المحظرة أو الكتّاب. هم يتعلمون بالفعل: يجب الاعتراف بمكتسباتهم وفتح الطريق أمامهم نحو الشهادة. | عدم نسيان الأطفال بلا أي تعليم::13,225 طفلاً ليسوا في أي مكان، لا في المدرسة ولا في المحظرة. الجسور لن تصل إليهم: يحتاجون إلى مدرسة. | رفع عائق التكلفة::36 % من السكان يعيشون في فقر. المطاعم المدرسية ومجانية اللوازم والتحويلات للأسر هي ما يحدد الحضور الفعلي.","Build bridges::30,428 children attend a mahadra or Quranic school. They are already learning: recognise what they know and open the path to a qualification. | Do not forget children with no instruction::13,225 children are nowhere — neither school nor mahadra. Bridges will not reach them: they need a school. | Remove the cost barrier::36 % of the population lives in poverty. School canteens, free supplies and cash transfers to families decide whether children actually attend.",13225,30428,1092
+Assaba,لعصابة,Assaba,377656,115838,48134,41.6,34.4,69.3,43.1,39.9,23.5,18.1,114,74,4,Élevée,Substitution,"Assaba est classé en priorité élevée (rang 4 sur 13). 48 134 enfants de 6 à 14 ans n'ont jamais fréquenté l'école formelle, soit 41,6 % de cette classe d'âge. Le taux de pauvreté y atteint 34 % et 69 % de la population vit en milieu rural. 23,5 % des enfants suivent une mahadra ou une école coranique et 18,1 % seulement ne reçoivent aucune instruction : la majorité apprend déjà, mais hors du système reconnu. Le levier prioritaire est la passerelle vers le formel.","تُصنَّف ولاية لعصابة ضمن أولوية عالية (الرتبة 4 من 13). 48,134 طفلاً تتراوح أعمارهم بين 6 و14 سنة لم يلتحقوا قط بالمدرسة النظامية، أي 41.6 % من هذه الفئة العمرية. يبلغ معدل الفقر 34 % ويعيش 69 % من السكان في الوسط الريفي. 23.5 % من الأطفال يدرسون في المحظرة أو الكتّاب و18.1 % فقط لا يتلقون أي تعليم: الأغلبية تتعلم بالفعل لكن خارج النظام المعترف به. الأولوية هي إنشاء جسور نحو التعليم النظامي.","Assaba ranks 4 of 13, high priority. 48,134 children aged 6 to 14 have never attended formal school — 41.6 % of that age group. The poverty rate reaches 34 % and 69 % of the population lives in rural areas. 23.5 % of children attend a mahadra or Quranic school and only 18.1 % receive no instruction: most are already learning, but outside the recognised system. The priority is bridges into formal schooling.",1468,13.2,"Créer des passerelles::27 222 enfants sont en mahadra ou école coranique. Ils apprennent déjà : il faut reconnaître leurs acquis et leur ouvrir l'accès au diplôme. | Ne pas oublier les enfants sans aucune instruction::20 967 enfants ne sont nulle part, ni à l'école ni en mahadra. Les passerelles ne les atteindront pas : il leur faut une école. | Rapprocher l'école des familles::69 % de la population vit à la campagne. Mieux vaut plusieurs petites écoles de proximité qu'un grand établissement loin de tout.","إنشاء جسور::27,222 طفلاً يدرسون في المحظرة أو الكتّاب. هم يتعلمون بالفعل: يجب الاعتراف بمكتسباتهم وفتح الطريق أمامهم نحو الشهادة. | عدم نسيان الأطفال بلا أي تعليم::20,967 طفلاً ليسوا في أي مكان، لا في المدرسة ولا في المحظرة. الجسور لن تصل إليهم: يحتاجون إلى مدرسة. | تقريب المدرسة من الأسر::69 % من السكان يعيشون في الريف. عدة مدارس صغيرة قريبة أفضل من مؤسسة كبيرة بعيدة عن كل شيء.","Build bridges::27,222 children attend a mahadra or Quranic school. They are already learning: recognise what they know and open the path to a qualification. | Do not forget children with no instruction::20,967 children are nowhere — neither school nor mahadra. Bridges will not reach them: they need a school. | Bring school closer to families::69 % of the population lives in rural areas. Several small local schools work better than one large one far from everything.",20967,27222,1203
+Nouakchott,نواكشوط,Nouakchott,1195636,265911,65995,24.8,13.1,0.0,28.0,21.5,14.5,10.3,63,62,5,Élevée,Volume élevé,"Nouakchott est classé en priorité élevée (rang 5 sur 13). 65 995 enfants de 6 à 14 ans n'ont jamais fréquenté l'école formelle, soit 24,8 % de cette classe d'âge. Le taux de pauvreté y atteint 13 % et 0 % de la population vit en milieu rural. La wilaya concentre à elle seule 18,1 % des enfants hors école du pays alors que son taux reste sous la moyenne nationale (33,1 %) : le problème est un problème de masse. Le levier prioritaire est la capacité d'accueil.","تُصنَّف ولاية نواكشوط ضمن أولوية عالية (الرتبة 5 من 13). 65,995 طفلاً تتراوح أعمارهم بين 6 و14 سنة لم يلتحقوا قط بالمدرسة النظامية، أي 24.8 % من هذه الفئة العمرية. يبلغ معدل الفقر 13 % ويعيش 0 % من السكان في الوسط الريفي. تضم الولاية وحدها 18.1 % من أطفال البلد خارج المدرسة، رغم أن معدلها يبقى دون المعدل الوطني (33.1 %): المشكلة هنا مشكلة حجم. الأولوية هي الطاقة الاستيعابية.","Nouakchott ranks 5 of 13, high priority. 65,995 children aged 6 to 14 have never attended formal school — 24.8 % of that age group. The poverty rate reaches 13 % and 0 % of the population lives in rural areas. The wilaya alone holds 18.1 % of the country's out-of-school children while its rate stays below the national average (33.1 %): this is a problem of scale. The priority is intake capacity.",2619,18.1,"Augmenter la capacité d'accueil::65 995 enfants hors école, soit environ 1 650 salles de classe et les enseignants qui vont avec. | S'appuyer sur les mahadras existantes::38 557 enfants y suivent déjà un enseignement. Les certifier coûte moins cher que de construire, et donne un résultat plus vite. | Cibler les quartiers, pas la wilaya::Le milieu est majoritairement urbain (100 %). Le besoin n'est pas réparti également : il se concentre dans les quartiers périphériques. | Viser d'abord les garçons::L'écart atteint 6,5 points au détriment de les garçons. C'est l'un des écarts les plus marqués du pays : une campagne ciblée est justifiée.","رفع الطاقة الاستيعابية::65,995 طفلاً خارج المدرسة، أي نحو 1,650 قاعة دراسية والمدرسين اللازمين لها. | الاعتماد على المحاظر القائمة::38,557 طفلاً يدرسون فيها بالفعل. اعتمادها أقل كلفة من البناء ويعطي نتيجة أسرع. | استهداف الأحياء لا الولاية::الوسط حضري في معظمه (100 %). الحاجة ليست موزعة بالتساوي: إنها تتركز في الأحياء الطرفية. | استهداف الأولاد أولاً::يبلغ الفارق 6.5 نقطة على حساب الأولاد. وهو من أوسع الفوارق في البلاد: حملة موجّهة لها ما يبررها.","Increase intake capacity::65,995 children out of school — about 1,650 classrooms and the teachers to staff them. | Build on the existing mahadras::38,557 children already study there. Certifying them costs less than building and delivers results faster. | Target neighbourhoods, not the wilaya::The area is mostly urban (100 %). The need is not evenly spread: it concentrates in outlying neighbourhoods. | Target boys first::The gap reaches 6.5 points against boys. It is one of the widest in the country: a targeted campaign is warranted.",27389,38557,1650
+Gorgol,كوركول,Gorgol,369892,116753,39071,33.5,32.4,67.2,31.8,35.3,10.7,22.8,128,60,6,Élevée,Exclusion,"Gorgol est classé en priorité élevée (rang 6 sur 13). 39 071 enfants de 6 à 14 ans n'ont jamais fréquenté l'école formelle, soit 33,5 % de cette classe d'âge. Le taux de pauvreté y atteint 32 % et 67 % de la population vit en milieu rural. 22,8 % des enfants ne reçoivent aucune instruction, contre 10,7 % en mahadra ou école coranique : ces enfants sont hors de tout circuit d'apprentissage. Le levier prioritaire est la création d'offre scolaire.","تُصنَّف ولاية كوركول ضمن أولوية عالية (الرتبة 6 من 13). 39,071 طفلاً تتراوح أعمارهم بين 6 و14 سنة لم يلتحقوا قط بالمدرسة النظامية، أي 33.5 % من هذه الفئة العمرية. يبلغ معدل الفقر 32 % ويعيش 67 % من السكان في الوسط الريفي. 22.8 % من الأطفال لا يتلقون أي تعليم، مقابل 10.7 % في المحظرة أو الكتّاب: هؤلاء الأطفال خارج كل مسار تعليمي. الأولوية هي بناء المدارس.","Gorgol ranks 6 of 13, high priority. 39,071 children aged 6 to 14 have never attended formal school — 33.5 % of that age group. The poverty rate reaches 32 % and 67 % of the population lives in rural areas. 22.8 % of children receive no instruction at all, against 10.7 % in mahadra or Quranic school: these children are outside every learning path. The priority is to build schools.",1778,10.7,"Ouvrir des écoles::26 620 enfants ne reçoivent aucune instruction. Il faut environ 666 salles de classe pour les accueillir. | S'appuyer sur les mahadras existantes::12 493 enfants y suivent déjà un enseignement. Les certifier coûte moins cher que de construire, et donne un résultat plus vite. | Rapprocher l'école des familles::67 % de la population vit à la campagne. Mieux vaut plusieurs petites écoles de proximité qu'un grand établissement loin de tout.","فتح مدارس::26,620 طفلاً لا يتلقون أي تعليم. يلزم نحو 666 قاعة دراسية لاستقبالهم. | الاعتماد على المحاظر القائمة::12,493 طفلاً يدرسون فيها بالفعل. اعتمادها أقل كلفة من البناء ويعطي نتيجة أسرع. | تقريب المدرسة من الأسر::67 % من السكان يعيشون في الريف. عدة مدارس صغيرة قريبة أفضل من مؤسسة كبيرة بعيدة عن كل شيء.","Open schools::26,620 children receive no instruction at all. About 666 classrooms are needed to take them in. | Build on the existing mahadras::12,493 children already study there. Certifying them costs less than building and delivers results faster. | Bring school closer to families::67 % of the population lives in rural areas. Several small local schools work better than one large one far from everything.",26620,12493,977
+Trarza,الترارزة,Trarza,301060,83985,26533,31.6,24.5,64.5,34.2,29.0,24.8,6.8,97,46,7,Moyenne,Substitution,"Trarza est classé en priorité moyenne (rang 7 sur 13). 26 533 enfants de 6 à 14 ans n'ont jamais fréquenté l'école formelle, soit 31,6 % de cette classe d'âge. Le taux de pauvreté y atteint 24 % et 64 % de la population vit en milieu rural. 24,8 % des enfants suivent une mahadra ou une école coranique et 6,8 % seulement ne reçoivent aucune instruction : la majorité apprend déjà, mais hors du système reconnu. Le levier prioritaire est la passerelle vers le formel.","تُصنَّف ولاية الترارزة ضمن أولوية متوسطة (الرتبة 7 من 13). 26,533 طفلاً تتراوح أعمارهم بين 6 و14 سنة لم يلتحقوا قط بالمدرسة النظامية، أي 31.6 % من هذه الفئة العمرية. يبلغ معدل الفقر 24 % ويعيش 64 % من السكان في الوسط الريفي. 24.8 % من الأطفال يدرسون في المحظرة أو الكتّاب و6.8 % فقط لا يتلقون أي تعليم: الأغلبية تتعلم بالفعل لكن خارج النظام المعترف به. الأولوية هي إنشاء جسور نحو التعليم النظامي.","Trarza ranks 7 of 13, medium priority. 26,533 children aged 6 to 14 have never attended formal school — 31.6 % of that age group. The poverty rate reaches 24 % and 64 % of the population lives in rural areas. 24.8 % of children attend a mahadra or Quranic school and only 6.8 % receive no instruction: most are already learning, but outside the recognised system. The priority is bridges into formal schooling.",1187,7.3,"Créer des passerelles::20 828 enfants sont en mahadra ou école coranique. Ils apprennent déjà : il faut reconnaître leurs acquis et leur ouvrir l'accès au diplôme. | Ne pas oublier les enfants sans aucune instruction::5 711 enfants ne sont nulle part, ni à l'école ni en mahadra. Les passerelles ne les atteindront pas : il leur faut une école. | Rapprocher l'école des familles::64 % de la population vit à la campagne. Mieux vaut plusieurs petites écoles de proximité qu'un grand établissement loin de tout. | Viser d'abord les garçons::L'écart atteint 5,2 points au détriment de les garçons. C'est l'un des écarts les plus marqués du pays : une campagne ciblée est justifiée.","إنشاء جسور::20,828 طفلاً يدرسون في المحظرة أو الكتّاب. هم يتعلمون بالفعل: يجب الاعتراف بمكتسباتهم وفتح الطريق أمامهم نحو الشهادة. | عدم نسيان الأطفال بلا أي تعليم::5,711 طفلاً ليسوا في أي مكان، لا في المدرسة ولا في المحظرة. الجسور لن تصل إليهم: يحتاجون إلى مدرسة. | تقريب المدرسة من الأسر::64 % من السكان يعيشون في الريف. عدة مدارس صغيرة قريبة أفضل من مؤسسة كبيرة بعيدة عن كل شيء. | استهداف الأولاد أولاً::يبلغ الفارق 5.2 نقطة على حساب الأولاد. وهو من أوسع الفوارق في البلاد: حملة موجّهة لها ما يبررها.","Build bridges::20,828 children attend a mahadra or Quranic school. They are already learning: recognise what they know and open the path to a qualification. | Do not forget children with no instruction::5,711 children are nowhere — neither school nor mahadra. Bridges will not reach them: they need a school. | Bring school closer to families::64 % of the population lives in rural areas. Several small local schools work better than one large one far from everything. | Target boys first::The gap reaches 5.2 points against boys. It is one of the widest in the country: a targeted campaign is warranted.",5711,20828,663
+Brakna,لبراكنة,Brakna,326083,92999,23674,25.5,40.5,75.3,25.1,25.9,8.2,17.3,108,46,8,Moyenne,Exclusion,"Brakna est classé en priorité moyenne (rang 8 sur 13). 23 674 enfants de 6 à 14 ans n'ont jamais fréquenté l'école formelle, soit 25,5 % de cette classe d'âge. Le taux de pauvreté y atteint 40 % et 75 % de la population vit en milieu rural. 17,3 % des enfants ne reçoivent aucune instruction, contre 8,2 % en mahadra ou école coranique : ces enfants sont hors de tout circuit d'apprentissage. Le levier prioritaire est la création d'offre scolaire.","تُصنَّف ولاية لبراكنة ضمن أولوية متوسطة (الرتبة 8 من 13). 23,674 طفلاً تتراوح أعمارهم بين 6 و14 سنة لم يلتحقوا قط بالمدرسة النظامية، أي 25.5 % من هذه الفئة العمرية. يبلغ معدل الفقر 40 % ويعيش 75 % من السكان في الوسط الريفي. 17.3 % من الأطفال لا يتلقون أي تعليم، مقابل 8.2 % في المحظرة أو الكتّاب: هؤلاء الأطفال خارج كل مسار تعليمي. الأولوية هي بناء المدارس.","Brakna ranks 8 of 13, medium priority. 23,674 children aged 6 to 14 have never attended formal school — 25.5 % of that age group. The poverty rate reaches 40 % and 75 % of the population lives in rural areas. 17.3 % of children receive no instruction at all, against 8.2 % in mahadra or Quranic school: these children are outside every learning path. The priority is to build schools.",1426,6.5,"Ouvrir des écoles::16 089 enfants ne reçoivent aucune instruction. Il faut environ 402 salles de classe pour les accueillir. | S'appuyer sur les mahadras existantes::7 626 enfants y suivent déjà un enseignement. Les certifier coûte moins cher que de construire, et donne un résultat plus vite. | Lever l'obstacle du coût::40 % de la population vit dans la pauvreté. Cantines scolaires, gratuité des fournitures et transferts aux familles conditionnent la fréquentation réelle.","فتح مدارس::16,089 طفلاً لا يتلقون أي تعليم. يلزم نحو 402 قاعة دراسية لاستقبالهم. | الاعتماد على المحاظر القائمة::7,626 طفلاً يدرسون فيها بالفعل. اعتمادها أقل كلفة من البناء ويعطي نتيجة أسرع. | رفع عائق التكلفة::40 % من السكان يعيشون في فقر. المطاعم المدرسية ومجانية اللوازم والتحويلات للأسر هي ما يحدد الحضور الفعلي.","Open schools::16,089 children receive no instruction at all. About 402 classrooms are needed to take them in. | Build on the existing mahadras::7,626 children already study there. Certifying them costs less than building and delivers results faster. | Remove the cost barrier::40 % of the population lives in poverty. School canteens, free supplies and cash transfers to families decide whether children actually attend.",16089,7626,592
+Tagant,تكانت,Tagant,83976,21795,6588,30.2,40.3,66.5,31.5,28.9,5.6,24.6,88,38,9,Moyenne,Exclusion,"Tagant est classé en priorité moyenne (rang 9 sur 13). 6 588 enfants de 6 à 14 ans n'ont jamais fréquenté l'école formelle, soit 30,2 % de cette classe d'âge. Le taux de pauvreté y atteint 40 % et 66 % de la population vit en milieu rural. 24,6 % des enfants ne reçoivent aucune instruction, contre 5,6 % en mahadra ou école coranique : ces enfants sont hors de tout circuit d'apprentissage. Le levier prioritaire est la création d'offre scolaire.","تُصنَّف ولاية تكانت ضمن أولوية متوسطة (الرتبة 9 من 13). 6,588 طفلاً تتراوح أعمارهم بين 6 و14 سنة لم يلتحقوا قط بالمدرسة النظامية، أي 30.2 % من هذه الفئة العمرية. يبلغ معدل الفقر 40 % ويعيش 66 % من السكان في الوسط الريفي. 24.6 % من الأطفال لا يتلقون أي تعليم، مقابل 5.6 % في المحظرة أو الكتّاب: هؤلاء الأطفال خارج كل مسار تعليمي. الأولوية هي بناء المدارس.","Tagant ranks 9 of 13, medium priority. 6,588 children aged 6 to 14 have never attended formal school — 30.2 % of that age group. The poverty rate reaches 40 % and 66 % of the population lives in rural areas. 24.6 % of children receive no instruction at all, against 5.6 % in mahadra or Quranic school: these children are outside every learning path. The priority is to build schools.",483,1.8,"Ouvrir des écoles::5 362 enfants ne reçoivent aucune instruction. Il faut environ 134 salles de classe pour les accueillir. | S'appuyer sur les mahadras existantes::1 221 enfants y suivent déjà un enseignement. Les certifier coûte moins cher que de construire, et donne un résultat plus vite. | Lever l'obstacle du coût::40 % de la population vit dans la pauvreté. Cantines scolaires, gratuité des fournitures et transferts aux familles conditionnent la fréquentation réelle.","فتح مدارس::5,362 طفلاً لا يتلقون أي تعليم. يلزم نحو 134 قاعة دراسية لاستقبالهم. | الاعتماد على المحاظر القائمة::1,221 طفلاً يدرسون فيها بالفعل. اعتمادها أقل كلفة من البناء ويعطي نتيجة أسرع. | رفع عائق التكلفة::40 % من السكان يعيشون في فقر. المطاعم المدرسية ومجانية اللوازم والتحويلات للأسر هي ما يحدد الحضور الفعلي.","Open schools::5,362 children receive no instruction at all. About 134 classrooms are needed to take them in. | Build on the existing mahadras::1,221 children already study there. Certifying them costs less than building and delivers results faster. | Remove the cost barrier::40 % of the population lives in poverty. School canteens, free supplies and cash transfers to families decide whether children actually attend.",5362,1221,165
+Inchiri,إنشيري,Inchiri,24425,5494,926,16.9,27.5,22.8,19.1,14.7,12.4,4.5,73,17,10,Faible,Substitution,"Inchiri est classé en priorité faible (rang 10 sur 13). 926 enfants de 6 à 14 ans n'ont jamais fréquenté l'école formelle, soit 16,9 % de cette classe d'âge. Le taux de pauvreté y atteint 27 % et 23 % de la population vit en milieu rural. 12,4 % des enfants suivent une mahadra ou une école coranique et 4,5 % seulement ne reçoivent aucune instruction : la majorité apprend déjà, mais hors du système reconnu. Le levier prioritaire est la passerelle vers le formel.",تُصنَّف ولاية إنشيري ضمن أولوية منخفضة (الرتبة 10 من 13). 926 طفلاً تتراوح أعمارهم بين 6 و14 سنة لم يلتحقوا قط بالمدرسة النظامية، أي 16.9 % من هذه الفئة العمرية. يبلغ معدل الفقر 27 % ويعيش 23 % من السكان في الوسط الريفي. 12.4 % من الأطفال يدرسون في المحظرة أو الكتّاب و4.5 % فقط لا يتلقون أي تعليم: الأغلبية تتعلم بالفعل لكن خارج النظام المعترف به. الأولوية هي إنشاء جسور نحو التعليم النظامي.,"Inchiri ranks 10 of 13, low priority. 926 children aged 6 to 14 have never attended formal school — 16.9 % of that age group. The poverty rate reaches 27 % and 23 % of the population lives in rural areas. 12.4 % of children attend a mahadra or Quranic school and only 4.5 % receive no instruction: most are already learning, but outside the recognised system. The priority is bridges into formal schooling.",267,0.3,"Créer des passerelles::681 enfants sont en mahadra ou école coranique. Ils apprennent déjà : il faut reconnaître leurs acquis et leur ouvrir l'accès au diplôme. | Ne pas oublier les enfants sans aucune instruction::247 enfants ne sont nulle part, ni à l'école ni en mahadra. Les passerelles ne les atteindront pas : il leur faut une école. | Cibler les quartiers, pas la wilaya::Le milieu est majoritairement urbain (77 %). Le besoin n'est pas réparti également : il se concentre dans les quartiers périphériques. | Viser d'abord les garçons::L'écart atteint 4,4 points au détriment de les garçons. C'est l'un des écarts les plus marqués du pays : une campagne ciblée est justifiée.",إنشاء جسور::681 طفلاً يدرسون في المحظرة أو الكتّاب. هم يتعلمون بالفعل: يجب الاعتراف بمكتسباتهم وفتح الطريق أمامهم نحو الشهادة. | عدم نسيان الأطفال بلا أي تعليم::247 طفلاً ليسوا في أي مكان، لا في المدرسة ولا في المحظرة. الجسور لن تصل إليهم: يحتاجون إلى مدرسة. | استهداف الأحياء لا الولاية::الوسط حضري في معظمه (77 %). الحاجة ليست موزعة بالتساوي: إنها تتركز في الأحياء الطرفية. | استهداف الأولاد أولاً::يبلغ الفارق 4.4 نقطة على حساب الأولاد. وهو من أوسع الفوارق في البلاد: حملة موجّهة لها ما يبررها.,"Build bridges::681 children attend a mahadra or Quranic school. They are already learning: recognise what they know and open the path to a qualification. | Do not forget children with no instruction::247 children are nowhere — neither school nor mahadra. Bridges will not reach them: they need a school. | Target neighbourhoods, not the wilaya::The area is mostly urban (77 %). The need is not evenly spread: it concentrates in outlying neighbourhoods. | Target boys first::The gap reaches 4.4 points against boys. It is one of the widest in the country: a targeted campaign is warranted.",247,681,23
+Dakhlet Nouadhibou,داخلة نواذيبو,Dakhlet Nouadhibou,145939,32130,6815,21.2,9.6,3.9,21.9,20.5,10.3,10.9,64,17,11,Faible,Exclusion,"Dakhlet Nouadhibou est classé en priorité faible (rang 11 sur 13). 6 815 enfants de 6 à 14 ans n'ont jamais fréquenté l'école formelle, soit 21,2 % de cette classe d'âge. Le taux de pauvreté y atteint 10 % et 4 % de la population vit en milieu rural. 10,9 % des enfants ne reçoivent aucune instruction, contre 10,3 % en mahadra ou école coranique : ces enfants sont hors de tout circuit d'apprentissage. Le levier prioritaire est la création d'offre scolaire.","تُصنَّف ولاية داخلة نواذيبو ضمن أولوية منخفضة (الرتبة 11 من 13). 6,815 طفلاً تتراوح أعمارهم بين 6 و14 سنة لم يلتحقوا قط بالمدرسة النظامية، أي 21.2 % من هذه الفئة العمرية. يبلغ معدل الفقر 10 % ويعيش 4 % من السكان في الوسط الريفي. 10.9 % من الأطفال لا يتلقون أي تعليم، مقابل 10.3 % في المحظرة أو الكتّاب: هؤلاء الأطفال خارج كل مسار تعليمي. الأولوية هي بناء المدارس.","Dakhlet Nouadhibou ranks 11 of 13, low priority. 6,815 children aged 6 to 14 have never attended formal school — 21.2 % of that age group. The poverty rate reaches 10 % and 4 % of the population lives in rural areas. 10.9 % of children receive no instruction at all, against 10.3 % in mahadra or Quranic school: these children are outside every learning path. The priority is to build schools.",594,1.9,"Ouvrir des écoles::3 502 enfants ne reçoivent aucune instruction. Il faut environ 88 salles de classe pour les accueillir. | S'appuyer sur les mahadras existantes::3 309 enfants y suivent déjà un enseignement. Les certifier coûte moins cher que de construire, et donne un résultat plus vite. | Cibler les quartiers, pas la wilaya::Le milieu est majoritairement urbain (96 %). Le besoin n'est pas réparti également : il se concentre dans les quartiers périphériques.","فتح مدارس::3,502 طفلاً لا يتلقون أي تعليم. يلزم نحو 88 قاعة دراسية لاستقبالهم. | الاعتماد على المحاظر القائمة::3,309 طفلاً يدرسون فيها بالفعل. اعتمادها أقل كلفة من البناء ويعطي نتيجة أسرع. | استهداف الأحياء لا الولاية::الوسط حضري في معظمه (96 %). الحاجة ليست موزعة بالتساوي: إنها تتركز في الأحياء الطرفية.","Open schools::3,502 children receive no instruction at all. About 88 classrooms are needed to take them in. | Build on the existing mahadras::3,309 children already study there. Certifying them costs less than building and delivers results faster. | Target neighbourhoods, not the wilaya::The area is mostly urban (96 %). The need is not evenly spread: it concentrates in outlying neighbourhoods.",3502,3309,170
+Tiris Zemmour,تيرس زمور,Tiris Zemmour,56413,11718,1908,16.3,16.1,7.2,19.0,13.8,5.2,11.1,64,12,12,Faible,Exclusion,"Tiris Zemmour est classé en priorité faible (rang 12 sur 13). 1 908 enfants de 6 à 14 ans n'ont jamais fréquenté l'école formelle, soit 16,3 % de cette classe d'âge. Le taux de pauvreté y atteint 16 % et 7 % de la population vit en milieu rural. 11,1 % des enfants ne reçoivent aucune instruction, contre 5,2 % en mahadra ou école coranique : ces enfants sont hors de tout circuit d'apprentissage. Le levier prioritaire est la création d'offre scolaire.","تُصنَّف ولاية تيرس زمور ضمن أولوية منخفضة (الرتبة 12 من 13). 1,908 طفلاً تتراوح أعمارهم بين 6 و14 سنة لم يلتحقوا قط بالمدرسة النظامية، أي 16.3 % من هذه الفئة العمرية. يبلغ معدل الفقر 16 % ويعيش 7 % من السكان في الوسط الريفي. 11.1 % من الأطفال لا يتلقون أي تعليم، مقابل 5.2 % في المحظرة أو الكتّاب: هؤلاء الأطفال خارج كل مسار تعليمي. الأولوية هي بناء المدارس.","Tiris Zemmour ranks 12 of 13, low priority. 1,908 children aged 6 to 14 have never attended formal school — 16.3 % of that age group. The poverty rate reaches 16 % and 7 % of the population lives in rural areas. 11.1 % of children receive no instruction at all, against 5.2 % in mahadra or Quranic school: these children are outside every learning path. The priority is to build schools.",479,0.5,"Ouvrir des écoles::1 301 enfants ne reçoivent aucune instruction. Il faut environ 33 salles de classe pour les accueillir. | S'appuyer sur les mahadras existantes::609 enfants y suivent déjà un enseignement. Les certifier coûte moins cher que de construire, et donne un résultat plus vite. | Cibler les quartiers, pas la wilaya::Le milieu est majoritairement urbain (93 %). Le besoin n'est pas réparti également : il se concentre dans les quartiers périphériques. | Viser d'abord les garçons::L'écart atteint 5,2 points au détriment de les garçons. C'est l'un des écarts les plus marqués du pays : une campagne ciblée est justifiée.","فتح مدارس::1,301 طفلاً لا يتلقون أي تعليم. يلزم نحو 33 قاعة دراسية لاستقبالهم. | الاعتماد على المحاظر القائمة::609 طفلاً يدرسون فيها بالفعل. اعتمادها أقل كلفة من البناء ويعطي نتيجة أسرع. | استهداف الأحياء لا الولاية::الوسط حضري في معظمه (93 %). الحاجة ليست موزعة بالتساوي: إنها تتركز في الأحياء الطرفية. | استهداف الأولاد أولاً::يبلغ الفارق 5.2 نقطة على حساب الأولاد. وهو من أوسع الفوارق في البلاد: حملة موجّهة لها ما يبررها.","Open schools::1,301 children receive no instruction at all. About 33 classrooms are needed to take them in. | Build on the existing mahadras::609 children already study there. Certifying them costs less than building and delivers results faster. | Target neighbourhoods, not the wilaya::The area is mostly urban (93 %). The need is not evenly spread: it concentrates in outlying neighbourhoods. | Target boys first::The gap reaches 5.2 points against boys. It is one of the widest in the country: a targeted campaign is warranted.",1301,609,48
+Adrar,أدرار,Adrar,61052,17036,1054,6.2,28.1,41.2,4.8,7.7,3.8,2.3,94,8,13,Faible,Substitution,"Adrar est classé en priorité faible (rang 13 sur 13). 1 054 enfants de 6 à 14 ans n'ont jamais fréquenté l'école formelle, soit 6,2 % de cette classe d'âge. Le taux de pauvreté y atteint 28 % et 41 % de la population vit en milieu rural. 3,8 % des enfants suivent une mahadra ou une école coranique et 2,3 % seulement ne reçoivent aucune instruction : la majorité apprend déjà, mais hors du système reconnu. Le levier prioritaire est la passerelle vers le formel.","تُصنَّف ولاية أدرار ضمن أولوية منخفضة (الرتبة 13 من 13). 1,054 طفلاً تتراوح أعمارهم بين 6 و14 سنة لم يلتحقوا قط بالمدرسة النظامية، أي 6.2 % من هذه الفئة العمرية. يبلغ معدل الفقر 28 % ويعيش 41 % من السكان في الوسط الريفي. 3.8 % من الأطفال يدرسون في المحظرة أو الكتّاب و2.3 % فقط لا يتلقون أي تعليم: الأغلبية تتعلم بالفعل لكن خارج النظام المعترف به. الأولوية هي إنشاء جسور نحو التعليم النظامي.","Adrar ranks 13 of 13, low priority. 1,054 children aged 6 to 14 have never attended formal school — 6.2 % of that age group. The poverty rate reaches 28 % and 41 % of the population lives in rural areas. 3.8 % of children attend a mahadra or Quranic school and only 2.3 % receive no instruction: most are already learning, but outside the recognised system. The priority is bridges into formal schooling.",598,0.3,"Créer des passerelles::647 enfants sont en mahadra ou école coranique. Ils apprennent déjà : il faut reconnaître leurs acquis et leur ouvrir l'accès au diplôme. | Ne pas oublier les enfants sans aucune instruction::392 enfants ne sont nulle part, ni à l'école ni en mahadra. Les passerelles ne les atteindront pas : il leur faut une école. | Cibler les quartiers, pas la wilaya::Le milieu est majoritairement urbain (59 %). Le besoin n'est pas réparti également : il se concentre dans les quartiers périphériques.",إنشاء جسور::647 طفلاً يدرسون في المحظرة أو الكتّاب. هم يتعلمون بالفعل: يجب الاعتراف بمكتسباتهم وفتح الطريق أمامهم نحو الشهادة. | عدم نسيان الأطفال بلا أي تعليم::392 طفلاً ليسوا في أي مكان، لا في المدرسة ولا في المحظرة. الجسور لن تصل إليهم: يحتاجون إلى مدرسة. | استهداف الأحياء لا الولاية::الوسط حضري في معظمه (59 %). الحاجة ليست موزعة بالتساوي: إنها تتركز في الأحياء الطرفية.,"Build bridges::647 children attend a mahadra or Quranic school. They are already learning: recognise what they know and open the path to a qualification. | Do not forget children with no instruction::392 children are nowhere — neither school nor mahadra. Bridges will not reach them: they need a school. | Target neighbourhoods, not the wilaya::The area is mostly urban (59 %). The need is not evenly spread: it concentrates in outlying neighbourhoods.",392,647,26
+`;
+const CARTE = {"w":1000,"h":780,"paths":{"Tiris Zemmour":"M627.8 10.0L806.3 127.2L845.5 153.9L745.6 153.9L750.5 198.5L509.1 367.2L419.5 377.4L382.6 363.4L379.1 307.8L375.1 292.1L377.6 284.1L383.5 275.9L405.8 260.4L420.8 257.2L439.7 248.7L439.9 91.4L627.5 91.1L627.8 10.0Z","Dakhlet Nouadhibou":"M155.7 412.7L154.5 404.4L161.2 378.5L311.3 378.5L318.2 389.9L224.3 389.5L239.0 414.5L199.3 489.1L197.3 491.6L199.3 486.6L198.4 486.0L193.2 490.9L195.5 486.0L194.7 486.4L191.2 489.8L190.0 494.2L189.0 494.0L188.9 490.9L202.1 471.2L201.3 469.1L202.1 467.1L200.9 467.9L200.7 467.0L201.3 464.6L200.2 464.0L198.0 466.4L197.6 465.4L202.7 458.6L202.9 455.3L200.5 450.7L203.3 448.3L203.5 443.9L198.6 439.0L195.6 433.7L196.1 432.3L193.2 424.6L191.4 422.7L191.0 420.1L188.9 419.8L192.2 418.2L188.1 418.2L187.0 415.2L185.4 414.4L184.7 425.1L177.3 418.1L178.1 416.8L177.4 414.5L175.2 412.5L171.6 402.4L170.8 403.2L170.0 402.4L163.5 389.0L158.0 396.7L159.0 397.5L158.6 402.7L156.1 404.4L157.3 407.4L155.7 412.7ZM194.0 470.0L195.7 466.7L194.6 475.5L190.9 482.7L189.1 477.7L191.2 473.9L191.7 470.5L193.2 469.2L194.0 470.0Z","Adrar":"M311.3 378.5L383.5 378.5L382.6 363.4L419.5 377.4L509.1 367.2L750.5 198.5L758.1 269.4L667.0 475.3L495.2 476.1L473.3 494.2L471.7 506.5L458.9 499.5L421.5 524.6L403.1 545.0L370.6 518.6L315.5 518.6L319.3 391.5L311.3 378.5Z","Brakna":"M276.6 658.4L274.5 656.6L275.4 655.4L293.0 645.7L310.0 632.0L330.3 601.6L343.0 589.9L403.1 545.0L413.8 561.8L410.1 608.2L423.3 620.9L421.1 623.8L414.3 626.2L411.6 630.0L399.7 634.4L395.1 640.2L394.2 647.7L388.3 659.8L378.2 662.2L375.5 665.4L375.2 670.1L374.2 671.7L348.7 679.0L346.7 685.3L343.9 686.7L344.3 684.9L342.8 685.0L337.7 689.0L334.6 684.6L330.0 682.5L329.3 676.2L323.9 672.5L315.9 664.6L312.9 663.8L312.3 661.9L309.1 661.5L308.7 658.6L305.1 657.2L300.2 658.8L276.6 658.4Z","Trarza":"M274.5 656.6L273.1 655.4L271.8 655.9L269.1 658.9L267.2 656.9L265.6 656.9L265.0 658.2L266.4 660.7L264.6 661.8L253.1 662.4L248.3 663.8L245.5 661.8L242.0 665.3L237.3 665.4L233.7 667.7L221.1 665.6L212.2 666.9L207.8 663.4L204.2 665.3L199.8 665.3L196.4 669.2L193.5 682.2L189.4 684.6L186.6 695.4L185.9 705.0L184.7 707.2L185.5 697.3L184.8 680.3L188.9 667.1L189.4 658.2L195.9 640.6L205.5 621.7L212.5 597.8L213.4 584.8L227.6 584.8L227.6 554.7L211.9 554.9L211.3 549.3L207.8 540.7L205.5 531.0L205.9 527.9L203.4 518.9L370.6 518.6L403.1 545.0L343.0 589.9L330.3 601.6L310.0 632.0L293.0 645.7L280.9 651.8L274.5 656.6Z","Gorgol":"M346.7 689.8L343.6 687.4L347.8 683.9L348.7 679.0L374.2 671.7L375.2 670.1L375.5 665.4L378.2 662.2L388.3 659.8L394.2 647.7L394.4 645.5L395.6 647.7L393.7 652.4L393.9 656.4L396.9 658.3L399.3 663.5L397.6 667.0L397.8 669.1L401.0 669.2L403.7 667.5L416.6 670.0L417.5 678.1L416.7 683.9L418.9 683.7L423.2 680.9L426.3 682.1L428.2 688.9L435.2 689.7L437.9 692.7L440.2 692.9L439.7 697.2L440.5 699.6L432.8 702.7L427.4 703.0L424.3 707.3L414.7 716.0L412.9 721.3L407.6 726.8L402.7 734.8L398.7 746.8L396.8 746.0L396.4 742.0L392.5 741.5L390.7 739.9L390.9 738.7L393.8 738.7L394.1 737.9L389.0 733.2L386.4 724.8L379.7 725.7L379.2 720.9L378.2 719.6L374.3 717.8L371.0 718.1L370.4 716.1L371.5 712.9L368.3 709.5L368.6 706.4L366.6 702.9L366.6 700.1L363.5 696.8L362.5 692.9L359.6 690.0L356.1 690.4L357.1 686.9L346.7 689.8Z","Guidimakha":"M401.9 749.1L398.7 746.8L402.7 734.8L407.6 726.8L412.9 721.3L414.7 716.0L424.3 707.3L427.4 703.0L432.8 702.7L440.5 699.6L444.4 701.8L450.1 701.3L450.3 699.4L452.3 697.6L451.3 692.7L452.6 693.8L459.0 694.2L462.9 696.8L468.9 697.8L465.9 700.7L462.6 709.6L460.4 712.0L457.6 723.1L456.2 722.9L456.0 725.5L454.6 727.1L451.1 737.2L448.6 751.6L451.3 752.8L450.9 760.3L447.7 763.8L444.4 764.8L441.3 768.0L438.0 768.1L436.8 770.0L432.9 767.1L426.9 768.1L419.2 763.5L415.5 759.9L413.4 753.5L405.7 748.5L401.9 749.1Z","Hodh El Charghi":"M758.1 269.4L800.3 665.0L801.3 666.9L815.5 677.7L806.6 725.6L609.7 725.5L612.2 723.0L611.6 704.4L606.1 692.4L617.3 677.1L615.9 673.0L650.0 635.8L632.6 616.5L601.5 620.5L758.1 269.4Z","Hodh El Gharbi":"M609.7 725.5L590.2 725.5L591.3 716.2L591.2 714.3L589.8 713.7L584.4 720.1L586.0 728.8L572.0 729.3L562.8 732.8L556.3 732.2L549.7 733.2L535.3 729.0L520.6 729.5L515.9 699.6L509.6 693.4L510.7 685.1L509.8 683.4L506.3 681.4L505.9 678.3L507.9 671.2L504.9 670.0L504.4 668.7L510.2 666.1L514.1 661.0L506.3 659.9L503.8 653.5L500.8 651.9L497.7 648.0L498.3 631.3L496.6 627.7L498.3 620.4L497.9 616.2L491.9 598.4L492.7 594.5L534.8 606.6L569.2 604.3L601.5 620.5L632.6 616.5L650.0 635.8L615.9 673.0L617.3 677.1L606.1 692.4L611.6 704.4L612.2 723.0L609.7 725.5Z","Assaba":"M501.9 748.5L496.4 740.5L480.3 728.2L472.6 718.1L467.4 716.9L468.1 718.8L462.5 722.9L460.8 723.7L457.6 723.1L460.4 712.0L462.6 709.6L465.9 700.7L468.9 697.8L462.9 696.8L459.0 694.2L452.6 693.8L451.3 692.7L452.3 697.6L450.3 699.4L450.1 701.3L444.4 701.8L440.5 699.6L439.7 697.2L440.2 692.9L437.9 692.7L435.2 689.7L428.2 688.9L426.3 682.1L423.2 680.9L418.9 683.7L416.7 683.9L417.5 678.1L416.6 670.0L403.7 667.5L401.0 669.2L397.8 669.1L397.6 667.0L399.3 663.5L396.9 658.3L393.9 656.4L393.6 655.0L395.6 647.7L394.4 645.5L394.6 641.4L399.7 634.4L411.6 630.0L414.3 626.2L421.1 623.8L423.3 620.9L428.7 626.2L445.9 632.1L454.7 629.0L465.0 629.9L467.4 626.7L467.9 614.6L469.4 611.3L468.5 608.1L470.7 607.1L470.4 604.8L468.1 604.3L473.4 601.6L473.7 599.8L463.6 580.7L464.4 578.9L466.2 578.0L466.3 575.1L469.4 575.3L469.7 573.5L478.9 574.3L485.2 572.4L487.6 568.5L486.2 567.1L489.5 563.8L498.8 559.6L491.9 598.4L497.9 616.2L498.3 620.4L496.6 627.7L498.3 631.3L497.4 640.0L498.3 645.1L497.3 646.8L500.8 651.9L503.8 653.5L506.3 659.9L514.1 661.0L510.2 666.1L504.4 668.7L504.9 670.0L507.9 671.2L505.9 678.3L506.3 681.4L509.8 683.4L510.7 685.1L509.6 693.4L515.9 699.6L520.6 729.5L512.0 729.8L511.4 734.6L506.9 737.7L501.9 748.5Z","Inchiri":"M203.4 518.9L199.3 510.8L194.5 505.4L188.9 503.2L185.1 495.9L185.8 495.0L192.3 495.4L199.3 489.1L239.0 414.5L224.3 389.5L318.2 389.9L319.3 391.5L315.5 518.6L203.4 518.9Z","Nouakchott":"M213.4 584.8L213.9 580.4L211.9 554.9L227.6 554.7L227.6 584.8L213.4 584.8Z","Tagant":"M471.7 506.5L473.3 494.2L495.2 476.1L667.0 475.3L601.5 620.5L569.2 604.3L534.8 606.6L492.7 594.5L498.8 559.6L489.5 563.8L486.2 567.1L487.6 568.5L485.2 572.4L478.9 574.3L469.7 573.5L469.4 575.3L466.3 575.1L466.2 578.0L464.4 578.9L463.6 580.7L473.7 599.8L473.4 601.6L468.1 604.3L470.4 604.8L470.7 607.1L468.5 608.1L469.4 611.3L467.9 614.6L467.4 626.7L465.0 629.9L454.7 629.0L445.9 632.1L428.7 626.2L410.1 608.2L413.8 561.8L403.1 545.0L421.5 524.6L458.9 499.5L471.7 506.5Z"},"centres":{"Nouakchott":[220.2,567.7],"Trarza":[275,628],"Inchiri":[282,468],"Dakhlet Nouadhibou":[192,415],"Gorgol":[370,690],"Guidimakha":[437,742],"Adrar":[560,400],"Tiris Zemmour":[600,175],"Tagant":[520,552],"Hodh El Charghi":[730,445],"Hodh El Gharbi":[568,664],"Assaba":[452,650],"Brakna":[366,612]}};
+
+/* Analyseur CSV tolérant aux guillemets et aux virgules dans les textes */
+function lireCsv(txt){
+  txt = txt.replace(/^\uFEFF/,'').trim();
+  const L=[]; let f='',r=[],q=false;
+  for(let i=0;i<txt.length;i++){
+    const c=txt[i];
+    if(q){ if(c==='"'){ if(txt[i+1]==='"'){f+='"';i++;} else q=false; } else f+=c; }
+    else if(c==='"') q=true;
+    else if(c===','){ r.push(f); f=''; }
+    else if(c==='\n'){ r.push(f); L.push(r); r=[]; f=''; }
+    else if(c!=='\r') f+=c;
+  }
+  if(f||r.length){ r.push(f); L.push(r); }
+  const h=L.shift().map(s=>s.trim());
+  const NUM=new Set(['population_2019','enfants_6_14','enfants_hors_ecole','taux_hors_ecole',
+    'taux_pauvrete','part_rurale','taux_garcons','taux_filles','pct_mahadra',
+    'pct_aucune_instruction','ratio_dependance','indice','rang','n_echantillon','part_nationale']);
+  return L.filter(r=>r.length>1&&r[0]!=='').map(r=>{
+    const o={}; h.forEach((k,i)=>{
+      let v=(r[i]??'').trim();
+      o[k] = NUM.has(k) ? (v===''||isNaN(+v) ? null : +v) : (v===''?null:v);
+    }); return o;
+  });
+}
+
+let DATA = lireCsv(CSV_EMBARQUE);
+const NAT = {enfants:365231, taux:33.1, part614:27.1, enfants614:1106872,
+             mahadra:16.7, aucune:16.4, pauvrete:28.8, pop:4077347,
+             sexG:52.8, milR:69.7, txG:34.5, txF:32.2, txR:42.7, txU:22.2};
+
+/* ── 2. Traductions ────────────────────────────────────────────────────── */
+const T = {
+fr:{
+ tagline:"de la démographie à la décision", nav:["Accueil","Carte","Classement","Simuler","Méthode"],
+ nMap:"Écran 2", nRank:"Écran 3", nSim:"Écran 5", nCmp:"Écran 6", nMeth:"Écran 7",
+ kpi1:"des enfants de 6-14 ans sont hors école",
+ kpi2:"du besoin tient dans 5 wilayas",
+ kpi3:"le pire taux du pays : %s",
+ tileCmp:"Comparer les 13 wilayas",
+ homeMapLab:"Où le problème est le plus grave",
+ homeMapNote:"Chaque wilaya est colorée selon l'urgence. Cliquez pour ouvrir sa fiche.",
+ cmpKeys:{taux_hors_ecole:"Hors école",taux_pauvrete:"Pauvreté",part_rurale:"Campagne"},
+ cmpNotes:{taux_hors_ecole:"Part des enfants de 6 à 14 ans qui ne sont jamais allés à l'école formelle. Touchez une barre pour ouvrir la fiche.",
+  taux_pauvrete:"Part de la population vivant sous le seuil de pauvreté. Les wilayas les plus pauvres sont aussi les plus rurales.",
+  part_rurale:"Part de la population vivant à la campagne. C'est le facteur le plus lié au fait d'être hors école."},
+ tileSex:"Garçons ou filles ?",
+ tileMil:"Ville ou campagne ?",
+ rural:"Campagne", urban:"Ville",
+ noteSex:"Le taux est de %g chez les garçons et de %f chez les filles : presque le même.",
+ noteMil:"Mais le taux est de %r à la campagne contre %u en ville : plus du double.",
+ homeInsight:"La fracture mauritanienne n'est pas le genre : garçons et filles sont touchés presque à égalité. Elle est territoriale — 43 % des enfants sont hors école à la campagne, contre 22 % en ville.",
+ tileTopN:"Touchez une wilaya pour ouvrir sa fiche.",
+ homeKicker:"Mauritanie · enfants de 6 à 14 ans",
+ tileWaffle:"Sur 100 enfants de 6 à 14 ans en Mauritanie",
+ tileTop:"Les 5 wilayas où il y a le plus d'enfants hors école",
+ tileSplit:"Deux problèmes très différents",
+ tileSplitN:"À gauche, les enfants qui apprennent en mahadra sans diplôme reconnu : il leur faut des passerelles. À droite, ceux qui ne reçoivent aucune instruction : il leur faut des écoles.",
+ acts:"Que faire ici, concrètement",
+ actsNote:"Estimation des salles de classe sur la base de 40 élèves par classe.",
+ homeSub:"enfants mauritaniens de 6 à 14 ans ne sont jamais allés à l'école.",
+ st1:"des enfants de 6-14 ans", st2:"d'entre eux vivent dans 5 wilayas", st3:"wilayas étudiées",
+ homeCtx:"La Mauritanie est un pays jeune : 27 % de la population a entre 6 et 14 ans. Source : EPCV 2019 (ANSADE) et base population du hackathon.",
+ seeMap:"Voir la carte", openSheet:"Ouvrir la fiche", back:"Retour à la carte",
+ mapTitle:"Où le problème est-il le plus grave ?",
+ mapLede:"Chaque wilaya est colorée selon l'urgence. Touchez une wilaya pour en savoir plus.",
+ tapHint:"Touchez une wilaya sur la carte.",
+ rankTitle:"Les 13 wilayas, de la plus urgente à la moins urgente",
+ rankLede:"Touchez une ligne pour ouvrir la fiche. Touchez un titre de colonne pour trier.",
+ dlCsv:"Télécharger le classement (CSV)",
+ cols:{rang:"Rang",wilaya:"Wilaya",indice:"Indice",enfants:"Enfants hors école",
+   taux:"Taux",meca:"Mécanisme"},
+ simHyp:"Hypothèses de dimensionnement",
+ hypSalle:"Élèves par salle de classe", hypEcole:"Salles par école",
+ hypNote:"Modifiez ces deux valeurs pour recalculer les moyens. 40 élèves par classe est le maximum recommandé par les normes minimales de l\'INEE pour le primaire ; ajustez selon les normes du ministère.",
+ simMoyens:"Moyens à mobiliser",
+ moySalles:"salles de classe", moyProfs:"%s enseignants à recruter",
+ moyEcoles:"écoles à construire", moyEcolesN:"là où il n\'y a aucune offre",
+ moyPass:"enfants à faire passer", moyPassN:"depuis la mahadra vers le formel",
+ moySallesC:"salles", moyEcolesC:"écoles neuves", moyExtC:"dans des écoles existantes",
+ moyPassC:"classes passerelles", moyCertC:"mahadras à certifier",
+ simTitle:"Si vous ne pouvez pas scolariser tout le monde",
+ simLede:"Choisissez combien d'enfants vous pouvez accueillir, puis comment les répartir. L'outil montre ce que chaque choix donne.",
+ simQ:"Combien d'enfants pouvez-vous scolariser ?",
+ simOfNeed:"du besoin total", simRule:"Comment répartir ?",
+ rules:{prorata:["Selon le nombre","Chaque wilaya reçoit selon son nombre d'enfants hors école"],
+        priorite:["Les plus urgentes d'abord","On règle une wilaya entièrement avant de passer à la suivante"],
+        egal:["La même part pour chacune","On partage également entre les 13 wilayas"]},
+ simPlaces:"Vous scolarisez", simKids:"enfants",
+ simNat:"Taux national hors école :",
+ simSame:"Ce taux national est le même pour les trois répartitions : le nombre total d'enfants scolarisés ne change pas. Ce qui change, c'est qui en profite. Regardez les deux chiffres ci-dessous.",
+ simSolved:"Wilayas où le problème est réglé",
+ simWorst:"La plus en retard reste à",
+ simChildren:"enfants concernés",
+ simCols:{rank:"Rang",wilaya:"Wilaya",places:"Enfants scolarisés",rate:"Taux hors école",moy:"Moyens",lev:"Levier"},
+ simSort:"Ce tableau est trié par nombre de places reçues, pas par urgence. La colonne « Rang » et la pastille de couleur rappellent la priorité : une wilaya peut recevoir beaucoup de places sans être la plus urgente, simplement parce qu'elle compte beaucoup d'enfants.",
+ cmpTitle:"Deux wilayas, deux problèmes opposés",
+ cmpLede:"Même taux, causes différentes. C'est ce que voit EduFocus et qu'un classement seul ne voit pas.",
+ methTitle:"Méthodologie et sources",
+ keys:{pop:"Habitants (2019)",enf614:"Enfants de 6 à 14 ans",hors:"N'ont jamais vu l'école",
+   taux:"Sur 100 enfants",pauv:"Vivent dans la pauvreté",rural:"Vivent à la campagne",
+   dep:"Enfants pour 100 adultes"},
+ waffle:["Vont à l'école","Mahadra ou école coranique seulement","N'apprennent nulle part"],
+ waffleT:"Sur 100 enfants de 6 à 14 ans",
+ boys:"Garçons", girls:"Filles",
+ gapB:"Les garçons sont plus souvent hors de l'école : %s points d'écart.",
+ gapG:"Les filles sont plus souvent hors de l'école : %s points d'écart.",
+ gapE:"Garçons et filles sont touchés de la même façon.",
+ why:"Pourquoi cette wilaya ?", lever:"Ce qu'il faut faire ici",
+ print:"Imprimer ou enregistrer en PDF", compare:"Comparer avec une autre wilaya",
+ rank1:"Rang %s sur 13", nd:"—",
+ lv:{"Substitution":"Passerelles et équivalences vers l'école formelle",
+     "Exclusion":"Créer des écoles, des cantines, aider les familles",
+     "Volume élevé":"Agrandir : salles de classe et enseignants"},
+ lvShort:{"Substitution":"Passerelles","Exclusion":"Écoles","Volume élevé":"Capacité"},
+ mc:{"Substitution":"Substitution","Exclusion":"Exclusion","Volume élevé":"Volume élevé"},
+ pr:{"Très élevée":"Très élevée","Élevée":"Élevée","Moyenne":"Moyenne","Faible":"Faible"},
+ prio:"Priorité"
+},
+en:{
+ tagline:"from demography to decision", nav:["Home","Map","Ranking","Simulate","Method"],
+ nMap:"Screen 2", nRank:"Screen 3", nSim:"Screen 5", nCmp:"Screen 6", nMeth:"Screen 7",
+ kpi1:"of children aged 6-14 are out of school",
+ kpi2:"of the need sits in 5 wilayas",
+ kpi3:"the country's worst rate: %s",
+ tileCmp:"Compare the 13 wilayas",
+ homeMapLab:"Where the problem is worst",
+ homeMapNote:"Each wilaya is coloured by urgency. Click to open its profile.",
+ cmpKeys:{taux_hors_ecole:"Out of school",taux_pauvrete:"Poverty",part_rurale:"Rural"},
+ cmpNotes:{taux_hors_ecole:"Share of children aged 6-14 who never attended formal school. Tap a bar to open the profile.",
+  taux_pauvrete:"Share of the population living below the poverty line. The poorest wilayas are also the most rural.",
+  part_rurale:"Share of the population living in rural areas. This is the factor most tied to being out of school."},
+ tileSex:"Boys or girls?",
+ tileMil:"Town or countryside?",
+ rural:"Countryside", urban:"Town",
+ noteSex:"The rate is %g for boys and %f for girls: almost the same.",
+ noteMil:"But the rate is %r in rural areas against %u in towns: more than double.",
+ homeInsight:"Mauritania's divide is not gender: boys and girls are affected almost equally. It is territorial — 43 % of children are out of school in rural areas, against 22 % in towns.",
+ tileTopN:"Tap a wilaya to open its profile.",
+ homeKicker:"Mauritania · children aged 6 to 14",
+ tileWaffle:"Out of 100 children aged 6 to 14 in Mauritania",
+ tileTop:"The 5 wilayas with the most out-of-school children",
+ tileSplit:"Two very different problems",
+ tileSplitN:"On the left, children learning in a mahadra without a recognised qualification: they need bridges. On the right, those receiving no instruction at all: they need schools.",
+ acts:"What to do here, concretely",
+ actsNote:"Classroom estimates based on 40 pupils per class.",
+ homeSub:"Mauritanian children aged 6 to 14 have never been to school.",
+ st1:"of children aged 6-14", st2:"of them live in 5 wilayas", st3:"wilayas studied",
+ homeCtx:"Mauritania is a young country: 27 % of the population is aged 6 to 14. Source: EPCV 2019 (ANSADE) and the hackathon population base.",
+ seeMap:"See the map", openSheet:"Open profile", back:"Back to map",
+ mapTitle:"Where is the problem worst?",
+ mapLede:"Each wilaya is coloured by urgency. Tap a wilaya to learn more.",
+ tapHint:"Tap a wilaya on the map.",
+ rankTitle:"The 13 wilayas, most urgent first",
+ rankLede:"Tap a row to open its profile. Tap a column heading to sort.",
+ dlCsv:"Download the ranking (CSV)",
+ cols:{rang:"Rank",wilaya:"Wilaya",indice:"Index",enfants:"Children out of school",
+   taux:"Rate",meca:"Mechanism"},
+ simHyp:"Sizing assumptions",
+ hypSalle:"Pupils per classroom", hypEcole:"Classrooms per school",
+ hypNote:"Change these two values to recompute the resources. 40 pupils per class is the maximum recommended by INEE minimum standards for primary; adjust to the ministry\'s own norms.",
+ simMoyens:"Resources to mobilise",
+ moySalles:"classrooms", moyProfs:"%s teachers to recruit",
+ moyEcoles:"schools to build", moyEcolesN:"where there is no provision at all",
+ moyPass:"children to bring across", moyPassN:"from mahadra into formal school",
+ moySallesC:"classrooms", moyEcolesC:"new schools", moyExtC:"in existing schools",
+ moyPassC:"bridging classes", moyCertC:"mahadras to certify",
+ simTitle:"If you cannot school everyone",
+ simLede:"Choose how many children you can take in, then how to spread them. The tool shows what each choice gives.",
+ simQ:"How many children can you put in school?",
+ simOfNeed:"of the total need", simRule:"How to spread it?",
+ rules:{prorata:["By numbers","Each wilaya gets a share matching its out-of-school children"],
+        priorite:["Most urgent first","One wilaya is settled in full before moving to the next"],
+        egal:["An equal share each","Split evenly between the 13 wilayas"]},
+ simPlaces:"You put into school", simKids:"children",
+ simNat:"National out-of-school rate:",
+ simSame:"This national rate is the same for all three splits: the total number of children schooled does not change. What changes is who benefits. Look at the two figures below.",
+ simSolved:"Wilayas where the problem is settled",
+ simWorst:"The furthest behind stays at",
+ simChildren:"children affected",
+ simCols:{rank:"Rank",wilaya:"Wilaya",places:"Children schooled",rate:"Out-of-school rate",moy:"Resources",lev:"Lever"},
+ simSort:"This table is sorted by places received, not by urgency. The \u201cRank\u201d column and the coloured dot recall the priority: a wilaya can receive many places without being the most urgent, simply because it has many children.",
+ cmpTitle:"Two wilayas, two opposite problems",
+ cmpLede:"Same rate, different causes. This is what EduFocus sees and a ranking alone does not.",
+ methTitle:"Method and sources",
+ keys:{pop:"People (2019)",enf614:"Children aged 6-14",hors:"Never saw a school",
+   taux:"Out of 100 children",pauv:"Live in poverty",rural:"Live in the countryside",
+   dep:"Children per 100 adults"},
+ waffle:["Go to school","Mahadra or Quranic school only","Learn nowhere"],
+ waffleT:"Out of 100 children aged 6 to 14",
+ boys:"Boys", girls:"Girls",
+ gapB:"Boys are more often out of school: a %s point gap.",
+ gapG:"Girls are more often out of school: a %s point gap.",
+ gapE:"Boys and girls are affected equally.",
+ why:"Why this wilaya?", lever:"What to do here",
+ print:"Print or save as PDF", compare:"Compare with another wilaya",
+ rank1:"Rank %s of 13", nd:"—",
+ lv:{"Substitution":"Bridges and equivalences into formal school",
+     "Exclusion":"Build schools and canteens, support families",
+     "Volume élevé":"Scale up: classrooms and teachers"},
+ lvShort:{"Substitution":"Bridges","Exclusion":"Schools","Volume élevé":"Capacity"},
+ mc:{"Substitution":"Substitution","Exclusion":"Exclusion","Volume élevé":"High volume"},
+ pr:{"Très élevée":"Very high","Élevée":"High","Moyenne":"Medium","Faible":"Low"},
+ prio:"Priority"
+},
+ar:{
+ tagline:"من الديموغرافيا إلى القرار", nav:["الرئيسية","الخريطة","الترتيب","المحاكاة","المنهجية"],
+ nMap:"الشاشة 2", nRank:"الشاشة 3", nSim:"الشاشة 5", nCmp:"الشاشة 6", nMeth:"الشاشة 7",
+ kpi1:"من أطفال 6-14 سنة خارج المدرسة",
+ kpi2:"من الحاجة تتركز في 5 ولايات",
+ kpi3:"أسوأ نسبة في البلاد: %s",
+ tileCmp:"مقارنة الولايات الثلاث عشرة",
+ homeMapLab:"أين المشكلة أخطر",
+ homeMapNote:"لون كل ولاية يعكس درجة الاستعجال. انقر لفتح بطاقتها.",
+ cmpKeys:{taux_hors_ecole:"خارج المدرسة",taux_pauvrete:"الفقر",part_rurale:"الريف"},
+ cmpNotes:{taux_hors_ecole:"نسبة الأطفال من 6 إلى 14 سنة الذين لم يلتحقوا قط بالمدرسة النظامية. المس شريطاً لفتح البطاقة.",
+  taux_pauvrete:"نسبة السكان الذين يعيشون تحت عتبة الفقر. الولايات الأفقر هي أيضاً الأكثر ريفية.",
+  part_rurale:"نسبة السكان الذين يعيشون في الريف. وهو العامل الأكثر ارتباطاً بالبقاء خارج المدرسة."},
+ tileSex:"أولاد أم بنات؟",
+ tileMil:"مدينة أم ريف؟",
+ rural:"الريف", urban:"المدينة",
+ noteSex:"النسبة %g لدى الأولاد و%f لدى البنات: متقاربة جداً.",
+ noteMil:"لكن النسبة %r في الريف مقابل %u في المدينة: أكثر من الضعف.",
+ homeInsight:"الانقسام الموريتاني ليس انقسام جنس: الأولاد والبنات متأثرون بالتساوي تقريباً. إنه انقسام ترابي — 43 % من الأطفال خارج المدرسة في الريف، مقابل 22 % في المدينة.",
+ tileTopN:"المس ولاية لفتح بطاقتها.",
+ homeKicker:"موريتانيا · الأطفال من 6 إلى 14 سنة",
+ tileWaffle:"من كل 100 طفل بين 6 و14 سنة في موريتانيا",
+ tileTop:"الولايات الخمس الأكثر عدداً للأطفال خارج المدرسة",
+ tileSplit:"مشكلتان مختلفتان تماماً",
+ tileSplitN:"على اليسار، الأطفال الذين يتعلمون في المحظرة دون شهادة معترف بها: يحتاجون إلى جسور. وعلى اليمين، من لا يتلقون أي تعليم: يحتاجون إلى مدارس.",
+ acts:"ما ينبغي فعله هنا، بشكل ملموس",
+ actsNote:"تقدير القاعات على أساس 40 تلميذاً لكل قسم.",
+ homeSub:"طفل موريتاني بين 6 و14 سنة لم يدخل المدرسة قط.",
+ st1:"من أطفال 6-14 سنة", st2:"منهم يعيشون في 5 ولايات", st3:"ولاية مدروسة",
+ homeCtx:"موريتانيا بلد فتيّ: 27 % من السكان تتراوح أعمارهم بين 6 و14 سنة. المصدر: EPCV 2019 (ANSADE) وقاعدة السكان الخاصة بالهاكاثون.",
+ seeMap:"شاهد الخريطة", openSheet:"فتح البطاقة", back:"العودة إلى الخريطة",
+ mapTitle:"أين المشكلة أخطر؟",
+ mapLede:"لون كل ولاية يعكس درجة الاستعجال. المس ولاية لمعرفة المزيد.",
+ tapHint:"المس ولاية على الخريطة.",
+ rankTitle:"الولايات الثلاث عشرة، من الأكثر استعجالاً إلى الأقل",
+ rankLede:"المس سطراً لفتح البطاقة. المس عنوان عمود للترتيب.",
+ dlCsv:"تحميل الترتيب (CSV)",
+ cols:{rang:"الرتبة",wilaya:"الولاية",indice:"المؤشر",enfants:"أطفال خارج المدرسة",
+   taux:"النسبة",meca:"الآلية"},
+ simHyp:"فرضيات التقدير",
+ hypSalle:"تلاميذ لكل قاعة", hypEcole:"قاعات لكل مدرسة",
+ hypNote:"غيّر هاتين القيمتين لإعادة حساب الموارد. 40 تلميذاً لكل قسم هو الحد الأقصى الموصى به في المعايير الدنيا لشبكة INEE للتعليم الابتدائي؛ عدّله وفق معايير الوزارة.",
+ simMoyens:"الموارد المطلوب تعبئتها",
+ moySalles:"قاعة دراسية", moyProfs:"%s مدرّساً للتوظيف",
+ moyEcoles:"مدرسة للبناء", moyEcolesN:"حيث لا يوجد أي عرض تعليمي",
+ moyPass:"طفلاً للانتقال", moyPassN:"من المحظرة إلى التعليم النظامي",
+ moySallesC:"قاعة", moyEcolesC:"مدرسة جديدة", moyExtC:"في مدارس قائمة",
+ moyPassC:"قسم جسر", moyCertC:"محظرة للاعتماد",
+ simTitle:"إذا لم تستطع تمدرس الجميع",
+ simLede:"اختر عدد الأطفال الذين يمكنك استقبالهم، ثم كيفية توزيعهم. تُظهر الأداة نتيجة كل اختيار.",
+ simQ:"كم طفلاً يمكنك إدخاله إلى المدرسة؟",
+ simOfNeed:"من الحاجة الإجمالية", simRule:"كيف نوزّع؟",
+ rules:{prorata:["حسب العدد","تحصل كل ولاية على حصة توازي عدد أطفالها خارج المدرسة"],
+        priorite:["الأكثر استعجالاً أولاً","تُعالَج ولاية بالكامل قبل الانتقال إلى التالية"],
+        egal:["حصة متساوية للجميع","تقسيم متساوٍ بين الولايات الثلاث عشرة"]},
+ simPlaces:"تُدخل إلى المدرسة", simKids:"طفلاً",
+ simNat:"النسبة الوطنية خارج المدرسة:",
+ simSame:"هذه النسبة الوطنية واحدة في التوزيعات الثلاثة: العدد الإجمالي للأطفال المتمدرسين لا يتغير. ما يتغير هو من يستفيد. انظر إلى الرقمين أدناه.",
+ simSolved:"ولايات حُلَّت فيها المشكلة",
+ simWorst:"الأكثر تأخراً تبقى عند",
+ simChildren:"طفل معني",
+ simCols:{rank:"الرتبة",wilaya:"الولاية",places:"أطفال متمدرسون",rate:"نسبة خارج المدرسة",moy:"الموارد",lev:"الحل"},
+ simSort:"هذا الجدول مرتّب حسب عدد المقاعد الممنوحة لا حسب الاستعجال. يذكّر عمود «الرتبة» والنقطة الملوّنة بالأولوية: قد تحصل ولاية على مقاعد كثيرة دون أن تكون الأكثر استعجالاً، لمجرد أن عدد أطفالها كبير.",
+ cmpTitle:"ولايتان، مشكلتان متعاكستان",
+ cmpLede:"نفس النسبة، أسباب مختلفة. هذا ما تراه EduFocus ولا يراه الترتيب وحده.",
+ methTitle:"المنهجية والمصادر",
+ keys:{pop:"عدد السكان (2019)",enf614:"الأطفال من 6 إلى 14 سنة",hors:"لم يدخلوا المدرسة قط",
+   taux:"من كل 100 طفل",pauv:"يعيشون في فقر",rural:"يعيشون في الريف",
+   dep:"طفل لكل 100 بالغ"},
+ waffle:["يذهبون إلى المدرسة","المحظرة أو الكتّاب فقط","لا يتعلمون في أي مكان"],
+ waffleT:"من كل 100 طفل بين 6 و14 سنة",
+ boys:"الأولاد", girls:"البنات",
+ gapB:"الأولاد أكثر تسرباً من المدرسة: فارق %s نقطة.",
+ gapG:"البنات أكثر تسرباً من المدرسة: فارق %s نقطة.",
+ gapE:"الأولاد والبنات متأثرون بنفس القدر.",
+ why:"لماذا هذه الولاية؟", lever:"ما ينبغي فعله هنا",
+ print:"طباعة أو حفظ بصيغة PDF", compare:"مقارنة مع ولاية أخرى",
+ rank1:"الرتبة %s من 13", nd:"—",
+ lv:{"Substitution":"جسور ومعادلات نحو المدرسة النظامية",
+     "Exclusion":"بناء مدارس ومطاعم مدرسية ودعم الأسر",
+     "Volume élevé":"التوسعة: قاعات دراسية ومدرسون"},
+ lvShort:{"Substitution":"جسور","Exclusion":"مدارس","Volume élevé":"طاقة استيعابية"},
+ mc:{"Substitution":"إحلال","Exclusion":"إقصاء","Volume élevé":"حجم مرتفع"},
+ pr:{"Très élevée":"قصوى","Élevée":"عالية","Moyenne":"متوسطة","Faible":"منخفضة"},
+ prio:"الأولوية"
+}};
+
+let L='fr', t=T.fr;
+
+/* ── 3. Utilitaires d'affichage ────────────────────────────────────────── */
+const ND = () => t.nd;
+function num(v){
+  if(v===null||v===undefined||Number.isNaN(v)) return ND();
+  const s = Math.round(v).toString();
+  return L==='fr' ? s.replace(/\B(?=(\d{3})+(?!\d))/g,'\u202F')
+                  : s.replace(/\B(?=(\d{3})+(?!\d))/g,',');
+}
+function pct(v,d=1){
+  if(v===null||v===undefined||Number.isNaN(v)) return ND();
+  const s = v.toFixed(d);
+  return (L==='fr' ? s.replace('.',',') : s) + ' %';
+}
+function nom(w){ return L==='ar' ? (w.wilaya_ar||w.wilaya) : L==='en' ? (w.wilaya_en||w.wilaya) : w.wilaya; }
+function expl(w){ return (L==='ar'?w.explication_ar : L==='en'?w.explication_en : w.explication) || ND(); }
+/* Les actions viennent du fichier, écrites « titre::détail », séparées par « | ». */
+function actions(w){
+  const raw = (L==='ar'?w.actions_ar : L==='en'?w.actions_en : w.actions) || '';
+  const items = raw.split('|').map(s=>s.trim()).filter(Boolean);
+  if(!items.length) return `<p class="tile-note">${ND()}</p>`;
+  return `<ol class="actlist">` + items.map(it=>{
+    const i = it.indexOf('::');
+    const ti = i<0 ? it : it.slice(0,i).trim();
+    const de = i<0 ? '' : it.slice(i+2).trim();
+    return `<li><b>${esc(ti)}</b>${de?`<span>${esc(de)}</span>`:''}</li>`;
+  }).join('') + `</ol>`;
+}
+const COL = {"Très élevée":"var(--p1)","Élevée":"var(--p2)","Moyenne":"var(--p3)","Faible":"var(--p4)"};
+/* Les deux tons clairs de l'échelle demandent un texte foncé pour rester lisibles. */
+const COLT = {"Très élevée":"var(--p1t)","Élevée":"var(--p2t)","Moyenne":"var(--p3t)","Faible":"var(--p4t)"};
+const txtOn = w => COLT[w.niveau_priorite] || 'var(--encre)';
+const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* Répartit 100 carrés sans jamais dépasser 100 (méthode du plus fort reste) */
+function cent(w){
+  const raw=[100-(w.taux_hors_ecole??0), w.pct_mahadra??0, w.pct_aucune_instruction??0];
+  const fl=raw.map(Math.floor); let r=100-fl.reduce((a,b)=>a+b,0);
+  raw.map((v,i)=>[v-fl[i],i]).sort((a,b)=>b[0]-a[0]).forEach(([,i])=>{ if(r>0){fl[i]++;r--;} });
+  return fl;
+}
+function waffle(w,anim=true){
+  const [f,m,n]=cent(w); let h='';
+  for(let i=0;i<100;i++){
+    const c = i<f?'f' : i<f+m?'m':'n';
+    const d = anim ? `style="animation-delay:${(i*5)}ms"` : 'style="animation:none;opacity:1;transform:none"';
+    h += `<i class="${c}" ${d}></i>`;
+  }
+  return h;
+}
+function waffleKey(w){
+  const [f,m,n]=cent(w);
+  return [['var(--p3)',f,t.waffle[0]],['var(--or)',m,t.waffle[1]],['var(--ri)',n,t.waffle[2]]]
+    .map(([c,v,l])=>`<span><b style="background-color:${c}"></b><em>${v}</em> ${esc(l)}</span>`).join('');
+}
+
+/* ── 4. Navigation ─────────────────────────────────────────────────────── */
+const ICON={
+ home:'<path d="M4 11l8-7 8 7v8a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z"/>',
+ map:'<path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/>',
+ rank:'<path d="M4 6h16M4 12h16M4 18h10"/>',
+ sim:'<circle cx="8" cy="8" r="2.4"/><circle cx="16" cy="16" r="2.4"/><path d="M4 8h1.6M10.4 8H20M4 16h9.6M18.4 16H20"/>',
+ meth:'<path d="M5 4h9l5 5v11H5z"/><path d="M14 4v5h5M8 13h8M8 17h5"/>'};
+const SCREENS=[['home','s-home','home'],['map','s-map','map'],['rank','s-rank','rank'],
+               ['sim','s-sim','sim'],['meth','s-meth','meth']];
+let current='home';
+
+/* Les hauteurs d'en-tête varient avec la langue et la police : on les mesure
+   plutôt que de les coder en dur, sinon un filet de contenu passe au travers. */
+function mesureBarres(){
+  const bar=document.querySelector('.topbar'), tabs=document.getElementById('tabs');
+  const r=document.documentElement.style;
+  if(bar)  r.setProperty('--barh',  Math.ceil(bar.getBoundingClientRect().height)+'px');
+  if(tabs) r.setProperty('--tabsh', Math.ceil(tabs.getBoundingClientRect().height)+'px');
+}
+addEventListener('resize', mesureBarres);
+
+function drawTabs(){
+  document.getElementById('tabs').innerHTML = SCREENS.map(([k,,ic],i)=>
+    `<button data-go="${k}" ${current===k?'aria-current="page"':''}>
+       <svg viewBox="0 0 24 24">${ICON[ic]}</svg><span>${esc(t.nav[i])}</span></button>`).join('');
+  requestAnimationFrame(mesureBarres);
+}
+function go(k){
+  current=k;
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on'));
+  const id = k==='sheet'?'s-sheet' : k==='cmp'?'s-cmp' : (SCREENS.find(s=>s[0]===k)||[])[1];
+  document.getElementById(id).classList.add('on');
+  document.querySelector('.wrap').classList.toggle('wide', k==='home');
+  drawTabs();
+  window.scrollTo({top:0,behavior:'instant'});
+  if(k==='home'){ drawHomeMap(); animateCounter(); }
+}
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-go]'); if(b) go(b.dataset.go);
+});
+
+/* ── 5. Accueil ────────────────────────────────────────────────────────── */
+let counted=false;
+function animateCounter(){
+  const el=document.getElementById('counter'), end=NAT.enfants;
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){ el.textContent=num(end); return; }
+  const t0=performance.now(), dur=1400;
+  (function step(now){
+    const p=Math.min(1,(now-t0)/dur), e=1-Math.pow(1-p,3);
+    el.textContent=num(Math.round(end*e));
+    if(p<1) requestAnimationFrame(step);
+  })(performance.now());
+}
+/* Anneau en SVG pur : la circonférence d'un rayon de 15.915 vaut 100,
+   les parts se lisent donc directement en pourcentage. */
+function donut(parts, midV, note){
+  let off=25, segs='';
+  parts.forEach(p=>{
+    segs+=`<circle cx="21" cy="21" r="15.915" fill="none" stroke="${p.c}"
+      stroke-width="6.4" stroke-dasharray="${p.v.toFixed(2)} ${(100-p.v).toFixed(2)}"
+      stroke-dashoffset="${off}"></circle>`;
+    off = (off - p.v + 100) % 100;
+  });
+  const leg=parts.map((p,i)=>`<span${i?'':' class="dom"'}><b style="background:${p.c}"></b>
+    ${esc(p.n)} <em>${pct(p.v,0)} · ${num(p.e)}</em></span>`).join('');
+  return `<svg viewBox="0 0 42 42" role="img" aria-label="${esc(note)}">
+      <circle cx="21" cy="21" r="15.915" fill="none" stroke="var(--trait2)" stroke-width="6.4"/>
+      ${segs}
+      <text class="mid" x="21" y="23.6" text-anchor="middle" font-size="9.4">${midV}</text>
+    </svg><div class="dleg">${leg}</div><p class="tile-note">${esc(note)}</p>`;
+}
+
+function drawHome(){
+  const nat={taux_hors_ecole:NAT.taux, pct_mahadra:NAT.mahadra, pct_aucune_instruction:NAT.aucune};
+  document.getElementById('natWaffle').innerHTML=waffle(nat);
+  document.getElementById('natKey').innerHTML=waffleKey(nat);
+
+  const tri=[...DATA].sort((a,b)=>b.enfants_hors_ecole-a.enfants_hors_ecole);
+  const tot=DATA.reduce((s,w)=>s+(w.enfants_hors_ecole||0),0);
+  const pire=[...DATA].sort((a,b)=>b.taux_hors_ecole-a.taux_hors_ecole)[0];
+  const top5=tri.slice(0,5).reduce((s,w)=>s+w.enfants_hors_ecole,0);
+
+  /* Trois repères */
+  document.getElementById('k1').textContent=pct(NAT.taux);
+  document.getElementById('k2').textContent=pct(top5/tot*100,0);
+  document.getElementById('k3').textContent=pct(pire.taux_hors_ecole);
+  document.querySelector('[data-t="kpi3"]').textContent=
+    t.kpi3.replace('%s', nom(pire));
+
+  /* Deux anneaux : qui sont ces enfants ? */
+  document.getElementById('dSex').innerHTML=donut(
+    [{n:t.boys, v:NAT.sexG, e:Math.round(tot*NAT.sexG/100), c:'var(--acc2)'},
+     {n:t.girls,v:100-NAT.sexG, e:Math.round(tot*(100-NAT.sexG)/100), c:'var(--p3)'}],
+    pct(NAT.sexG,0),
+    t.noteSex.replace('%g',pct(NAT.txG)).replace('%f',pct(NAT.txF)));
+  document.getElementById('dMil').innerHTML=donut(
+    [{n:t.rural, v:NAT.milR, e:Math.round(tot*NAT.milR/100), c:'var(--ri)'},
+     {n:t.urban, v:100-NAT.milR, e:Math.round(tot*(100-NAT.milR)/100), c:'var(--p3)'}],
+    pct(NAT.milR,0),
+    t.noteMil.replace('%r',pct(NAT.txR)).replace('%u',pct(NAT.txU)));
+
+  /* Les cinq plus gros besoins, cliquables */
+  const mx=tri[0].enfants_hors_ecole||1;
+  document.getElementById('natBars').innerHTML=tri.slice(0,5).map(w=>
+    `<div class="bar" data-w="${esc(w.wilaya)}">
+       <span class="bar-n">${esc(nom(w))}</span>
+       <div class="bar-t"><i style="background:${COL[w.niveau_priorite]||'var(--gris)'}"
+         data-pc="${(w.enfants_hors_ecole/mx*100).toFixed(1)}"></i></div>
+       <span class="bar-v">${num(w.enfants_hors_ecole)}</span></div>`).join('');
+  document.querySelectorAll('#natBars .bar').forEach(el=>
+    el.onclick=()=>openSheet(el.dataset.w));
+  requestAnimationFrame(()=>document.querySelectorAll('#natBars .bar-t i')
+    .forEach(i=>i.style.width=i.dataset.pc+'%'));
+
+  /* Mahadra contre absence totale d'instruction */
+  const mah=DATA.reduce((s,w)=>s+(w.pct_mahadra||0)/100*(w.enfants_6_14||0),0);
+  const auc=DATA.reduce((s,w)=>s+(w.pct_aucune_instruction||0)/100*(w.enfants_6_14||0),0);
+  document.getElementById('natSplit').innerHTML=
+    `<div style="background:var(--or);flex:${mah}">${num(mah)}</div>
+     <div style="background:var(--ri);flex:${auc}">${num(auc)}</div>`;
+
+  drawCompare();
+  drawHomeMap();
+  animateCounter();
+}
+
+/* Colonne fixe du tableau de bord : même carte, mêmes couleurs, un clic
+   ouvre directement la fiche de la wilaya. */
+function drawHomeMap(){
+  const box=document.getElementById('homeMap');
+  if(!box || !window.matchMedia('(min-width:1024px)').matches){ if(box) box.innerHTML=''; return; }
+  box.innerHTML=mapMarkup('home');
+  document.getElementById('homeLegend').innerHTML=legendMarkup();
+  box.querySelectorAll('path,.lbl').forEach(el=>{
+    const w=DATA.find(x=>x.wilaya===el.dataset.w); if(!w) return;
+    el.addEventListener('click',()=>openSheet(w.wilaya));
+  });
+}
+
+/* Histogramme des 13 wilayas, indicateur au choix */
+let CMP='taux_hors_ecole';
+const CMP_KEYS=['taux_hors_ecole','taux_pauvrete','part_rurale'];
+function drawCompare(){
+  document.getElementById('cmpSegs').innerHTML=CMP_KEYS.map(k=>
+    `<button data-k="${k}" aria-pressed="${k===CMP}">${esc(t.cmpKeys[k])}</button>`).join('');
+  document.querySelectorAll('#cmpSegs button').forEach(b=>
+    b.onclick=()=>{ CMP=b.dataset.k; drawCompare(); });
+
+  const tri=[...DATA].filter(w=>w[CMP]!=null).sort((a,b)=>b[CMP]-a[CMP]);
+  const mx=tri.length?tri[0][CMP]:1;
+  document.getElementById('cmpBars').innerHTML=tri.map(w=>
+    `<div class="bar" data-w="${esc(w.wilaya)}">
+       <span class="bar-n">${esc(nom(w))}</span>
+       <div class="bar-t"><i style="background:${COL[w.niveau_priorite]||'var(--gris)'}"
+         data-pc="${(w[CMP]/mx*100).toFixed(1)}"></i></div>
+       <span class="bar-v">${pct(w[CMP],0)}</span></div>`).join('');
+  document.querySelectorAll('#cmpBars .bar').forEach(el=>
+    el.onclick=()=>openSheet(el.dataset.w));
+  requestAnimationFrame(()=>document.querySelectorAll('#cmpBars .bar-t i')
+    .forEach(i=>i.style.width=i.dataset.pc+'%'));
+  document.getElementById('cmpNote').textContent=t.cmpNotes[CMP];
+}
+
+/* ── 6. Carte ──────────────────────────────────────────────────────────── */
+let sel=null;
+const hoverable = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+/* Les quatre wilayas du littoral sont trop petites pour porter leur nom :
+   l'étiquette est déportée sur l'océan et reliée par un filet. */
+const DEPORT={ 'Nouakchott':[104,556], 'Inchiri':[150,468],
+               'Dakhlet Nouadhibou':[112,388], 'Guidimakha':[292,756],
+               'Gorgol':[352,706], 'Hodh El Gharbi':[607,678],
+               'Assaba':[452,636], 'Brakna':[366,600], 'Trarza':[236,616] };
+
+/* Fabrique le SVG du pays + les étiquettes. Utilisé par l'écran Carte et,
+   sur grand écran, par la colonne fixe du tableau de bord. */
+function mapMarkup(cls){
+  const paths=Object.entries(CARTE.paths).map(([k,d])=>{
+    const w=DATA.find(x=>x.wilaya===k);
+    const c=w?(COL[w.niveau_priorite]||'var(--trait2)'):'var(--trait2)';
+    return `<path d="${d}" fill="${c}" data-w="${esc(k)}"></path>`;
+  }).join('');
+  const traits=Object.entries(DEPORT).map(([k,[x,y]])=>{
+    const c=CARTE.centres[k]; if(!c) return '';
+    return `<line x1="${x}" y1="${y}" x2="${c[0]}" y2="${c[1]}"
+      stroke="var(--gris)" stroke-width="1.6" opacity=".55"></line>`;
+  }).join('');
+  const lab=Object.keys(CARTE.paths).map(k=>{
+    const w=DATA.find(z=>z.wilaya===k); if(!w) return '';
+    const [x,y]=DEPORT[k]||CARTE.centres[k];
+    return `<button class="lbl${DEPORT[k]?' out':''}" data-w="${esc(k)}"
+      style="left:${(x/CARTE.w*100).toFixed(2)}%; top:${(y/CARTE.h*100).toFixed(2)}%">
+      <u style="background:${COL[w.niveau_priorite]||'var(--gris)'};color:${txtOn(w)}">${w.rang??'?'}</u>
+      <span>${esc(nom(w))}</span></button>`;
+  }).join('');
+  return `<div class="stage ${cls||''}"><svg viewBox="0 0 ${CARTE.w} ${CARTE.h}" role="img"
+      aria-label="${esc(t.mapTitle)}">${paths}${traits}</svg>
+      <div class="badges">${lab}</div></div>`;
+}
+const legendMarkup = () => Object.entries(COL).map(([k,c])=>
+  `<span><b style="background:${c}"></b>${esc(t.pr[k])}</span>`).join('');
+
+function drawMap(){
+  const box=document.getElementById('mapbox');
+  box.innerHTML=mapMarkup()+`<div class="tip" id="tip"></div>`;
+  document.getElementById('legend').innerHTML=legendMarkup();
+  document.getElementById('chips').innerHTML=[...DATA].sort((a,b)=>a.rang-b.rang).map(w=>
+    `<button class="chip" data-w="${esc(w.wilaya)}">
+       <u style="background:${COL[w.niveau_priorite]||'var(--gris)'};color:${txtOn(w)}">${w.rang??'?'}</u>
+       ${esc(nom(w))}</button>`).join('');
+
+  const tp=document.getElementById('tip');
+  const show=(w,ev)=>{
+    const r=box.getBoundingClientRect();
+    tp.innerHTML=`<b>${esc(nom(w))}</b>${esc(t.rank1.replace('%s',w.rang))} · `+
+                 `${num(w.enfants_hors_ecole)} ${esc(t.simChildren)}`;
+    tp.style.left=(ev.clientX-r.left)+'px'; tp.style.top=(ev.clientY-r.top)+'px';
+    tp.classList.add('on');
+  };
+  box.querySelectorAll('path,.lbl').forEach(el=>{
+    const w=DATA.find(x=>x.wilaya===el.dataset.w); if(!w) return;
+    if(hoverable){
+      el.addEventListener('mousemove',ev=>show(w,ev));
+      el.addEventListener('mouseleave',()=>tp.classList.remove('on'));
+      el.addEventListener('click',()=>openSheet(w.wilaya));
+    }else{
+      el.addEventListener('click',()=>select(w));
+    }
+  });
+  document.querySelectorAll('#chips .chip').forEach(el=>{
+    const w=DATA.find(x=>x.wilaya===el.dataset.w); if(!w) return;
+    el.onclick=()=> hoverable ? openSheet(w.wilaya) : select(w);
+  });
+  select(sel?DATA.find(x=>x.wilaya===sel)||null:null);
+}
+function select(w){
+  const pk=document.getElementById('pick');
+  document.querySelectorAll('#mapbox path,.lbl,.chip').forEach(p=>p.classList.remove('sel'));
+  if(!w){ pk.hidden=true; return; }
+  sel=w.wilaya;
+  document.querySelectorAll(`[data-w="${CSS.escape(w.wilaya)}"]`).forEach(p=>p.classList.add('sel'));
+  pk.hidden=false;
+  document.getElementById('pickName').textContent=nom(w);
+  document.getElementById('pickInfo').textContent =
+    `${t.rank1.replace('%s',w.rang)} · ${num(w.enfants_hors_ecole)} ${t.simChildren} · ${pct(w.taux_hors_ecole)}`;
+  document.getElementById('pickGo').onclick=()=>openSheet(w.wilaya);
+}
+
+/* ── 7. Classement ─────────────────────────────────────────────────────── */
+let sortKey='rang', sortDir=1;
+function drawRank(){
+  const cols=[['rang',t.cols.rang,''],['wilaya',t.cols.wilaya,''],['indice',t.cols.indice,'num'],
+    ['enfants_hors_ecole',t.cols.enfants,'num'],['taux_hors_ecole',t.cols.taux,'num'],
+    ['mecanisme',t.cols.meca,'']];
+  const tb=document.getElementById('rankTable');
+  tb.querySelector('thead').innerHTML='<tr>'+cols.map(([k,l,c])=>
+    `<th data-k="${k}" class="${c} ${sortKey===k?'s':''}">${esc(l)}</th>`).join('')+'</tr>';
+  const rows=[...DATA].sort((a,b)=>{
+    const x=a[sortKey],y=b[sortKey];
+    if(typeof x==='number') return (x-y)*sortDir;
+    return String(x).localeCompare(String(y))*sortDir;
+  });
+  tb.querySelector('tbody').innerHTML=rows.map(w=>`<tr data-w="${esc(w.wilaya)}">
+    <td class="rk">${w.rang??ND()}</td>
+    <td><span class="dot" style="background:${COL[w.niveau_priorite]||'var(--gris)'}"></span>${esc(nom(w))}</td>
+    <td class="num">${w.indice??ND()}</td>
+    <td class="num">${num(w.enfants_hors_ecole)}</td>
+    <td class="num">${pct(w.taux_hors_ecole)}</td>
+    <td>${esc(t.mc[w.mecanisme]||w.mecanisme||ND())}</td></tr>`).join('');
+  tb.querySelectorAll('thead th').forEach(th=>th.onclick=()=>{
+    const k=th.dataset.k;
+    if(sortKey===k) sortDir*=-1; else { sortKey=k; sortDir = (k==='rang'||k==='wilaya')?1:-1; }
+    drawRank();
+  });
+  tb.querySelectorAll('tbody tr').forEach(tr=>tr.onclick=()=>openSheet(tr.dataset.w));
+}
+document.getElementById('dlCsv').onclick=()=>{
+  const cols=['rang','wilaya','indice','enfants_hors_ecole','taux_hors_ecole','taux_pauvrete',
+    'part_rurale','pct_mahadra','pct_aucune_instruction','niveau_priorite','mecanisme'];
+  const csv=[cols.join(','),...[...DATA].sort((a,b)=>a.rang-b.rang)
+    .map(w=>cols.map(c=>{const v=w[c]??''; return /[",\n]/.test(v)?`"${String(v).replace(/"/g,'""')}"`:v;}).join(','))].join('\n');
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8'}));
+  a.download='edufocus_classement.csv'; a.click(); URL.revokeObjectURL(a.href);
+};
+
+/* ── 8. Fiche wilaya ───────────────────────────────────────────────────── */
+let currentSheet=null;
+function openSheet(k){ currentSheet=k; drawSheet(); go('sheet'); }
+function drawSheet(){
+  const w=DATA.find(x=>x.wilaya===currentSheet); const el=document.getElementById('sheet');
+  if(!w){ el.innerHTML=`<p class="lede">${ND()}</p>`; return; }
+  const g=w.taux_garcons, f=w.taux_filles, mx=Math.max(g??0,f??0)||1;
+  const d=(g!=null&&f!=null)?g-f:null;
+  const gapTxt = d===null ? ND()
+    : Math.abs(d)<1 ? t.gapE
+    : (d>0?t.gapB:t.gapG).replace('%s', Math.abs(d).toFixed(1).replace('.',L==='fr'?',':'.'));
+  el.innerHTML=`
+  <div class="fh">
+    <div style="flex:1;min-width:0">
+      <h2>${esc(nom(w))}</h2>
+      <p class="lede" style="margin-top:4px">${esc(t.rank1.replace('%s',w.rang??ND()))}</p>
+    </div>
+    <span class="badge" style="background:${COL[w.niveau_priorite]||'var(--gris)'};color:${txtOn(w)}">
+      ${esc(t.prio)} ${esc(t.pr[w.niveau_priorite]||ND())}</span>
+  </div>
+
+  <dl class="keys">
+    <div><dt>${esc(t.keys.pop)}</dt><dd>${num(w.population_2019)}</dd></div>
+    <div><dt>${esc(t.keys.enf614)}</dt><dd>${num(w.enfants_6_14)}</dd></div>
+    <div><dt>${esc(t.keys.hors)}</dt><dd style="color:var(--ri)">${num(w.enfants_hors_ecole)}</dd></div>
+    <div><dt>${esc(t.keys.taux)}</dt><dd>${w.taux_hors_ecole==null?ND():Math.round(w.taux_hors_ecole)}</dd></div>
+    <div><dt>${esc(t.keys.pauv)}</dt><dd>${pct(w.taux_pauvrete,0)}</dd></div>
+    <div><dt>${esc(t.keys.rural)}</dt><dd>${pct(w.part_rurale,0)}</dd></div>
+  </dl>
+
+  <div class="card mt">
+    <p class="eyebrow" style="margin-bottom:12px">${esc(t.waffleT)}</p>
+    <div class="waffle" style="max-width:260px">${waffle(w)}</div>
+    <div class="wkey">${waffleKey(w)}</div>
+  </div>
+
+  <div class="card mt">
+    <div class="gen">
+      <div class="grow"><span>${esc(t.boys)}</span>
+        <div class="gbar"><i style="width:${(g??0)/mx*100}%"></i></div><b>${pct(g)}</b></div>
+      <div class="grow"><span>${esc(t.girls)}</span>
+        <div class="gbar"><i style="width:${(f??0)/mx*100}%"></i></div><b>${pct(f)}</b></div>
+    </div>
+    <p class="gap">${esc(gapTxt)}</p>
+  </div>
+
+  <div class="why">
+    <h3>${esc(t.why)}</h3>
+    <p>${esc(expl(w))}</p>
+  </div>
+
+  <div class="lever">
+    <small>${esc(t.lever)}</small>
+    <strong>${esc(t.lv[w.mecanisme]||ND())}</strong>
+  </div>
+
+  <div class="acts">
+    <h3>${esc(t.acts)}</h3>
+    ${actions(w)}
+    <p class="tile-note">${esc(t.actsNote)}</p>
+  </div>
+
+  <button class="btn" onclick="window.print()">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round"><path d="M7 9V3h10v6M7 19H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2M7 15h10v6H7z"/></svg>
+    ${esc(t.print)}</button>
+  <button class="btn" data-go="cmp" style="margin-inline-start:8px">${esc(t.compare)}</button>`;
+}
+
+/* ── 9. Simulateur ─────────────────────────────────────────────────────────
+   C'est le seul écran où l'interface calcule, et c'est assumé : une simulation
+   est par nature un calcul. Trois règles d'allocation d'une même capacité,
+   exprimée en enfants à scolariser. Aucune wilaya ne peut recevoir plus de
+   places qu'elle n'a d'enfants hors école : le surplus est redistribué.       */
+let REGLE='prorata';
+const REGLES=['prorata','priorite','egal'];
+
+function alloue(cap, regle){
+  const a={}; DATA.forEach(w=>a[w.wilaya]=0);
+  const besoin=w=>w.enfants_hors_ecole||0;
+  if(regle==='priorite'){
+    let rest=cap;
+    [...DATA].sort((x,y)=>(x.rang||99)-(y.rang||99)).forEach(w=>{
+      const p=Math.min(rest,besoin(w)); a[w.wilaya]=p; rest-=p;
+    });
+  }else{
+    let rest=cap;
+    for(let i=0;i<30 && rest>=1;i++){
+      const ouv=DATA.filter(w=>a[w.wilaya] < besoin(w)-0.5);
+      if(!ouv.length) break;
+      const base=ouv.reduce((s,w)=>s+besoin(w),0)||1;
+      ouv.forEach(w=>{
+        const q = rest * (regle==='prorata' ? besoin(w)/base : 1/ouv.length);
+        a[w.wilaya] += Math.min(q, besoin(w)-a[w.wilaya]);
+      });
+      rest = cap - Object.values(a).reduce((s,v)=>s+v,0);
+    }
+  }
+  return a;
+}
+
+/* Conversion des enfants en moyens concrets. Deux hypothèses seulement, toutes
+   deux affichées et modifiables par l'utilisateur. Rien n'est deviné.
+   Le type de moyen dépend du mécanisme : on ne construit pas une école pour un
+   enfant déjà scolarisé en mahadra, on lui ouvre une passerelle. */
+function moyens(w, places){
+  const parSalle=Math.max(1, +document.getElementById('hypSalle').value||40);
+  const parEcole=Math.max(1, +document.getElementById('hypEcole').value||6);
+  const salles=Math.ceil(places/parSalle);
+  const m=w.mecanisme;
+  return {
+    salles,
+    enseignants: salles,                                   // un maître par salle
+    ecoles: m==='Exclusion' ? Math.ceil(salles/parEcole) : 0,
+    type: m==='Exclusion' ? 'ecoles' : m==='Volume élevé' ? 'extension' : 'passerelles'
+  };
+}
+
+function drawSim(){
+  const rng=document.getElementById('simRange');
+  const besoinTot=DATA.reduce((s,w)=>s+(w.enfants_hors_ecole||0),0);
+  const enf614=DATA.reduce((s,w)=>s+(w.enfants_6_14||0),0);
+  /* Le dernier cran du curseur doit valoir exactement le besoin total, sinon
+     il resterait toujours un reliquat d'enfants impossible à couvrir. */
+  rng.max=Math.ceil(besoinTot/5000)*5000;
+  const cap=Math.min(+rng.value, besoinTot);
+
+  document.getElementById('simVal').textContent=num(cap);
+  document.getElementById('simShare').textContent=
+    `${pct(cap/besoinTot*100,0)} ${t.simOfNeed}`;
+
+  document.getElementById('simSegs').innerHTML=REGLES.map(r=>
+    `<button data-r="${r}" aria-pressed="${r===REGLE}">
+       <b>${esc(t.rules[r][0])}</b><small>${esc(t.rules[r][1])}</small></button>`).join('');
+  document.querySelectorAll('#simSegs button').forEach(b=>
+    b.onclick=()=>{ REGLE=b.dataset.r; drawSim(); });
+
+  const a=alloue(cap,REGLE);
+  const place=Object.values(a).reduce((s,v)=>s+v,0);
+  const lignes=DATA.map(w=>{
+    const p=a[w.wilaya]||0, reste=(w.enfants_hors_ecole||0)-p;
+    return {w, p, reste, apres: w.enfants_6_14 ? reste/w.enfants_6_14*100 : null};
+  }).filter(o=>o.p>=1);
+  /* En mode « les plus urgentes d'abord », le tableau suit l'ordre de l'indice :
+     afficher le rang 2 avant le rang 1 rendrait la règle illisible. */
+  lignes.sort(REGLE==='priorite'
+    ? (x,y)=>(x.w.rang||99)-(y.w.rang||99)
+    : (x,y)=>y.p-x.p);
+
+  const natApres=(besoinTot-place)/enf614*100;
+  const regl=DATA.filter(w=>(w.enfants_hors_ecole||0)-(a[w.wilaya]||0) < 1).length;
+  const pires=DATA.map(w=>({w, tx: w.enfants_6_14
+      ? ((w.enfants_hors_ecole||0)-(a[w.wilaya]||0))/w.enfants_6_14*100 : 0}))
+    .sort((x,y)=>y.tx-x.tx)[0];
+
+  document.getElementById('simSynth').innerHTML=
+    `<small>${esc(t.simPlaces)}</small>
+     <strong>${num(place)} ${esc(t.simKids)}</strong>
+     <small>${esc(t.simNat)} ${pct(NAT.taux)} <span style="opacity:.6">→</span> ${pct(natApres)}</small>`;
+  document.getElementById('simNote').textContent=t.simSame;
+  document.getElementById('simSort').textContent=t.simSort;
+
+  document.getElementById('simMets').innerHTML=
+    `<div><dt>${esc(t.simSolved)}</dt><dd>${regl} <span style="font-size:15px;
+       color:var(--gris)">/ 13</span></dd></div>
+     <div><dt>${esc(t.simWorst)}</dt><dd>${pct(pires.tx)}<span style="display:block;
+       font-family:var(--sans);font-size:12px;font-weight:400;color:var(--gris)">${esc(nom(pires.w))}</span></dd></div>`;
+
+  const tb=document.getElementById('simTable');
+  /* Moyens à mobiliser, agrégés puis détaillés */
+  const M=lignes.map(o=>({o, m:moyens(o.w, o.p)}));
+  const tSalles=M.reduce((s,x)=>s+x.m.salles,0);
+  const tEcoles=M.reduce((s,x)=>s+x.m.ecoles,0);
+  const tProfs =M.reduce((s,x)=>s+x.m.enseignants,0);
+  const passer =M.filter(x=>x.m.type==='passerelles').reduce((s,x)=>s+x.o.p,0);
+  document.getElementById('simMoyens').innerHTML=
+    `<div><b>${num(tSalles)}</b><i>${esc(t.moySalles)}</i>
+       <small>${esc(t.moyProfs.replace('%s',num(tProfs)))}</small></div>
+     <div><b>${num(tEcoles)}</b><i>${esc(t.moyEcoles)}</i>
+       <small>${esc(t.moyEcolesN)}</small></div>
+     <div><b>${num(passer)}</b><i>${esc(t.moyPass)}</i>
+       <small>${esc(t.moyPassN)}</small></div>`;
+
+  tb.querySelector('thead').innerHTML=`<tr><th class="num">${esc(t.simCols.rank)}</th>
+    <th>${esc(t.simCols.wilaya)}</th>
+    <th class="num">${esc(t.simCols.places)}</th><th class="num">${esc(t.simCols.rate)}</th>
+    <th>${esc(t.simCols.moy)}</th><th>${esc(t.simCols.lev)}</th></tr>`;
+  tb.querySelector('tbody').innerHTML = M.length ? M.map(({o,m})=>`
+    <tr data-w="${esc(o.w.wilaya)}">
+      <td class="num rk">${o.w.rang??ND()}</td>
+      <td><span class="dot" style="background:${COL[o.w.niveau_priorite]||'var(--gris)'}"></span>${esc(nom(o.w))}</td>
+      <td class="num">${num(o.p)}</td>
+      <td class="num">${pct(o.w.taux_hors_ecole)}<span class="arw">→</span><span
+        class="aft ${o.apres<1?'zero':''}">${pct(o.apres)}</span></td>
+      <td>${m.type==='ecoles'
+            ? `${num(m.salles)} ${esc(t.moySallesC)}<br><span style="color:var(--gris)">${num(m.ecoles)} ${esc(t.moyEcolesC)}</span>`
+            : m.type==='extension'
+            ? `${num(m.salles)} ${esc(t.moySallesC)}<br><span style="color:var(--gris)">${esc(t.moyExtC)}</span>`
+            : `${num(m.salles)} ${esc(t.moyPassC)}<br><span style="color:var(--gris)">${esc(t.moyCertC)}</span>`}</td>
+      <td>${esc(t.lvShort[o.w.mecanisme]||ND())}</td></tr>`).join('')
+    : `<tr><td colspan="6" style="color:var(--gris)">${ND()}</td></tr>`;
+  tb.querySelectorAll('tbody tr[data-w]').forEach(tr=>tr.onclick=()=>openSheet(tr.dataset.w));
+}
+document.getElementById('simRange').addEventListener('input',drawSim);
+['hypSalle','hypEcole'].forEach(id=>
+  document.getElementById(id).addEventListener('input',drawSim));
+
+/* ── 10. Comparateur ───────────────────────────────────────────────────── */
+function drawCmpOptions(){
+  ['cmpA','cmpB'].forEach((id,i)=>{
+    const s=document.getElementById(id), keep=s.value;
+    s.innerHTML=[...DATA].sort((a,b)=>a.rang-b.rang)
+      .map(w=>`<option value="${esc(w.wilaya)}">${esc(nom(w))}</option>`).join('');
+    s.value = keep || (i===0?'Hodh El Gharbi':'Guidimakha');
+    s.onchange=drawCmp;
+  });
+}
+function drawCmp(){
+  const A=DATA.find(x=>x.wilaya===document.getElementById('cmpA').value);
+  const B=DATA.find(x=>x.wilaya===document.getElementById('cmpB').value);
+  const out=document.getElementById('cmpOut');
+  if(!A||!B){ out.innerHTML=`<p class="lede mt">${ND()}</p>`; return; }
+  const row=(lab,va,vb,hiA,hiB)=>`<div class="cmp-row"><span class="cmp-lab">${esc(lab)}</span>
+    <span class="cmp-val ${hiA?'hi':''}">${va}</span><span class="cmp-val ${hiB?'hi':''}">${vb}</span></div>`;
+  out.innerHTML=`
+  <div class="cmp mt">
+    <div class="card"><p class="eyebrow" style="margin-bottom:10px">${esc(t.waffleT)}</p>
+      <div class="waffle">${waffle(A)}</div></div>
+    <div class="card"><p class="eyebrow" style="margin-bottom:10px">${esc(t.waffleT)}</p>
+      <div class="waffle">${waffle(B)}</div></div>
+  </div>
+  <div class="wkey" style="margin-top:14px">${waffleKey(A)}</div>
+  <div class="mt">
+    ${row(t.cols.taux, pct(A.taux_hors_ecole), pct(B.taux_hors_ecole))}
+    ${row(t.waffle[1], pct(A.pct_mahadra), pct(B.pct_mahadra),
+          A.pct_mahadra>B.pct_mahadra, B.pct_mahadra>A.pct_mahadra)}
+    ${row(t.waffle[2], pct(A.pct_aucune_instruction), pct(B.pct_aucune_instruction),
+          A.pct_aucune_instruction>B.pct_aucune_instruction,
+          B.pct_aucune_instruction>A.pct_aucune_instruction)}
+    ${row(t.cols.enfants, num(A.enfants_hors_ecole), num(B.enfants_hors_ecole))}
+    ${row(t.keys.pauv, pct(A.taux_pauvrete,0), pct(B.taux_pauvrete,0))}
+    ${row(t.keys.rural, pct(A.part_rurale,0), pct(B.part_rurale,0))}
+    ${row(t.keys.dep, num(A.ratio_dependance), num(B.ratio_dependance))}
+    ${row(t.lever, esc(t.lvShort[A.mecanisme]||ND()), esc(t.lvShort[B.mecanisme]||ND()))}
+  </div>`;
+}
+
+/* ── 11. Méthodologie ──────────────────────────────────────────────────── */
+const METH={
+fr:`<h3>1. Les données</h3>
+<ul>
+<li><b>Population par wilaya, 2013-2019</b> — base fournie par l'organisation du hackathon (IndabaX Mauritanie, édition 2026). Elle donne le <i>nombre</i> d'habitants.</li>
+<li><b>EPCV 2019</b> — Enquête Permanente sur les Conditions de Vie des ménages, ANSADE. Extrait exploité : 60 600 individus, 13 wilayas. Elle donne les <i>taux</i> : qui va à l'école, qui est pauvre, garçon ou fille, ville ou campagne. Cette base ne fait pas partie des données fournies : nous sommes allés la chercher auprès de l'ANSADE.</li>
+</ul>
+<p>Les deux bases sont reliées par la wilaya. Un taux multiplié par une population donne un effectif réel. C'est toute la méthode : <b>nous transformons des pourcentages en enfants</b>.</p>
+
+<h3>2. Ce que veut dire « hors école formelle »</h3>
+<p>Un enfant de 6 à 14 ans est compté <b>hors école formelle</b> s'il n'a jamais fréquenté l'école publique ou privée reconnue. Nous séparons ensuite deux situations très différentes :</p>
+<ul>
+<li><b>Mahadra ou école coranique seulement</b> — l'enfant apprend, mais son parcours ne débouche sur aucun diplôme reconnu. Il lui faut une <i>passerelle</i>.</li>
+<li><b>Aucune instruction</b> — l'enfant n'est nulle part. Il lui faut une <i>école</i>.</li>
+</ul>
+<p>Les deux additionnés font le taux hors école formelle. Cette distinction est le cœur du projet : deux wilayas au même taux peuvent avoir des problèmes opposés.</p>
+
+<h3>3. L'indice de priorité éducative</h3>
+<div class="formula">
+<code>indice = 0,45 × volume + 0,35 × intensité + 0,20 × vulnérabilité</code><br>
+volume = nombre d'enfants hors école · intensité = taux hors école · vulnérabilité = taux de pauvreté<br>
+Chaque terme est ramené sur une échelle de 0 à 100 par min-max sur les 13 wilayas :
+<code>(x − min) / (max − min) × 100</code>
+</div>
+<p>Le volume pèse le plus parce qu'un budget se dépense en enfants, pas en pourcentages. L'intensité corrige l'effet de taille. La vulnérabilité rappelle qu'à situation scolaire égale, une wilaya pauvre a moins de moyens propres. L'indice est simple <b>exprès</b> : il s'explique en 30 secondes et n'importe qui peut le recalculer.</p>
+
+<h3>3 bis. Pourquoi 45 / 35 / 20 et pas d'autres chiffres ?</h3>
+<p>C'est la question qu'il faut poser, et la réponse honnête tient en deux temps.</p>
+<p><b>Le raisonnement derrière chaque poids.</b></p>
+<ul>
+<li><b>Volume 45 %</b> — c'est la seule des trois grandeurs qui se traduit directement en salles de classe et en enseignants. Un ministère ne construit pas pour un pourcentage. Nous lui donnons le poids majoritaire sans lui donner la majorité absolue : à 50 % ou plus, le classement se réduirait à un tri par population et Nouakchott passerait première, ce qui n'aurait aucun sens pour l'urgence.</li>
+<li><b>Intensité 35 %</b> — assez pour corriger l'effet de taille et empêcher les petites wilayas très touchées de disparaître derrière les grandes. C'est le contrepoids du volume, et il est presque aussi lourd que lui.</li>
+<li><b>Vulnérabilité 20 %</b> — un poids délibérément minoritaire. La pauvreté n'est pas un indicateur scolaire : elle module la difficulté à agir, elle ne mesure pas le problème. Lui donner plus reviendrait à faire un classement de la pauvreté, pas de l'éducation.</li>
+</ul>
+<p><b>Ce que change réellement le choix des poids.</b> Nous avons recalculé le classement pour les <b>231 combinaisons de poids possibles</b> par pas de 5 %, de 100/0/0 à 0/0/100. Résultat :</p>
+<div class="formula">
+Guidimakha, Hodh El Gharbi et Assaba sont dans les cinq premières <code>dans 100 % des cas</code><br>
+Guidimakha arrive première <code>dans 67 % des cas</code><br>
+Trarza, Inchiri, Dakhlet Nouadhibou, Tiris Zemmour et Adrar n'entrent dans les cinq premières <code>dans aucun cas</code>
+</div>
+<p class="card warn" style="margin-top:10px"><b>Ce que cela veut dire, et ce que cela ne veut pas dire.</b> Le classement fin <b>bouge</b> avec les poids : seul un tiers des combinaisons donne exactement le même top 5, et Hodh El Charghi peut descendre au 10<sup>e</sup> rang si l'on ne regarde que l'intensité. Nous ne prétendons pas que 45/35/20 soit la seule pondération défendable.<br><br>En revanche, <b>l'ensemble des wilayas prioritaires est robuste</b>. Trois wilayas sont dans les cinq premières quoi qu'on fasse, et cinq n'y entrent jamais. Autrement dit : le choix des poids déplace l'ordre, il ne déplace pas la décision. Un décideur qui privilégierait l'intensité investirait dans les mêmes régions, dans un ordre différent.</p>
+<p>C'est pourquoi la formule est affichée : elle n'est pas là pour être crue, elle est là pour être recalculée.</p>
+
+<h3>4. Le mécanisme</h3>
+<ul>
+<li><b>Exclusion</b> — la majorité des enfants hors école ne reçoit aucune instruction. Levier : créer de l'offre scolaire.</li>
+<li><b>Substitution</b> — la majorité est en mahadra ou école coranique. Levier : passerelles et équivalences.</li>
+<li><b>Volume élevé</b> — la wilaya pèse au moins 15 % du besoin national alors que son taux reste sous la moyenne (33,1 %). Le problème est un problème de masse. Levier : capacité d'accueil.</li>
+</ul>
+
+<h3>5. Le simulateur : ce qu'il fait et ce qu'il ne fait pas</h3>
+<p>Le simulateur répond à une question de répartition, pas de budget. Vous fixez une <b>capacité exprimée en enfants</b> — le nombre d'enfants que vous pouvez scolariser — et vous choisissez une règle. L'outil montre où vont les places et ce qu'il reste après.</p>
+<ul>
+<li><b>Selon le nombre</b> — chaque wilaya reçoit une part proportionnelle à son nombre d'enfants hors école.</li>
+<li><b>Les plus urgentes d'abord</b> — on suit l'ordre de l'indice et on règle chaque wilaya entièrement avant de passer à la suivante.</li>
+<li><b>La même part pour chacune</b> — partage égal entre les 13 wilayas.</li>
+</ul>
+<p>Dans les trois cas, aucune wilaya ne peut recevoir plus de places qu'elle n'a d'enfants hors école ; le surplus est redistribué aux autres.</p>
+<p class="card warn" style="margin-top:8px"><b>Un point à comprendre :</b> le taux national après simulation est <b>identique pour les trois règles</b>. C'est arithmétique — le nombre total d'enfants scolarisés ne dépend pas de la façon de les répartir. Ce qui change, c'est la distribution : combien de wilayas voient leur problème réglé, et à quel niveau reste la plus en retard. C'est pourquoi ces deux chiffres sont affichés. <b>Aucune des trois règles n'est « la bonne »</b> : concentrer règle quelques wilayas et en laisse d'autres intactes, étaler soulage tout le monde sans régler personne. L'arbitrage est politique, pas statistique. L'outil l'éclaire, il ne le tranche pas.</p>
+<p>Nous ne chiffrons volontairement <b>aucun coût</b>. Une place en école coûte autre chose qu'une passerelle depuis une mahadra, et nous n'avons pas de données de coût fiables. Convertir des enfants en ouguiyas serait une invention, pas une analyse.</p>
+<p><b>En revanche, nous convertissons les enfants en moyens matériels</b>, à partir de deux hypothèses seulement, toutes deux affichées à l'écran et modifiables : le nombre d'élèves par salle de classe (40 par défaut, maximum recommandé par les normes minimales de l'INEE pour le primaire) et le nombre de salles par école (6 par défaut). Le type de moyen dépend du mécanisme :</p>
+<ul>
+<li><b>Exclusion</b> — des salles neuves et les écoles qui les abritent, là où il n'existe aucune offre.</li>
+<li><b>Volume élevé</b> — des salles supplémentaires dans des écoles existantes : l'offre existe, elle est saturée.</li>
+<li><b>Substitution</b> — des classes passerelles et la certification de mahadras existantes. On ne construit pas une école pour un enfant qui apprend déjà.</li>
+</ul>
+<p>Un enseignant est compté par salle. Si le ministère applique d'autres normes, il change les deux valeurs et tout se recalcule.</p>
+
+<h3>6. Les limites</h3>
+<p class="card warn" style="margin-top:8px">Ce que ces données <b>ne permettent pas</b> de dire :</p>
+<ul>
+<li>L'EPCV est un <b>échantillon</b>. Les taux sont des estimations. Sur les petites wilayas la marge d'erreur est large : ±4,5 points pour l'Inchiri (267 enfants enquêtés) et ±4,1 pour le Tagant, contre ±1,7 à Nouakchott. Les écarts de rang entre wilayas voisines dans le classement doivent être lus avec prudence.</li>
+<li>L'extrait exploité <b>ne comporte pas de pondération de sondage</b>. Les taux sont calculés sur l'échantillon brut ; ils peuvent s'écarter légèrement des chiffres officiels publiés par l'ANSADE.</li>
+<li>Les taux datent de <b>2019</b> et sont appliqués à la population 2019. Rien ne dit qu'ils sont encore valables aujourd'hui.</li>
+<li>Nous mesurons si l'enfant est <b>déjà allé</b> à l'école, pas s'il y est aujourd'hui ni ce qu'il y apprend. Un enfant inscrit mais absent est compté comme scolarisé.</li>
+<li>Nous ne mesurons <b>ni la qualité</b> de l'enseignement, ni la distance à l'école, ni l'état des bâtiments, ni le nombre d'enseignants disponibles. Un diagnostic n'est pas un plan de construction.</li>
+<li>Nous ne <b>prédisons rien</b>. EduFocus décrit une situation observée et la rend comparable. Il ne dit pas ce qui se passera si l'on investit.</li>
+<li>Les pondérations de l'indice (45/35/20) sont un <b>choix</b>, pas un résultat. Un décideur qui privilégierait l'intensité obtiendrait un autre classement — c'est pourquoi la formule est affichée.</li>
+</ul>
+
+<h3>7. Déclaration d'usage de l'intelligence artificielle (Article 5)</h3>
+<p class="card warn" style="margin-top:8px">L'équipe a utilisé un assistant IA (Claude, Anthropic) pendant le hackathon. Cet usage est déclaré conformément à l'article 5 du règlement.<br><br>
+<b>Défini et décidé par l'équipe :</b> le choix du thème et de la problématique ; la décision d'aller chercher l'EPCV 2019 auprès de l'ANSADE, base qui ne fait pas partie des données fournies par l'organisation ; la définition de « hors école formelle » et la décision de séparer l'enseignement coranique ou mahadra de l'absence totale d'instruction — l'idée centrale du projet ; les pondérations de l'indice (45 / 35 / 20) ; la spécification écran par écran de l'application ; l'interprétation des résultats et les messages retenus.<br><br>
+<b>Produit avec l'assistant :</b> le code Python d'analyse (croisement des deux bases, calcul des indicateurs, de l'indice et des mécanismes) ; le code HTML, CSS et JavaScript du prototype ; la rédaction des textes explicatifs et leur traduction en arabe et en anglais ; la génération des recommandations par wilaya à partir de règles arrêtées avec l'équipe ; la suite de tests automatisés ; la conception du tableau de bord et la refonte du simulateur en trois règles de répartition.<br><br>
+<b>Vérification :</b> tous les chiffres affichés ont été recalculés depuis les données sources et confrontés au document de soumission de l'équipe. Les scripts d'analyse sont fournis avec le projet, ce qui permet à quiconque de refaire l'intégralité des calculs.</p>
+
+<h3>8. Sources</h3>
+<p class="src">1. Population par wilaya, 2013-2019. Base fournie par l'organisation du hackathon — IndabaX Mauritanie, Édition 2026.<br><br>
+2. Enquête Permanente sur les Conditions de Vie des ménages (EPCV 2019). Agence Nationale de la Statistique et de l'Analyse Démographique et Économique (ANSADE), République Islamique de Mauritanie. Extrait exploité : 60 600 individus, 13 wilayas. Base obtenue auprès de l'ANSADE, producteur officiel des statistiques démographiques et de pauvreté du pays, accessible sur demande auprès de l'Agence.<br><br>
+5. Normes minimales de l'INEE (Inter-Agency Network for Education in Emergencies) : 40 élèves par enseignant maximum au primaire. Utilisé comme hypothèse par défaut du simulateur, modifiable par l'utilisateur.<br><br>3. Fond de carte : Natural Earth, admin-1 (domaine public), simplifié à 1,2 km.<br><br>
+4. Ressources open source utilisées : polices Poppins et Nunito Sans (SIL Open Font License 1.1), IBM Plex Sans Arabic et Amiri (SIL OFL 1.1). Aucune bibliothèque graphique externe : la carte, les anneaux et les graphiques sont écrits en SVG par l'équipe.</p>
+
+<h3>9. Note technique</h3>
+<p class="src">L'application lit une seule source, <code>wilayas.csv</code> (13 lignes). Tous les indicateurs — indice, rang, niveau de priorité, mécanisme, explication — sont calculés en amont et figurent dans le fichier. L'interface ne recalcule rien, à une exception près, assumée et documentée en section 5 : l'allocation du simulateur. Aucune donnée n'est envoyée ailleurs ; la page fonctionne hors connexion.</p>`,
+
+en:`<h3>1. The data</h3>
+<ul>
+<li><b>Population by wilaya, 2013-2019</b> — base provided by the hackathon organisers (IndabaX Mauritania, 2026 edition). It gives the <i>number</i> of people.</li>
+<li><b>EPCV 2019</b> — Permanent Household Living Conditions Survey, ANSADE. Extract used: 60,600 individuals, 13 wilayas. It gives the <i>rates</i>: who goes to school, who is poor, boy or girl, town or countryside. This base was not part of the data supplied: we obtained it from ANSADE.</li>
+</ul>
+<p>The two bases are joined on the wilaya. A rate multiplied by a population gives a real headcount. That is the whole method: <b>we turn percentages into children</b>.</p>
+
+<h3>2. What "out of formal school" means</h3>
+<p>A child aged 6 to 14 counts as <b>out of formal school</b> if they have never attended a recognised public or private school. We then separate two very different situations:</p>
+<ul>
+<li><b>Mahadra or Quranic school only</b> — the child is learning, but the path leads to no recognised qualification. They need a <i>bridge</i>.</li>
+<li><b>No instruction at all</b> — the child is nowhere. They need a <i>school</i>.</li>
+</ul>
+<p>Added together, these give the out-of-formal-school rate. This distinction is the heart of the project: two wilayas with the same rate can have opposite problems.</p>
+
+<h3>3. The educational priority index</h3>
+<div class="formula">
+<code>index = 0.45 × volume + 0.35 × intensity + 0.20 × vulnerability</code><br>
+volume = children out of school · intensity = out-of-school rate · vulnerability = poverty rate<br>
+Each term is rescaled 0-100 by min-max across the 13 wilayas:
+<code>(x − min) / (max − min) × 100</code>
+</div>
+<p>Volume weighs most because budgets are spent on children, not on percentages. Intensity corrects for size. Vulnerability recalls that, at equal schooling, a poor wilaya has fewer means of its own. The index is <b>deliberately</b> simple: it can be explained in 30 seconds and recomputed by anyone.</p>
+
+<h3>3 bis. Why 45 / 35 / 20 and not other figures?</h3>
+<p>That is the question to ask, and the honest answer comes in two parts.</p>
+<ul>
+<li><b>Volume 45 %</b> — the only one of the three that translates directly into classrooms and teachers. A ministry does not build for a percentage. It gets the largest weight but not an absolute majority: at 50 % or more the ranking would collapse into a population sort and Nouakchott would come first, which makes no sense for urgency.</li>
+<li><b>Intensity 35 %</b> — enough to correct for size and stop small, badly affected wilayas from vanishing behind large ones. It is the counterweight to volume, and almost as heavy.</li>
+<li><b>Vulnerability 20 %</b> — deliberately a minority weight. Poverty is not a schooling indicator: it modulates how hard action will be, it does not measure the problem. Giving it more would produce a poverty ranking, not an education one.</li>
+</ul>
+<p><b>What the choice of weights actually changes.</b> We recomputed the ranking for all <b>231 possible weight combinations</b> in steps of 5 %, from 100/0/0 to 0/0/100:</p>
+<div class="formula">
+Guidimakha, Hodh El Gharbi and Assaba are in the top five <code>in 100 % of cases</code><br>
+Guidimakha ranks first <code>in 67 % of cases</code><br>
+Trarza, Inchiri, Dakhlet Nouadhibou, Tiris Zemmour and Adrar reach the top five <code>in no case at all</code>
+</div>
+<p class="card warn" style="margin-top:10px"><b>What this means, and what it does not.</b> The fine ranking <b>does move</b> with the weights: only a third of the combinations give exactly the same top five, and Hodh Ech Chargui can fall to 10th if intensity alone is used. We do not claim 45/35/20 is the only defensible weighting.<br><br>But <b>the set of priority wilayas is robust</b>. Three are in the top five whatever you do, and five never are. In other words: the choice of weights shifts the order, not the decision. A decision-maker favouring intensity would invest in the same regions, in a different order.</p>
+<p>That is why the formula is displayed: it is not there to be believed, it is there to be recomputed.</p>
+
+<h3>4. The mechanism</h3>
+<ul>
+<li><b>Exclusion</b> — most out-of-school children receive no instruction at all. Lever: build school provision.</li>
+<li><b>Substitution</b> — most attend a mahadra or Quranic school. Lever: bridges and equivalences.</li>
+<li><b>High volume</b> — the wilaya holds at least 15 % of the national need while its rate stays below average (33.1 %). The problem is one of scale. Lever: intake capacity.</li>
+</ul>
+
+<h3>5. The simulator: what it does and does not do</h3>
+<p>The simulator answers a question of distribution, not of budget. You set a <b>capacity expressed in children</b> — how many children you can put into school — and choose a rule. The tool shows where the places go and what remains afterwards.</p>
+<ul>
+<li><b>By numbers</b> — each wilaya receives a share proportional to its out-of-school children.</li>
+<li><b>Most urgent first</b> — following the index order, each wilaya is settled in full before moving to the next.</li>
+<li><b>An equal share each</b> — split evenly between the 13 wilayas.</li>
+</ul>
+<p>In all three cases no wilaya can receive more places than it has out-of-school children; the surplus is redistributed.</p>
+<p class="card warn" style="margin-top:8px"><b>One thing to understand:</b> the national rate after simulation is <b>identical under all three rules</b>. This is arithmetic — the total number of children schooled does not depend on how they are spread. What changes is the distribution: how many wilayas see their problem settled, and how far behind the worst one remains. That is why those two figures are displayed. <b>None of the three rules is "the right one"</b>: concentrating settles a few wilayas and leaves others untouched, spreading eases everyone without settling anyone. The trade-off is political, not statistical. The tool illuminates it; it does not decide it.</p>
+<p>We deliberately put <b>no cost figures</b> on this. A school place costs something different from a bridge out of a mahadra, and we have no reliable cost data. Converting children into ouguiyas would be invention, not analysis.</p>
+<p><b>We do, however, convert children into physical resources</b>, from two assumptions only, both shown on screen and editable: pupils per classroom (40 by default, the maximum recommended by INEE minimum standards for primary) and classrooms per school (6 by default). The kind of resource follows the mechanism: new classrooms and the schools to house them under Exclusion; extra classrooms inside existing schools under High volume; bridging classes and certification of existing mahadras under Substitution. One teacher is counted per classroom. If the ministry applies other norms, it changes the two values and everything recomputes.</p>
+
+<h3>6. Limits</h3>
+<p class="card warn" style="margin-top:8px">What these data <b>cannot</b> tell us:</p>
+<ul>
+<li>EPCV is a <b>sample</b>. Rates are estimates. In small wilayas the margin of error is wide: ±4.5 points for Inchiri (267 children surveyed) and ±4.1 for Tagant, against ±1.7 in Nouakchott. Rank differences between neighbouring wilayas should be read with care.</li>
+<li>The extract used <b>carries no survey weights</b>. Rates are computed on the raw sample and may differ slightly from ANSADE's published figures.</li>
+<li>Rates date from <b>2019</b> and are applied to the 2019 population. Nothing says they still hold today.</li>
+<li>We measure whether a child <b>has ever attended</b> school, not whether they attend today nor what they learn there. A child enrolled but absent counts as schooled.</li>
+<li>We measure <b>neither quality</b> of teaching, nor distance to school, nor the state of buildings, nor available teachers. A diagnosis is not a construction plan.</li>
+<li>We <b>predict nothing</b>. EduFocus describes an observed situation and makes it comparable. It does not say what will happen if you invest.</li>
+<li>The index weights (45/35/20) are a <b>choice</b>, not a result. A decision-maker favouring intensity would get another ranking — which is why the formula is shown.</li>
+</ul>
+
+<h3>7. Declaration on the use of artificial intelligence (Article 5)</h3>
+<p class="card warn" style="margin-top:8px">The team used an AI assistant (Claude, Anthropic) during the hackathon. This use is declared in accordance with Article 5 of the rules.<br><br>
+<b>Defined and decided by the team:</b> the choice of theme and research question; the decision to obtain EPCV 2019 from ANSADE, a base not included in the data supplied by the organisers; the definition of "out of formal school" and the decision to separate Quranic or mahadra teaching from the complete absence of instruction — the project's central idea; the index weights (45 / 35 / 20); the screen-by-screen specification of the application; the interpretation of results and the messages retained.<br><br>
+<b>Produced with the assistant:</b> the Python analysis code (joining the two bases, computing the indicators, the index and the mechanisms); the HTML, CSS and JavaScript of the prototype; the writing of explanatory texts and their translation into Arabic and English; the generation of per-wilaya recommendations from rules agreed with the team; the automated test suite; the dashboard design and the redesign of the simulator into three allocation rules.<br><br>
+<b>Verification:</b> every figure displayed was recomputed from the source data and checked against the team's submission document. The analysis scripts are provided with the project, so anyone can reproduce the whole calculation.</p>
+
+<h3>8. Sources</h3>
+<p class="src">1. Population by wilaya, 2013-2019. Base provided by the hackathon organisers — IndabaX Mauritania, 2026 Edition.<br><br>
+2. Permanent Household Living Conditions Survey (EPCV 2019). National Agency for Statistics and Demographic and Economic Analysis (ANSADE), Islamic Republic of Mauritania. Extract used: 60,600 individuals, 13 wilayas. Obtained from ANSADE, the country's official producer of demographic and poverty statistics, available on request from the Agency.<br><br>
+5. INEE minimum standards (Inter-Agency Network for Education in Emergencies): 40 pupils per teacher maximum at primary level. Used as the simulator's default assumption, editable by the user.<br><br>3. Base map: Natural Earth, admin-1 (public domain), simplified to 1.2 km.<br><br>
+4. Open source resources used: Poppins and Nunito Sans fonts (SIL Open Font License 1.1), IBM Plex Sans Arabic and Amiri (SIL OFL 1.1). No external charting library: the map, rings and charts are written in SVG by the team.</p>
+
+<h3>9. Technical note</h3>
+<p class="src">The application reads a single source, <code>wilayas.csv</code> (13 rows). Every indicator — index, rank, priority level, mechanism, explanation — is computed upstream and stored in the file. The interface recomputes nothing, with one deliberate exception, documented in section 5: the simulator's allocation. No data is sent anywhere; the page works offline.</p>`,
+
+ar:`<h3>1. البيانات</h3>
+<ul>
+<li><b>السكان حسب الولاية، 2013-2019</b> — قاعدة قدمتها إدارة الهاكاثون (IndabaX موريتانيا، نسخة 2026). تعطي <i>عدد</i> السكان.</li>
+<li><b>المسح الدائم لظروف معيشة الأسر (EPCV 2019)</b> — الوكالة الوطنية للإحصاء والتحليل الديموغرافي والاقتصادي (ANSADE). المقتطف المستعمل: 60,600 فرد، 13 ولاية. تعطي <i>النسب</i>: من يذهب إلى المدرسة، من هو فقير، ولد أم بنت، مدينة أم ريف. هذه القاعدة ليست ضمن البيانات المقدمة: حصلنا عليها من ANSADE.</li>
+</ul>
+<p>تُربط القاعدتان بالولاية. نسبة مضروبة في عدد السكان تعطي عدداً حقيقياً. هذه هي المنهجية كلها: <b>نحوّل النسب المئوية إلى أطفال</b>.</p>
+
+<h3>2. معنى «خارج المدرسة النظامية»</h3>
+<p>يُحتسب الطفل من 6 إلى 14 سنة <b>خارج المدرسة النظامية</b> إذا لم يلتحق قط بمدرسة عمومية أو خصوصية معترف بها. ثم نفصل بين وضعيتين مختلفتين تماماً:</p>
+<ul>
+<li><b>المحظرة أو الكتّاب فقط</b> — الطفل يتعلم، لكن مساره لا يفضي إلى شهادة معترف بها. يحتاج إلى <i>جسر</i>.</li>
+<li><b>لا تعليم إطلاقاً</b> — الطفل ليس في أي مكان. يحتاج إلى <i>مدرسة</i>.</li>
+</ul>
+<p>مجموعهما يعطي نسبة الخروج من المدرسة النظامية. هذا التمييز هو جوهر المشروع: ولايتان بنفس النسبة قد تكون مشكلتاهما متعاكستين.</p>
+
+<h3>3. مؤشر الأولوية التعليمية</h3>
+<div class="formula">
+<code>index = 0.45 × volume + 0.35 × intensity + 0.20 × vulnerability</code><br>
+volume = عدد الأطفال خارج المدرسة · intensity = نسبة الخروج · vulnerability = معدل الفقر<br>
+كل عنصر يُعاد إلى سلّم من 0 إلى 100 بطريقة min-max على الولايات الثلاث عشرة:
+<code>(x − min) / (max − min) × 100</code>
+</div>
+<p>الحجم له الوزن الأكبر لأن الميزانية تُنفق على أطفال لا على نسب. الشدة تصحّح أثر الحجم. الهشاشة تذكّر بأن الولاية الفقيرة تملك موارد ذاتية أقل. المؤشر بسيط <b>عن قصد</b>: يُشرح في 30 ثانية ويمكن لأي شخص إعادة حسابه.</p>
+
+<h3>3 مكرر. لماذا 45 / 35 / 20 وليس أرقاماً أخرى؟</h3>
+<p>هذا هو السؤال الذي ينبغي طرحه، والجواب الصادق يأتي في شقّين.</p>
+<ul>
+<li><b>الحجم 45 %</b> — وحده من بين الثلاثة يُترجَم مباشرة إلى قاعات ومدرّسين. الوزارة لا تبني من أجل نسبة مئوية. أعطيناه الوزن الأكبر دون أغلبية مطلقة: عند 50 % أو أكثر يتحوّل الترتيب إلى ترتيب حسب عدد السكان وتصبح نواكشوط الأولى، وهو ما لا معنى له من حيث الاستعجال.</li>
+<li><b>الشدة 35 %</b> — بما يكفي لتصحيح أثر الحجم ومنع الولايات الصغيرة شديدة التأثر من الاختفاء خلف الكبيرة. إنها الثقل الموازن للحجم، وتكاد تعادله.</li>
+<li><b>الهشاشة 20 %</b> — وزن أقلّي عن قصد. الفقر ليس مؤشراً مدرسياً: إنه يعدّل صعوبة التدخل ولا يقيس المشكلة. إعطاؤه أكثر يعني إنتاج ترتيب للفقر لا للتعليم.</li>
+</ul>
+<p><b>ما الذي يغيّره اختيار الأوزان فعلياً.</b> أعدنا حساب الترتيب لجميع <b>231 تركيبة ممكنة للأوزان</b> بخطوة 5 %، من 100/0/0 إلى 0/0/100:</p>
+<div class="formula">
+كيدي ماغة والحوض الغربي ولعصابة ضمن الخمس الأوائل <code>في 100 % من الحالات</code><br>
+كيدي ماغة في المرتبة الأولى <code>في 67 % من الحالات</code><br>
+الترارزة وإنشيري وداخلة نواذيبو وتيرس زمور وأدرار لا تدخل الخمس الأوائل <code>في أي حالة</code>
+</div>
+<p class="card warn" style="margin-top:10px"><b>ما يعنيه ذلك وما لا يعنيه.</b> الترتيب الدقيق <b>يتغيّر</b> مع الأوزان: ثلث التركيبات فقط يعطي نفس الخمس الأوائل تماماً، ويمكن للحوض الشرقي أن ينزل إلى المرتبة العاشرة إذا اعتُمدت الشدة وحدها. نحن لا ندّعي أن 45/35/20 هي الترجيح الوحيد القابل للدفاع عنه.<br><br>في المقابل، <b>مجموعة الولايات ذات الأولوية متينة</b>. ثلاث ولايات ضمن الخمس الأوائل مهما فعلنا، وخمس لا تدخلها أبداً. بعبارة أخرى: اختيار الأوزان يغيّر الترتيب لا القرار. صانع قرار يفضّل الشدة سيستثمر في المناطق نفسها، بترتيب مختلف.</p>
+<p>ولهذا تُعرض المعادلة: ليست هناك لتُصدَّق، بل لتُعاد حسابها.</p>
+
+<h3>4. الآلية</h3>
+<ul>
+<li><b>الإقصاء</b> — أغلبية الأطفال خارج المدرسة لا يتلقون أي تعليم. الحل: بناء المدارس.</li>
+<li><b>الإحلال</b> — الأغلبية في المحظرة أو الكتّاب. الحل: الجسور والمعادلات.</li>
+<li><b>الحجم المرتفع</b> — تمثل الولاية 15 % على الأقل من الحاجة الوطنية بينما تبقى نسبتها دون المعدل (33.1 %). المشكلة مشكلة حجم. الحل: الطاقة الاستيعابية.</li>
+</ul>
+
+<h3>5. المحاكي: ما يفعله وما لا يفعله</h3>
+<p>يجيب المحاكي عن سؤال التوزيع لا عن سؤال الميزانية. تحدّد <b>طاقة معبّراً عنها بالأطفال</b> — عدد الأطفال الذين يمكنك إدخالهم إلى المدرسة — ثم تختار قاعدة. تُظهر الأداة أين تذهب المقاعد وما يتبقى بعد ذلك.</p>
+<ul>
+<li><b>حسب العدد</b> — تحصل كل ولاية على حصة تتناسب مع عدد أطفالها خارج المدرسة.</li>
+<li><b>الأكثر استعجالاً أولاً</b> — نتبع ترتيب المؤشر ونعالج كل ولاية بالكامل قبل الانتقال إلى التالية.</li>
+<li><b>حصة متساوية للجميع</b> — تقسيم متساوٍ بين الولايات الثلاث عشرة.</li>
+</ul>
+<p>في الحالات الثلاث، لا يمكن لأي ولاية أن تتلقى مقاعد أكثر من عدد أطفالها خارج المدرسة؛ ويُعاد توزيع الفائض.</p>
+<p class="card warn" style="margin-top:8px"><b>نقطة يجب فهمها:</b> النسبة الوطنية بعد المحاكاة <b>واحدة في القواعد الثلاث</b>. هذا أمر حسابي — فالعدد الإجمالي للأطفال المتمدرسين لا يتوقف على طريقة توزيعهم. ما يتغير هو التوزيع: كم ولاية حُلَّت مشكلتها، وعند أي مستوى تبقى الأكثر تأخراً. لهذا يُعرض هذان الرقمان. <b>لا توجد قاعدة «صحيحة» بين الثلاث</b>: التركيز يحل مشكلة بضع ولايات ويترك أخرى كما هي، والتوزيع يخفف عن الجميع دون أن يحل مشكلة أحد. المفاضلة سياسية لا إحصائية. الأداة تنيرها ولا تحسمها.</p>
+<p>لم نضع <b>أي أرقام للتكلفة</b> عن قصد. فمقعد في مدرسة يكلّف غير ما يكلّفه جسر انطلاقاً من المحظرة، ولا نملك بيانات تكلفة موثوقة. تحويل الأطفال إلى أوقية سيكون اختلاقاً لا تحليلاً.</p>
+<p><b>لكننا نحوّل الأطفال إلى موارد مادية</b>، انطلاقاً من فرضيتين فقط، معروضتين على الشاشة وقابلتين للتعديل: عدد التلاميذ لكل قاعة (40 افتراضياً، وهو الحد الأقصى الموصى به في المعايير الدنيا لشبكة INEE للتعليم الابتدائي) وعدد القاعات لكل مدرسة (6 افتراضياً). ونوع المورد يتبع الآلية: قاعات جديدة والمدارس التي تحتضنها في حالة الإقصاء؛ قاعات إضافية داخل مدارس قائمة في حالة الحجم المرتفع؛ أقسام جسر واعتماد المحاظر القائمة في حالة الإحلال. ويُحتسب مدرّس واحد لكل قاعة. وإذا طبّقت الوزارة معايير أخرى، فإنها تغيّر القيمتين ويُعاد الحساب بالكامل.</p>
+
+<h3>6. حدود الدراسة</h3>
+<p class="card warn" style="margin-top:8px">ما <b>لا تسمح</b> هذه البيانات بقوله:</p>
+<ul>
+<li>EPCV هو <b>عيّنة</b>. النسب تقديرات. في الولايات الصغيرة هامش الخطأ واسع: ±4.5 نقطة لإنشيري (267 طفلاً) و±4.1 لتكانت، مقابل ±1.7 في نواكشوط. الفوارق في الترتيب بين ولايات متجاورة تُقرأ بحذر.</li>
+<li>المقتطف المستعمل <b>لا يتضمن أوزان السبر</b>. النسب محسوبة على العينة الخام وقد تختلف قليلاً عن الأرقام الرسمية المنشورة من ANSADE.</li>
+<li>النسب تعود إلى <b>2019</b> وتُطبَّق على سكان 2019. لا شيء يؤكد أنها ما تزال صالحة اليوم.</li>
+<li>نقيس ما إذا كان الطفل <b>قد التحق</b> بالمدرسة، لا ما إذا كان فيها اليوم ولا ما يتعلمه. الطفل المسجل الغائب يُحتسب متمدرساً.</li>
+<li>لا نقيس <b>جودة</b> التعليم ولا بُعد المدرسة ولا حالة المباني ولا عدد المدرسين. التشخيص ليس مخطط بناء.</li>
+<li>لا <b>نتنبأ بشيء</b>. تصف EduFocus وضعاً قائماً وتجعله قابلاً للمقارنة. لا تقول ماذا سيحدث إذا استثمرنا.</li>
+<li>أوزان المؤشر (45/35/20) <b>اختيار</b> لا نتيجة. صانع قرار يفضّل الشدة سيحصل على ترتيب آخر — ولهذا نعرض المعادلة.</li>
+</ul>
+
+<h3>7. التصريح باستخدام الذكاء الاصطناعي (المادة 5)</h3>
+<p class="card warn" style="margin-top:8px">استعان الفريق بمساعد ذكاء اصطناعي (Claude من Anthropic) خلال الهاكاثون. ويُصرَّح بهذا الاستخدام وفقاً للمادة 5 من النظام الداخلي.<br><br>
+<b>ما حدده الفريق وقرره:</b> اختيار الموضوع والإشكالية؛ قرار الحصول على قاعدة EPCV 2019 من ANSADE، وهي قاعدة ليست ضمن البيانات المقدمة من المنظمين؛ تعريف «خارج المدرسة النظامية» وقرار الفصل بين التعليم القرآني أو المحظرة وبين الغياب التام للتعليم — وهي الفكرة المحورية للمشروع؛ أوزان المؤشر (45 / 35 / 20)؛ المواصفات التفصيلية لكل شاشة من التطبيق؛ تأويل النتائج والرسائل المعتمدة.<br><br>
+<b>ما أُنجز بمساعدة المساعد:</b> شيفرة التحليل بلغة Python (ربط القاعدتين، حساب المؤشرات والمؤشر المركّب والآليات)؛ شيفرة HTML وCSS وJavaScript الخاصة بالنموذج؛ تحرير النصوص التفسيرية وترجمتها إلى العربية والإنجليزية؛ توليد التوصيات لكل ولاية انطلاقاً من قواعد اتُّفق عليها مع الفريق؛ مجموعة الاختبارات الآلية؛ تصميم لوحة القيادة وإعادة تصميم المحاكي بثلاث قواعد للتوزيع.<br><br>
+<b>التحقق:</b> أُعيد حساب كل رقم معروض انطلاقاً من البيانات المصدرية وقُورن بوثيقة تسليم الفريق. وتُرفق شيفرات التحليل مع المشروع، ما يتيح لأي شخص إعادة إنتاج الحسابات كاملة.</p>
+
+<h3>8. المصادر</h3>
+<p class="src">1. السكان حسب الولاية، 2013-2019. قاعدة مقدمة من إدارة الهاكاثون — IndabaX موريتانيا، نسخة 2026.<br><br>
+2. المسح الدائم لظروف معيشة الأسر (EPCV 2019). الوكالة الوطنية للإحصاء والتحليل الديموغرافي والاقتصادي (ANSADE)، الجمهورية الإسلامية الموريتانية. المقتطف المستعمل: 60,600 فرد، 13 ولاية. تم الحصول عليها من ANSADE، المنتج الرسمي للإحصاءات الديموغرافية وإحصاءات الفقر في البلاد، ومتاحة عند الطلب لدى الوكالة.<br><br>
+5. المعايير الدنيا لشبكة INEE: 40 تلميذاً لكل مدرّس كحد أقصى في التعليم الابتدائي. تُستعمل كفرضية افتراضية في المحاكي، قابلة للتعديل من طرف المستخدم.<br><br>3. خلفية الخريطة: Natural Earth، المستوى الإداري الأول (ملك عام)، مبسّطة إلى 1.2 كلم.<br><br>
+4. الموارد مفتوحة المصدر المستعملة: خطوط Poppins وNunito Sans (رخصة SIL OFL 1.1)، وIBM Plex Sans Arabic وAmiri (رخصة SIL OFL 1.1). لا توجد أي مكتبة رسوم خارجية: الخريطة والحلقات والرسوم كتبها الفريق بصيغة SVG.</p>
+
+<h3>9. ملاحظة تقنية</h3>
+<p class="src">يقرأ التطبيق مصدراً واحداً فقط، <code>wilayas.csv</code> (13 سطراً). كل المؤشرات — المؤشر، الرتبة، مستوى الأولوية، الآلية، التفسير — تُحسب مسبقاً وتوجد في الملف. الواجهة لا تعيد حساب شيء، باستثناء واحد مقصود وموثّق في القسم 5: توزيع المحاكي. لا تُرسل أي بيانات إلى أي جهة؛ الصفحة تشتغل دون اتصال.</p>`
+};
+
+/* ── 12. Langue ────────────────────────────────────────────────────────── */
+function setLang(l){
+  L=l; t=T[l];
+  document.documentElement.lang=l;
+  document.documentElement.dir = l==='ar' ? 'rtl' : 'ltr';
+  document.querySelectorAll('.langs button').forEach(b=>
+    b.setAttribute('aria-pressed', b.dataset.lang===l));
+  document.querySelectorAll('[data-t]').forEach(el=>{ el.textContent = t[el.dataset.t] ?? ''; });
+  document.getElementById('methBody').innerHTML=METH[l];
+  drawTabs(); drawHome(); drawMap(); drawRank(); drawSim();
+  drawCmpOptions(); drawCmp(); drawSheet();
+  try{ localStorage.setItem('edufocus.lang',l); }catch(e){}
+}
+document.querySelectorAll('.langs button').forEach(b=>b.onclick=()=>setLang(b.dataset.lang));
+window.matchMedia('(min-width:1024px)').addEventListener('change',()=>{
+  if(current==='home') drawHomeMap();
+});
+
+/* ── 13. Démarrage ─────────────────────────────────────────────────────── */
+function boot(){
+  let l='fr';
+  try{ l=localStorage.getItem('edufocus.lang')||'fr'; }catch(e){}
+  if(!T[l]) l='fr';
+  document.querySelector('.wrap').classList.toggle('wide', current==='home');
+  setLang(l);
+}
+/* Si un fichier wilayas.csv est déposé à côté de la page, il remplace la copie
+   embarquée. Sinon la page fonctionne telle quelle, y compris hors connexion. */
+if(location.protocol.startsWith('http')){
+  fetch('wilayas.csv',{cache:'no-store'})
+    .then(r=>r.ok?r.text():Promise.reject())
+    .then(txt=>{ const d=lireCsv(txt); if(d.length===13) DATA=d; })
+    .catch(()=>{})
+    .finally(boot);
+}else{ boot(); }   /* ouverture directe du fichier : copie embarquée */
+</script>
+</body>
+</html>

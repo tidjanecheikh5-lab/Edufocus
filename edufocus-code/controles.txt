@@ -1,0 +1,32 @@
+==============================================================================
+CONTRÔLES NATIONAUX
+==============================================================================
+Population 2019                    : 4 077 347
+Part des 6-14 ans (EPCV)           : 27,1 %
+Enfants 6-14 ans (national)        : 1 106 872
+Taux hors école formelle national  : 33,1 %
+  dont mahadra/coranique seule     : 16,7 %
+  dont aucune instruction          : 16,4 %
+Enfants hors école (somme wilayas) : 365 231
+Concentration top 5 wilayas        : 71 %  -> Nouakchott, Hodh El Charghi, Assaba, Hodh El Gharbi, Guidimakha
+Taux de pauvreté national          : 28,8 %
+Ratio dép. Gorgol / Nouakchott     : 128 / 63
+Part de Nouakchott dans la croissance 2013-2019 : 44 %
+
+==============================================================================
+CLASSEMENT
+==============================================================================
+ rang             wilaya  indice  enfants_hors_ecole  taux_hors_ecole  pct_mahadra  pct_aucune_instruction  taux_pauvrete  part_rurale  taux_garcons  taux_filles  ratio_dependance niveau_priorite    mecanisme  n_enf
+    1         Guidimakha      81               41469             44.4          1.9                    42.5           54.3         85.9          45.8         43.1             110.8     Très élevée    Exclusion   1879
+    2    Hodh El Charghi      77               59368             40.7         33.4                     7.3           24.5         82.0          41.7         39.7             115.7     Très élevée Substitution   2293
+    3     Hodh El Gharbi      76               43696             47.2         32.9                    14.3           35.5         79.6          46.2         48.3             113.1     Très élevée Substitution   1380
+    4             Assaba      74               48134             41.6         23.5                    18.1           34.4         69.3          43.1         39.9             114.2          Élevée Substitution   1468
+    5         Nouakchott      62               65995             24.8         14.5                    10.3           13.1          0.0          28.0         21.5              63.2          Élevée Volume élevé   2619
+    6             Gorgol      60               39071             33.5         10.7                    22.8           32.4         67.2          31.8         35.3             127.7          Élevée    Exclusion   1778
+    7             Trarza      46               26533             31.6         24.8                     6.8           24.5         64.5          34.2         29.0              96.6         Moyenne Substitution   1187
+    8             Brakna      46               23674             25.5          8.2                    17.3           40.5         75.3          25.1         25.9             107.7         Moyenne    Exclusion   1426
+    9             Tagant      38                6588             30.2          5.6                    24.6           40.3         66.5          31.5         28.9              88.0         Moyenne    Exclusion    483
+   10            Inchiri      17                 926             16.9         12.4                     4.5           27.5         22.8          19.1         14.7              73.2          Faible Substitution    267
+   11 Dakhlet Nouadhibou      17                6815             21.2         10.3                    10.9            9.6          3.9          21.9         20.5              63.6          Faible    Exclusion    594
+   12      Tiris Zemmour      12                1908             16.3          5.2                    11.1           16.1          7.2          19.0         13.8              63.9          Faible    Exclusion    479
+   13              Adrar       8                1054              6.2          3.8                     2.3           28.1         41.2           4.8          7.7              94.4          Faible Substitution    598
