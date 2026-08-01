@@ -1,0 +1,196 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EduFocus — identité visuelle</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Nunito+Sans:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito Sans',system-ui,sans-serif;background:#ECEEEF;color:#181B1E;padding:24px 18px 70px;
+ -webkit-font-smoothing:antialiased}
+.w{max-width:1400px;margin:0 auto}
+h1{font-family:'Poppins',sans-serif;font-size:27px;font-weight:800;letter-spacing:-.03em}
+h2{font-family:'Poppins',sans-serif;font-size:20px;font-weight:700;margin:34px 0 14px;letter-spacing:-.02em}
+.sub{color:#5F676E;font-size:14px;margin-top:6px;line-height:1.6;max-width:80ch}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+
+.th{border-radius:14px;overflow:hidden;background:var(--pa);box-shadow:0 3px 16px rgba(0,0,0,.12);
+ color:var(--en);font-size:13px}
+.tag{padding:11px 15px;border-bottom:1px solid var(--tr);display:flex;align-items:baseline;gap:9px;
+ flex-wrap:wrap;background:var(--pa)}
+.tag b{font-family:'Poppins',sans-serif;font-size:16px;font-weight:700}
+.tag em{font-style:normal;font-size:11.5px;color:var(--gr)}
+.hero{padding:18px 16px 20px;text-align:center;color:#fff;position:relative;
+ background:linear-gradient(165deg,var(--a2),var(--a0))}
+.kick{font-size:8.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;opacity:.6;margin-bottom:7px}
+.cnt{font-family:'Poppins',sans-serif;font-size:38px;font-weight:800;letter-spacing:-.05em;line-height:.95}
+.csb{font-size:10.5px;opacity:.82;margin-top:7px}
+.hero::after{content:'';position:absolute;left:0;right:0;bottom:0;height:3px;
+ background:linear-gradient(90deg,var(--ec) 0 67%,var(--ma) 67% 84%,var(--ri) 84% 100%)}
+.bd{background:var(--fo);padding:11px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.card{background:var(--pa);border:1px solid var(--tr);border-radius:9px;padding:10px}
+.lab{font-size:8px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--gr);margin-bottom:8px}
+svg.map{width:100%;height:auto;display:block}
+svg.map path{stroke:var(--pa);stroke-width:2.6}
+.leg{display:flex;flex-wrap:wrap;gap:4px 9px;margin-top:8px;font-size:8.5px;color:var(--gr)}
+.leg span{display:flex;align-items:center;gap:4px}
+.leg b{width:8px;height:8px;border-radius:2px;flex:none}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-bottom:9px}
+.kpis div{background:var(--pa);border:1px solid var(--tr);border-radius:8px;padding:8px 4px;text-align:center}
+.kpis b{display:block;font-family:'Poppins',sans-serif;font-size:16px;font-weight:800;color:var(--ac);letter-spacing:-.03em}
+.kpis i{display:block;font-style:normal;font-size:7.5px;color:var(--gr);margin-top:3px}
+.waffle{display:grid;grid-template-columns:repeat(20,1fr);gap:2px 3px;
+ --p:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 16'%3E%3Ccircle cx='6' cy='3.3' r='3.05'/%3E%3Cpath d='M6 7.5c3.3 0 6 2.7 6 6V16H0v-2.5c0-3.3 2.7-6 6-6z'/%3E%3C/svg%3E")}
+.waffle i{display:block;aspect-ratio:12/16;background-color:var(--ec);
+ -webkit-mask:var(--p) center/contain no-repeat;mask:var(--p) center/contain no-repeat}
+.waffle i.m{background-color:var(--ma)}.waffle i.n{background-color:var(--ri)}
+.bars{display:grid;gap:3px;margin-top:2px}
+.bar{display:grid;grid-template-columns:70px 1fr 36px;align-items:center;gap:6px;font-size:8.5px}
+.bn{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bt{height:10px;background:var(--tr);border-radius:3px;overflow:hidden}
+.bt i{display:block;height:100%;border-radius:3px}
+.bv{text-align:right;font-weight:700}
+.sw{display:flex;margin-top:9px;border-radius:6px;overflow:hidden;border:1px solid var(--tr)}
+.sw div{flex:1;height:24px;display:grid;place-items:center;font-size:6.5px;font-weight:700;color:#fff;
+ font-family:ui-monospace,monospace}
+.note{font-size:10px;color:var(--gr);margin-top:9px;line-height:1.5}
+
+/* ═══ LOGOS ═══ */
+.logos{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.lg{background:#fff;border-radius:14px;box-shadow:0 3px 16px rgba(0,0,0,.1);overflow:hidden}
+.lg-top{padding:26px 18px 20px;display:grid;place-items:center;gap:16px;background:#FAFAFA}
+.lg-row{display:flex;align-items:center;gap:14px}
+.lg-name{font-family:'Poppins',sans-serif;font-size:25px;font-weight:800;letter-spacing:-.035em;color:#0F2A1C}
+.lg-name span{font-weight:600;opacity:.62}
+.lg-mini{display:flex;gap:10px;align-items:center;padding-top:4px;border-top:1px solid #EEE;width:100%;
+ justify-content:center;margin-top:6px}
+.lg-dark{background:#12181C;padding:12px;border-radius:9px;display:grid;place-items:center}
+.lg-info{padding:14px 18px 18px;border-top:1px solid #EEE}
+.lg-info b{font-family:'Poppins',sans-serif;font-size:15px;font-weight:700;display:block;margin-bottom:5px}
+.lg-info p{font-size:12.5px;color:#5F676E;line-height:1.55}
+</style></head><body><div class="w">
+
+<h1>Identité visuelle — 5 thèmes, 5 logos</h1>
+<p class="sub">Les cinq thèmes gardent le principe acquis : l'échelle de priorité reste une <b>gradation d'une même teinte</b> (pas un feu tricolore), et une seule couleur vive est réservée aux enfants sans aucune instruction. Ce qui change, c'est la teinte dominante et son intensité.</p>
+
+<h2>Les thèmes</h2>
+<div class="grid" id="themes"></div>
+
+<h2>Les logos</h2>
+<p class="sub" style="margin-bottom:14px">Chacun est en SVG, donc net à toute taille. Montré en grand, en petit (favicon) et sur fond sombre.</p>
+<div class="logos" id="logos"></div>
+
+</div>
+<script>
+const C = {"w":1000,"h":780,"paths":{"Tiris Zemmour":"M627.8 10.0L806.3 127.2L845.5 153.9L745.6 153.9L750.5 198.5L509.1 367.2L419.5 377.4L382.6 363.4L379.1 307.8L375.1 292.1L377.6 284.1L383.5 275.9L405.8 260.4L420.8 257.2L439.7 248.7L439.9 91.4L627.5 91.1L627.8 10.0Z","Dakhlet Nouadhibou":"M155.7 412.7L154.5 404.4L161.2 378.5L311.3 378.5L318.2 389.9L224.3 389.5L239.0 414.5L199.3 489.1L197.3 491.6L199.3 486.6L198.4 486.0L193.2 490.9L195.5 486.0L194.7 486.4L191.2 489.8L190.0 494.2L189.0 494.0L188.9 490.9L202.1 471.2L201.3 469.1L202.1 467.1L200.9 467.9L200.7 467.0L201.3 464.6L200.2 464.0L198.0 466.4L197.6 465.4L202.7 458.6L202.9 455.3L200.5 450.7L203.3 448.3L203.5 443.9L198.6 439.0L195.6 433.7L196.1 432.3L193.2 424.6L191.4 422.7L191.0 420.1L188.9 419.8L192.2 418.2L188.1 418.2L187.0 415.2L185.4 414.4L184.7 425.1L177.3 418.1L178.1 416.8L177.4 414.5L175.2 412.5L171.6 402.4L170.8 403.2L170.0 402.4L163.5 389.0L158.0 396.7L159.0 397.5L158.6 402.7L156.1 404.4L157.3 407.4L155.7 412.7ZM194.0 470.0L195.7 466.7L194.6 475.5L190.9 482.7L189.1 477.7L191.2 473.9L191.7 470.5L193.2 469.2L194.0 470.0Z","Adrar":"M311.3 378.5L383.5 378.5L382.6 363.4L419.5 377.4L509.1 367.2L750.5 198.5L758.1 269.4L667.0 475.3L495.2 476.1L473.3 494.2L471.7 506.5L458.9 499.5L421.5 524.6L403.1 545.0L370.6 518.6L315.5 518.6L319.3 391.5L311.3 378.5Z","Brakna":"M276.6 658.4L274.5 656.6L275.4 655.4L293.0 645.7L310.0 632.0L330.3 601.6L343.0 589.9L403.1 545.0L413.8 561.8L410.1 608.2L423.3 620.9L421.1 623.8L414.3 626.2L411.6 630.0L399.7 634.4L395.1 640.2L394.2 647.7L388.3 659.8L378.2 662.2L375.5 665.4L375.2 670.1L374.2 671.7L348.7 679.0L346.7 685.3L343.9 686.7L344.3 684.9L342.8 685.0L337.7 689.0L334.6 684.6L330.0 682.5L329.3 676.2L323.9 672.5L315.9 664.6L312.9 663.8L312.3 661.9L309.1 661.5L308.7 658.6L305.1 657.2L300.2 658.8L276.6 658.4Z","Trarza":"M274.5 656.6L273.1 655.4L271.8 655.9L269.1 658.9L267.2 656.9L265.6 656.9L265.0 658.2L266.4 660.7L264.6 661.8L253.1 662.4L248.3 663.8L245.5 661.8L242.0 665.3L237.3 665.4L233.7 667.7L221.1 665.6L212.2 666.9L207.8 663.4L204.2 665.3L199.8 665.3L196.4 669.2L193.5 682.2L189.4 684.6L186.6 695.4L185.9 705.0L184.7 707.2L185.5 697.3L184.8 680.3L188.9 667.1L189.4 658.2L195.9 640.6L205.5 621.7L212.5 597.8L213.4 584.8L227.6 584.8L227.6 554.7L211.9 554.9L211.3 549.3L207.8 540.7L205.5 531.0L205.9 527.9L203.4 518.9L370.6 518.6L403.1 545.0L343.0 589.9L330.3 601.6L310.0 632.0L293.0 645.7L280.9 651.8L274.5 656.6Z","Gorgol":"M346.7 689.8L343.6 687.4L347.8 683.9L348.7 679.0L374.2 671.7L375.2 670.1L375.5 665.4L378.2 662.2L388.3 659.8L394.2 647.7L394.4 645.5L395.6 647.7L393.7 652.4L393.9 656.4L396.9 658.3L399.3 663.5L397.6 667.0L397.8 669.1L401.0 669.2L403.7 667.5L416.6 670.0L417.5 678.1L416.7 683.9L418.9 683.7L423.2 680.9L426.3 682.1L428.2 688.9L435.2 689.7L437.9 692.7L440.2 692.9L439.7 697.2L440.5 699.6L432.8 702.7L427.4 703.0L424.3 707.3L414.7 716.0L412.9 721.3L407.6 726.8L402.7 734.8L398.7 746.8L396.8 746.0L396.4 742.0L392.5 741.5L390.7 739.9L390.9 738.7L393.8 738.7L394.1 737.9L389.0 733.2L386.4 724.8L379.7 725.7L379.2 720.9L378.2 719.6L374.3 717.8L371.0 718.1L370.4 716.1L371.5 712.9L368.3 709.5L368.6 706.4L366.6 702.9L366.6 700.1L363.5 696.8L362.5 692.9L359.6 690.0L356.1 690.4L357.1 686.9L346.7 689.8Z","Guidimakha":"M401.9 749.1L398.7 746.8L402.7 734.8L407.6 726.8L412.9 721.3L414.7 716.0L424.3 707.3L427.4 703.0L432.8 702.7L440.5 699.6L444.4 701.8L450.1 701.3L450.3 699.4L452.3 697.6L451.3 692.7L452.6 693.8L459.0 694.2L462.9 696.8L468.9 697.8L465.9 700.7L462.6 709.6L460.4 712.0L457.6 723.1L456.2 722.9L456.0 725.5L454.6 727.1L451.1 737.2L448.6 751.6L451.3 752.8L450.9 760.3L447.7 763.8L444.4 764.8L441.3 768.0L438.0 768.1L436.8 770.0L432.9 767.1L426.9 768.1L419.2 763.5L415.5 759.9L413.4 753.5L405.7 748.5L401.9 749.1Z","Hodh El Charghi":"M758.1 269.4L800.3 665.0L801.3 666.9L815.5 677.7L806.6 725.6L609.7 725.5L612.2 723.0L611.6 704.4L606.1 692.4L617.3 677.1L615.9 673.0L650.0 635.8L632.6 616.5L601.5 620.5L758.1 269.4Z","Hodh El Gharbi":"M609.7 725.5L590.2 725.5L591.3 716.2L591.2 714.3L589.8 713.7L584.4 720.1L586.0 728.8L572.0 729.3L562.8 732.8L556.3 732.2L549.7 733.2L535.3 729.0L520.6 729.5L515.9 699.6L509.6 693.4L510.7 685.1L509.8 683.4L506.3 681.4L505.9 678.3L507.9 671.2L504.9 670.0L504.4 668.7L510.2 666.1L514.1 661.0L506.3 659.9L503.8 653.5L500.8 651.9L497.7 648.0L498.3 631.3L496.6 627.7L498.3 620.4L497.9 616.2L491.9 598.4L492.7 594.5L534.8 606.6L569.2 604.3L601.5 620.5L632.6 616.5L650.0 635.8L615.9 673.0L617.3 677.1L606.1 692.4L611.6 704.4L612.2 723.0L609.7 725.5Z","Assaba":"M501.9 748.5L496.4 740.5L480.3 728.2L472.6 718.1L467.4 716.9L468.1 718.8L462.5 722.9L460.8 723.7L457.6 723.1L460.4 712.0L462.6 709.6L465.9 700.7L468.9 697.8L462.9 696.8L459.0 694.2L452.6 693.8L451.3 692.7L452.3 697.6L450.3 699.4L450.1 701.3L444.4 701.8L440.5 699.6L439.7 697.2L440.2 692.9L437.9 692.7L435.2 689.7L428.2 688.9L426.3 682.1L423.2 680.9L418.9 683.7L416.7 683.9L417.5 678.1L416.6 670.0L403.7 667.5L401.0 669.2L397.8 669.1L397.6 667.0L399.3 663.5L396.9 658.3L393.9 656.4L393.6 655.0L395.6 647.7L394.4 645.5L394.6 641.4L399.7 634.4L411.6 630.0L414.3 626.2L421.1 623.8L423.3 620.9L428.7 626.2L445.9 632.1L454.7 629.0L465.0 629.9L467.4 626.7L467.9 614.6L469.4 611.3L468.5 608.1L470.7 607.1L470.4 604.8L468.1 604.3L473.4 601.6L473.7 599.8L463.6 580.7L464.4 578.9L466.2 578.0L466.3 575.1L469.4 575.3L469.7 573.5L478.9 574.3L485.2 572.4L487.6 568.5L486.2 567.1L489.5 563.8L498.8 559.6L491.9 598.4L497.9 616.2L498.3 620.4L496.6 627.7L498.3 631.3L497.4 640.0L498.3 645.1L497.3 646.8L500.8 651.9L503.8 653.5L506.3 659.9L514.1 661.0L510.2 666.1L504.4 668.7L504.9 670.0L507.9 671.2L505.9 678.3L506.3 681.4L509.8 683.4L510.7 685.1L509.6 693.4L515.9 699.6L520.6 729.5L512.0 729.8L511.4 734.6L506.9 737.7L501.9 748.5Z","Inchiri":"M203.4 518.9L199.3 510.8L194.5 505.4L188.9 503.2L185.1 495.9L185.8 495.0L192.3 495.4L199.3 489.1L239.0 414.5L224.3 389.5L318.2 389.9L319.3 391.5L315.5 518.6L203.4 518.9Z","Nouakchott":"M213.4 584.8L213.9 580.4L211.9 554.9L227.6 554.7L227.6 584.8L213.4 584.8Z","Tagant":"M471.7 506.5L473.3 494.2L495.2 476.1L667.0 475.3L601.5 620.5L569.2 604.3L534.8 606.6L492.7 594.5L498.8 559.6L489.5 563.8L486.2 567.1L487.6 568.5L485.2 572.4L478.9 574.3L469.7 573.5L469.4 575.3L466.3 575.1L466.2 578.0L464.4 578.9L463.6 580.7L473.7 599.8L473.4 601.6L468.1 604.3L470.4 604.8L470.7 607.1L468.5 608.1L469.4 611.3L467.9 614.6L467.4 626.7L465.0 629.9L454.7 629.0L445.9 632.1L428.7 626.2L410.1 608.2L413.8 561.8L403.1 545.0L421.5 524.6L458.9 499.5L471.7 506.5Z"},"centres":{"Nouakchott":[220.2,567.7],"Trarza":[275,628],"Inchiri":[282,468],"Dakhlet Nouadhibou":[192,415],"Gorgol":[370,690],"Guidimakha":[437,742],"Adrar":[560,400],"Tiris Zemmour":[600,175],"Tagant":[520,552],"Hodh El Charghi":[730,445],"Hodh El Gharbi":[568,664],"Assaba":[452,650],"Brakna":[366,612]}};
+const WIL=[['Guidimakha',1,41469],['Hodh El Charghi',2,59368],['Hodh El Gharbi',3,43696],
+ ['Assaba',4,48134],['Nouakchott',5,65995],['Gorgol',6,39071],['Trarza',7,26533],['Brakna',8,23674],
+ ['Tagant',9,6588],['Inchiri',10,926],['Dakhlet Nouadhibou',11,6815],['Tiris Zemmour',12,1908],['Adrar',13,1054]];
+const NIV=r=>r<=3?'n1':r<=6?'n2':r<=9?'n3':'n4';
+const fr=n=>n.toLocaleString('fr-FR').replace(/\u202f|\u00a0/g,' ');
+const MAP=Object.entries(C.paths).map(([k,d])=>{const w=WIL.find(x=>x[0]===k);
+ return `<path d="${d}" fill="var(--${w?NIV(w[1]):'tr'})"></path>`;}).join('');
+let WAF='';for(let i=0;i<100;i++)WAF+=`<i class="${i<67?'':i<84?'m':'n'}"></i>`;
+const TOP=[...WIL].sort((a,b)=>b[2]-a[2]).slice(0,5);
+
+/* fo=fond pa=papier en=encre gr=gris tr=trait ac=accent a2=clair a0=sombre
+   n1..n4=échelle priorité  ec=école ma=mahadra ri=aucune instruction */
+const T=[
+['Drapeau','le vert et l’or de Mauritanie, saturés',
+ {fo:'#F4F7F3',pa:'#FFFFFF',en:'#0E1A13',gr:'#68766D',tr:'#E0E8DE',ac:'#00713C',a2:'#009150',a0:'#00532C',
+  n1:'#00713C',n2:'#2E9E64',n3:'#7FC69F',n4:'#CDE8D9',ec:'#8FCBAA',ma:'#F0B310',ri:'#D62839'},
+ "Le plus identitaire : ce sont exactement les couleurs du drapeau. Le vert est franc, l’or éclatant, et le rouge du drapeau sert d’alerte. Aucun jury mauritanien ne s’y trompera."],
+['Sahara','sable chaud, terre cuite, turquoise d’oasis',
+ {fo:'#FBF6EE',pa:'#FFFFFF',en:'#1E170F',gr:'#7A6E5E',tr:'#EBE0CE',ac:'#B85C1E',a2:'#D97428',a0:'#8C4315',
+  n1:'#B85C1E',n2:'#DB8B47',n3:'#EFBB8B',n4:'#F7E0C9',ec:'#3FA79B',ma:'#E5A82E',ri:'#C0392B'},
+ "Le pays vu du désert. Chaleureux et immédiatement reconnaissable ; le turquoise de l’oasis fait ressortir les enfants scolarisés."],
+['Atlantique','bleu océan, turquoise, corail',
+ {fo:'#F2F8FA',pa:'#FFFFFF',en:'#0C1B22',gr:'#5F757F',tr:'#DCEAF0',ac:'#046A8C',a2:'#0688B4',a0:'#034D66',
+  n1:'#046A8C',n2:'#2F9BBD',n3:'#88C6DA',n4:'#D2EAF2',ec:'#57C3B0',ma:'#F2A93B',ri:'#E8543F'},
+ "La côte de Nouadhibou. Vif sans être criard, très lisible en projection ; le corail attire l’œil là où il faut."],
+['Henné & indigo','l’indigo de la melhfa, l’orange du henné',
+ {fo:'#F6F5FA',pa:'#FFFFFF',en:'#14122B',gr:'#6B6A85',tr:'#E4E2F0',ac:'#2E2A6E',a2:'#413CA0',a0:'#1E1B4B',
+  n1:'#2E2A6E',n2:'#5A54B5',n3:'#A29CE0',n4:'#DEDBF4',ec:'#8E88D6',ma:'#E0761F',ri:'#D02F5B'},
+ "Le plus original des cinq : personne d’autre n’aura de l’indigo. Culturellement juste (la melhfa, le henné) et visuellement mémorable."],
+['Coucher du désert','magenta, orange et or du ciel au crépuscule',
+ {fo:'#FCF4F5',pa:'#FFFFFF',en:'#24101A',gr:'#7C6069',tr:'#F2DFE3',ac:'#A81E52',a2:'#C92B67',a0:'#7A1339',
+  n1:'#A81E52',n2:'#D2497F',n3:'#EC9CBB',n4:'#F9DDE6',ec:'#E88C3C',ma:'#F0B928',ri:'#B32020'},
+ "Le plus audacieux. Très fort à l’écran, mais le magenta peut paraître peu institutionnel pour un ministère — à choisir si vous visez l’impact avant la sobriété."]];
+
+document.getElementById('themes').innerHTML=T.map(([nom,sous,v,note],i)=>{
+ const vars=Object.entries(v).map(([k,x])=>`--${k}:${x}`).join(';');
+ const sw=[v.ac,v.n2,v.n3,v.ma,v.ri];
+ return `<div class="th" style="${vars}">
+  <div class="tag"><b>${i+1} · ${nom}</b><em>${sous}</em></div>
+  <div class="hero"><div class="kick">Mauritanie · 6 à 14 ans</div>
+   <div class="cnt">365 231</div><div class="csb">n'ont jamais vu une école</div></div>
+  <div class="bd">
+   <div class="kpis"><div><b>33,1 %</b><i>des 6-14 ans</i></div>
+    <div><b>71 %</b><i>dans 5 wilayas</i></div><div><b>47,2 %</b><i>le pire taux</i></div></div>
+   <div class="two">
+    <div class="card"><div class="lab">Priorité</div>
+     <svg class="map" viewBox="0 0 ${C.w} ${C.h}">${MAP}</svg>
+     <div class="leg"><span><b style="background:var(--n1)"></b>Très élevée</span>
+      <span><b style="background:var(--n2)"></b>Élevée</span>
+      <span><b style="background:var(--n3)"></b>Moyenne</span>
+      <span><b style="background:var(--n4)"></b>Faible</span></div></div>
+    <div><div class="card" style="margin-bottom:9px"><div class="lab">Sur 100 enfants</div>
+      <div class="waffle">${WAF}</div>
+      <div class="leg"><span><b style="background:var(--ec)"></b>67 école</span>
+       <span><b style="background:var(--ma)"></b>17 mahadra</span>
+       <span><b style="background:var(--ri)"></b>16 rien</span></div></div>
+     <div class="card"><div class="lab">Les 5 plus gros besoins</div>
+      <div class="bars">${TOP.map(([n,r,val])=>`<div class="bar"><span class="bn">${n}</span>
+       <div class="bt"><i style="width:${val/TOP[0][2]*100}%;background:var(--${NIV(r)})"></i></div>
+       <span class="bv">${fr(val)}</span></div>`).join('')}</div></div></div></div>
+   <div class="sw">${sw.map(h=>`<div style="background:${h}">${h}</div>`).join('')}</div>
+   <p class="note">${note}</p></div></div>`}).join('');
+
+/* ═══ LOGOS ═══ */
+const V='#00713C', OR='#F0B310', RI='#D62839', NK='#0F2A1C';
+const L=[
+['Le carré manquant',
+ `<svg viewBox="0 0 64 64" width="__S__" height="__S__">
+  <g fill="__C__">${[...Array(9)].map((_,i)=>i===4?'':
+   `<rect x="${8+(i%3)*20}" y="${8+((i/3)|0)*20}" width="14" height="14" rx="3"/>`).join('')}</g>
+  <rect x="28" y="28" width="14" height="14" rx="3" fill="${RI}"/></svg>`,
+ "Huit carrés alignés, un seul en rouge au centre — l'enfant qu'on ne compte pas. Se lit en un dixième de seconde, fonctionne à 16 px, et raconte tout le projet sans un mot."],
+['La mise au point',
+ `<svg viewBox="0 0 64 64" width="__S__" height="__S__">
+  <circle cx="32" cy="32" r="26" fill="none" stroke="__C__" stroke-width="5"/>
+  <circle cx="32" cy="32" r="15" fill="none" stroke="__C__" stroke-width="4" opacity=".45"/>
+  <circle cx="32" cy="32" r="6.5" fill="${RI}"/>
+  <path d="M32 2v10M32 52v10M2 32h10M52 32h10" stroke="__C__" stroke-width="5" stroke-linecap="round"/></svg>`,
+ "Un viseur : EduFocus, c'est littéralement faire la mise au point. Les cercles concentriques évoquent le ciblage territorial, le point rouge la cible atteinte. Très net en petit."],
+['L\'enfant et le pays',
+ `<svg viewBox="0 0 64 64" width="__S__" height="__S__">
+  <circle cx="32" cy="17" r="11" fill="__C__"/>
+  <path d="M32 32c11.6 0 21 9.4 21 21v9H11v-9c0-11.6 9.4-21 21-21z" fill="__C__"/>
+  <circle cx="32" cy="17" r="5.4" fill="${OR}"/>
+  <path d="M23 46h18M23 53h12" stroke="#fff" stroke-width="3.4" stroke-linecap="round" opacity=".9"/></svg>`,
+ "La silhouette d'enfant devenue signe, avec le croissant d'or à la place du visage — clin d'œil au drapeau. Les deux lignes du corps évoquent des barres de données."],
+['La barre qui monte',
+ `<svg viewBox="0 0 64 64" width="__S__" height="__S__">
+  <rect x="6" y="42" width="11" height="16" rx="3" fill="__C__" opacity=".32"/>
+  <rect x="21" y="32" width="11" height="26" rx="3" fill="__C__" opacity=".55"/>
+  <rect x="36" y="20" width="11" height="38" rx="3" fill="__C__" opacity=".8"/>
+  <rect x="51" y="6" width="11" height="52" rx="3" fill="${RI}"/></svg>`,
+ "L'échelle de priorité elle-même, devenue logo. Quatre barres, la dernière en rouge : c'est exactement ce que fait l'outil, classer et désigner l'urgence. Le plus sobre."],
+['Le croissant d\'enfants',
+ `<svg viewBox="0 0 64 64" width="__S__" height="__S__">
+  <defs><mask id="mk__ID__"><rect width="64" height="64" fill="#fff"/>
+   <circle cx="40" cy="30" r="21" fill="#000"/></mask></defs>
+  <circle cx="30" cy="32" r="25" fill="__C__" mask="url(#mk__ID__)"/>
+  <circle cx="47" cy="14" r="5.6" fill="${OR}"/>
+  <circle cx="27" cy="52" r="4.6" fill="${RI}"/></svg>`,
+ "Le croissant et l'étoile du drapeau, redessinés : l'étoile devient un point d'or, et un second point rouge se détache en bas — l'enfant hors du croissant. Le plus culturel."]];
+
+document.getElementById('logos').innerHTML=L.map(([nom,svg,txt],i)=>{
+ const big=svg.replace(/__S__/g,'62').replace(/__C__/g,V).replace(/__ID__/g,'a'+i);
+ const small=svg.replace(/__S__/g,'26').replace(/__C__/g,V).replace(/__ID__/g,'b'+i);
+ const dark=svg.replace(/__S__/g,'40').replace(/__C__/g,'#FFFFFF').replace(/__ID__/g,'c'+i);
+ return `<div class="lg"><div class="lg-top">
+   <div class="lg-row">${big}<div class="lg-name">Edu<span>Focus</span></div></div>
+   <div class="lg-mini">${small}<span style="font-size:11px;color:#8A9199">favicon 26 px</span>
+    <div class="lg-dark">${dark}</div></div></div>
+  <div class="lg-info"><b>${i+1} · ${nom}</b><p>${txt}</p></div></div>`}).join('');
+</script></body></html>

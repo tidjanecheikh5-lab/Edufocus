@@ -2,10 +2,10 @@
 
 **De la démographie à la décision : où investir dans l'éducation en Mauritanie**
 
-Projet réalisé pour le hackathon **IndabaX Mauritanie — Édition 2026**
+Réalisé par l'équipe **DataSphere** pour le hackathon **IndabaX Mauritanie — Édition 2026**
 Thème : Population & Démographie
 
-🔗 **Prototype en ligne :** _(coller le lien ici après déploiement)_
+🔗 **Prototype en ligne : https://edufocuspro.netlify.app/**
 
 ---
 
@@ -150,6 +150,8 @@ Déclaré conformément à l'article 5 du règlement du hackathon. Le détail fi
 ---
 
 ## Équipe
+
+**DataSphere**
 
 _(compléter : noms des membres et rôles)_
 

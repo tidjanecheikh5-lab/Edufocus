@@ -23,25 +23,25 @@
    Pour changer la charte : ne toucher qu'à ce bloc.
    ══════════════════════════════════════════════════════════════════════════ */
 :root{
-  /* ── Ardoise ── neutres froids, marque bleu-ardoise ─────────────────── */
-  --sable:#F5F7F8;   /* fond          */
-  --encre:#171B1F;   /* texte         */
-  --gris:#6A7480;    /* secondaire    */
-  --acc:#1A4A6B;     /* marque, accent unique */
-  --acc2:#2A6B94;    /* accent clair (dégradés, survol) */
-  --acc0:#163F5C;    /* accent sombre */
+  /* ── Sahara ── sable chaud, terre cuite, turquoise d'oasis ──────────── */
+  --sable:#FBF6EE;   /* fond          */
+  --encre:#1E170F;   /* texte         */
+  --gris:#7A6E5E;    /* secondaire    */
+  --acc:#B85C1E;     /* marque, accent unique */
+  --acc2:#D97428;    /* accent clair  */
+  --acc0:#8C4315;    /* accent sombre */
 
   /* échelle de PRIORITÉ : quatre intensités d'une même teinte, du plus
      urgent au moins urgent. C'est une donnée ordonnée, pas des catégories. */
-  --p1:#1C4E70; --p2:#3E799E; --p3:#8FB3C9; --p4:#CBDCE6;
-  --p1t:#FFFFFF; --p2t:#FFFFFF; --p3t:#122B3A; --p4t:#122B3A;   /* texte lisible dessus */
+  --p1:#B85C1E; --p2:#DB8B47; --p3:#EFBB8B; --p4:#F7E0C9;
+  --p1t:#FFFFFF; --p2t:#2A1B0E; --p3t:#2A1B0E; --p4t:#2A1B0E;
 
   /* couleurs SÉMANTIQUES, réservées à une seule signification chacune */
-  --or:#C08A2E;      /* mahadra ou école coranique */
-  --ri:#A6413B;      /* aucune instruction — la seule alerte de la page */
-  --ok:#3F7D5F;      /* objectif atteint */
+  --or:#E5A82E;      /* mahadra ou école coranique */
+  --ri:#C0392B;      /* aucune instruction — la seule alerte de la page */
+  --ok:#3FA79B;      /* objectif atteint · turquoise d'oasis */
 
-  --papier:#FFFFFF; --trait:#E2E6EA; --trait2:#EDF0F2;
+  --papier:#FFFFFF; --trait:#EBE0CE; --trait2:#F4EDE1;
 
   --serif:'Poppins','Nunito Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
   --sans:'Nunito Sans','IBM Plex Sans Arabic','Noto Naskh Arabic','Geeza Pro',system-ui,
@@ -80,7 +80,8 @@ table{border-collapse:collapse;width:100%}
   gap:12px; padding:10px 16px; background:var(--acc); color:#fff;
 }
 .brand{font-family:var(--serif); font-size:19px; font-weight:700; letter-spacing:-.01em;
-  white-space:nowrap; flex:none; min-width:0}
+  white-space:nowrap; flex:none; min-width:0; display:flex; align-items:center; gap:9px}
+.logo{width:27px; height:27px; flex:none; color:#fff}
 .brand span{opacity:.62; font-weight:400; font-size:14px; display:none}
 .spacer{flex:1}
 .langs{display:flex; gap:1px; background:rgba(255,255,255,.22); border-radius:var(--r); overflow:hidden}
@@ -126,7 +127,7 @@ h2.title{font-size:24px; letter-spacing:-.01em}
   mask:var(--pers) center/contain no-repeat;
   transform:scale(.4); opacity:0; animation:pop .34s ease forwards}
 @keyframes pop{to{transform:scale(1); opacity:1}}
-.waffle i.f{background-color:var(--p3)}   /* école formelle */
+.waffle i.f{background-color:var(--ok)}   /* école formelle */
 .waffle i.m{background-color:var(--or)}   /* mahadra / coranique */
 .waffle i.n{background-color:var(--ri)}   /* aucune instruction */
 .wkey{display:flex; flex-wrap:wrap; gap:6px 16px; margin-top:13px; font-size:13px}
@@ -148,7 +149,7 @@ h2.title{font-size:24px; letter-spacing:-.01em}
     radial-gradient(120% 90% at 50% 0%, var(--acc2) 0%, var(--acc) 55%, var(--acc0) 100%);
   color:#fff; overflow:hidden}
 .hero::after{content:''; position:absolute; left:0; right:0; bottom:0; height:3px;
-  background:linear-gradient(90deg,var(--p3) 0 67%,var(--or) 67% 84%,var(--ri) 84% 100%)}
+  background:linear-gradient(90deg,var(--ok) 0 67%,var(--or) 67% 84%,var(--ri) 84% 100%)}
 .kicker{font-size:10.5px; font-weight:700; letter-spacing:.19em; text-transform:uppercase;
   color:rgba(255,255,255,.62); margin-bottom:12px}
 .count{font-family:var(--serif); font-size:clamp(52px,17vw,88px); line-height:.92;
@@ -480,7 +481,7 @@ select{width:100%; padding:10px; font:inherit; font-size:14px; background:var(--
 <body>
 
 <header class="topbar">
-  <div class="brand">EduFocus<span> · <t data-t="tagline"></t></span></div>
+  <div class="brand"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="17" r="11" fill="currentColor"/><path d="M32 32c11.6 0 21 9.4 21 21v9H11v-9c0-11.6 9.4-21 21-21z" fill="currentColor"/><circle cx="32" cy="17" r="5.4" fill="#E5A82E"/><path d="M23 46h18M23 53h12" stroke="#B85C1E" stroke-width="3.4" stroke-linecap="round" opacity=".85"/></svg>EduFocus<span> · <t data-t="tagline"></t></span></div>
   <div class="spacer"></div>
   <div class="langs" role="group" aria-label="Langue">
     <button data-lang="fr" aria-pressed="true">FR</button>
@@ -1026,7 +1027,7 @@ function waffle(w,anim=true){
 }
 function waffleKey(w){
   const [f,m,n]=cent(w);
-  return [['var(--p3)',f,t.waffle[0]],['var(--or)',m,t.waffle[1]],['var(--ri)',n,t.waffle[2]]]
+  return [['var(--ok)',f,t.waffle[0]],['var(--or)',m,t.waffle[1]],['var(--ri)',n,t.waffle[2]]]
     .map(([c,v,l])=>`<span><b style="background-color:${c}"></b><em>${v}</em> ${esc(l)}</span>`).join('');
 }
 
@@ -1122,12 +1123,12 @@ function drawHome(){
   /* Deux anneaux : qui sont ces enfants ? */
   document.getElementById('dSex').innerHTML=donut(
     [{n:t.boys, v:NAT.sexG, e:Math.round(tot*NAT.sexG/100), c:'var(--acc2)'},
-     {n:t.girls,v:100-NAT.sexG, e:Math.round(tot*(100-NAT.sexG)/100), c:'var(--p3)'}],
+     {n:t.girls,v:100-NAT.sexG, e:Math.round(tot*(100-NAT.sexG)/100), c:'var(--or)'}],
     pct(NAT.sexG,0),
     t.noteSex.replace('%g',pct(NAT.txG)).replace('%f',pct(NAT.txF)));
   document.getElementById('dMil').innerHTML=donut(
     [{n:t.rural, v:NAT.milR, e:Math.round(tot*NAT.milR/100), c:'var(--ri)'},
-     {n:t.urban, v:100-NAT.milR, e:Math.round(tot*(100-NAT.milR)/100), c:'var(--p3)'}],
+     {n:t.urban, v:100-NAT.milR, e:Math.round(tot*(100-NAT.milR)/100), c:'var(--ok)'}],
     pct(NAT.milR,0),
     t.noteMil.replace('%r',pct(NAT.txR)).replace('%u',pct(NAT.txU)));
 

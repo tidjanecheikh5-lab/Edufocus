@@ -138,7 +138,7 @@ const body = [];
 /* Page de titre */
 body.push(new Paragraph({
   spacing: { before: 2200, after: 0 },
-  children: [new TextRun({ text: 'INDABAX MAURITANIE 2026  ·  POPULATION & DÉMOGRAPHIE',
+  children: [new TextRun({ text: 'INDABAX MAURITANIE 2026  ·  ÉQUIPE DATASPHERE',
     size: 17, bold: true, color: GRIS, characterSpacing: 60 })]
 }));
 body.push(new Paragraph({
@@ -562,7 +562,7 @@ body.push(P([new TextRun({ text: '5.  Normes minimales de l’INEE. ', size: 20,
 
 /* ── Document ───────────────────────────────────────────────────────── */
 const doc = new Document({
-  creator: 'Équipe EduFocus',
+  creator: 'Équipe DataSphere',
   title: 'EduFocus — Rapport d’analyse',
   description: 'IndabaX Mauritanie 2026 — Population & Démographie',
   styles: {

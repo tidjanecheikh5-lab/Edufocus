@@ -1,6 +1,7 @@
 # EduFocus — Rapport d'analyse
 
-**IndabaX Mauritanie 2026 · Thème Population & Démographie**
+**IndabaX Mauritanie 2026 · Équipe DataSphere**
+Thème : From Data to Storytelling · Population & Démographie
 Document technique accompagnant le prototype. Tous les calculs sont reproductibles
 avec les scripts fournis.
 
