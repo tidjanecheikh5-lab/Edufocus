@@ -230,8 +230,15 @@ with sync_playwright() as pw:
         const a=alloue(cap, REGLE);
         return DATA.filter(w=>(a[w.wilaya]||0)>=1 && moyens(w,a[w.wilaya]).ecoles>0)
                    .map(w=>w.mecanisme);}""")
-    check(ec and all(x == 'Exclusion' for x in ec),
-          "écoles neuves réservées aux wilayas en Exclusion", sorted(set(ec)))
+    check(ec and all(x != 'Substitution' for x in ec),
+          "aucune école neuve pour les wilayas en Substitution", sorted(set(ec)))
+    nk = pg.evaluate("""()=>{
+        const cap=Math.min(+document.getElementById('simRange').value,
+            DATA.reduce((s,w)=>s+w.enfants_hors_ecole,0));
+        const a=alloue(cap, REGLE);
+        const w=DATA.find(x=>x.wilaya==='Nouakchott');
+        return a[w.wilaya]>=1 ? moyens(w,a[w.wilaya]).ecoles : null;}""")
+    check(nk is None or nk > 0, 'Nouakchott reçoit bien des écoles neuves', nk)
     txt = pg.inner_text('#simMoyens')
     check(any(c.isdigit() for c in txt) and 'salle' in txt.lower(),
           'les moyens sont chiffrés et libellés')

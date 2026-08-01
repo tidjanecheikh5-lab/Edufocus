@@ -339,12 +339,18 @@ c'est ce qui distingue ce dimensionnement d'un simple produit en croix :
 
 | Mécanisme | Moyen calculé | Raison |
 |---|---|---|
-| **Exclusion** | Salles neuves **et** écoles pour les abriter | Aucune offre n'existe |
-| **Volume élevé** | Salles supplémentaires, aucune école neuve | L'offre existe, elle est saturée |
-| **Substitution** | Classes passerelles, mahadras à certifier | On ne construit pas une école pour un enfant qui apprend déjà |
+| **Exclusion** et **Volume élevé** | Salles neuves **et** écoles pour les abriter | Voir la note ci-dessous |
+| **Substitution** | Classes passerelles, mahadras à certifier | On ne construit pas une école pour un enfant qui apprend déjà : il lui faut une équivalence, pas un bâtiment |
+
+**Pourquoi des constructions neuves dans les deux premiers cas.** Nous ne
+disposons d'aucune donnée sur la capacité résiduelle des écoles existantes.
+Supposer qu'elles pourraient absorber ces enfants serait une hypothèse que rien ne
+soutient. Si le ministère connaît les places disponibles, son besoin de
+construction sera inférieur au nôtre : **notre chiffre est un majorant, et c'est
+volontaire.**
 
 À 100 000 places réparties au prorata, cela donne 2 508 salles, 2 508 enseignants,
-140 écoles neuves, et 49 205 enfants à faire passer de la mahadra vers le formel.
+216 écoles neuves, et 49 205 enfants à faire passer de la mahadra vers le formel.
 
 Si le ministère applique d'autres normes, il modifie les deux valeurs et
 l'ensemble se recalcule. **Aucun coût n'est chiffré** — voir 7.3.

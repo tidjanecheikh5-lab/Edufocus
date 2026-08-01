@@ -758,9 +758,9 @@ fr:{
  hypNote:"Modifiez ces deux valeurs pour recalculer les moyens. 40 élèves par classe est le maximum recommandé par les normes minimales de l\'INEE pour le primaire ; ajustez selon les normes du ministère.",
  simMoyens:"Moyens à mobiliser",
  moySalles:"salles de classe", moyProfs:"%s enseignants à recruter",
- moyEcoles:"écoles à construire", moyEcolesN:"là où il n\'y a aucune offre",
+ moyEcoles:"écoles à construire", moyEcolesN:"pour abriter les salles neuves",
  moyPass:"enfants à faire passer", moyPassN:"depuis la mahadra vers le formel",
- moySallesC:"salles", moyEcolesC:"écoles neuves", moyExtC:"dans des écoles existantes",
+ moySallesC:"salles", moyEcolesC:"écoles neuves",
  moyPassC:"classes passerelles", moyCertC:"mahadras à certifier",
  simTitle:"Si vous ne pouvez pas scolariser tout le monde",
  simLede:"Choisissez combien d'enfants vous pouvez accueillir, puis comment les répartir. L'outil montre ce que chaque choix donne.",
@@ -844,9 +844,9 @@ en:{
  hypNote:"Change these two values to recompute the resources. 40 pupils per class is the maximum recommended by INEE minimum standards for primary; adjust to the ministry\'s own norms.",
  simMoyens:"Resources to mobilise",
  moySalles:"classrooms", moyProfs:"%s teachers to recruit",
- moyEcoles:"schools to build", moyEcolesN:"where there is no provision at all",
+ moyEcoles:"schools to build", moyEcolesN:"to house the new classrooms",
  moyPass:"children to bring across", moyPassN:"from mahadra into formal school",
- moySallesC:"classrooms", moyEcolesC:"new schools", moyExtC:"in existing schools",
+ moySallesC:"classrooms", moyEcolesC:"new schools",
  moyPassC:"bridging classes", moyCertC:"mahadras to certify",
  simTitle:"If you cannot school everyone",
  simLede:"Choose how many children you can take in, then how to spread them. The tool shows what each choice gives.",
@@ -930,9 +930,9 @@ ar:{
  hypNote:"غيّر هاتين القيمتين لإعادة حساب الموارد. 40 تلميذاً لكل قسم هو الحد الأقصى الموصى به في المعايير الدنيا لشبكة INEE للتعليم الابتدائي؛ عدّله وفق معايير الوزارة.",
  simMoyens:"الموارد المطلوب تعبئتها",
  moySalles:"قاعة دراسية", moyProfs:"%s مدرّساً للتوظيف",
- moyEcoles:"مدرسة للبناء", moyEcolesN:"حيث لا يوجد أي عرض تعليمي",
+ moyEcoles:"مدرسة للبناء", moyEcolesN:"لاحتضان القاعات الجديدة",
  moyPass:"طفلاً للانتقال", moyPassN:"من المحظرة إلى التعليم النظامي",
- moySallesC:"قاعة", moyEcolesC:"مدرسة جديدة", moyExtC:"في مدارس قائمة",
+ moySallesC:"قاعة", moyEcolesC:"مدرسة جديدة",
  moyPassC:"قسم جسر", moyCertC:"محظرة للاعتماد",
  simTitle:"إذا لم تستطع تمدرس الجميع",
  simLede:"اختر عدد الأطفال الذين يمكنك استقبالهم، ثم كيفية توزيعهم. تُظهر الأداة نتيجة كل اختيار.",
@@ -1424,12 +1424,12 @@ function moyens(w, places){
   const parSalle=Math.max(1, +document.getElementById('hypSalle').value||40);
   const parEcole=Math.max(1, +document.getElementById('hypEcole').value||6);
   const salles=Math.ceil(places/parSalle);
-  const m=w.mecanisme;
+  const construit = w.mecanisme !== 'Substitution';
   return {
     salles,
     enseignants: salles,                                   // un maître par salle
-    ecoles: m==='Exclusion' ? Math.ceil(salles/parEcole) : 0,
-    type: m==='Exclusion' ? 'ecoles' : m==='Volume élevé' ? 'extension' : 'passerelles'
+    ecoles: construit ? Math.ceil(salles/parEcole) : 0,
+    type: construit ? 'ecoles' : 'passerelles'
   };
 }
 
@@ -1511,8 +1511,6 @@ function drawSim(){
         class="aft ${o.apres<1?'zero':''}">${pct(o.apres)}</span></td>
       <td>${m.type==='ecoles'
             ? `${num(m.salles)} ${esc(t.moySallesC)}<br><span style="color:var(--gris)">${num(m.ecoles)} ${esc(t.moyEcolesC)}</span>`
-            : m.type==='extension'
-            ? `${num(m.salles)} ${esc(t.moySallesC)}<br><span style="color:var(--gris)">${esc(t.moyExtC)}</span>`
             : `${num(m.salles)} ${esc(t.moyPassC)}<br><span style="color:var(--gris)">${esc(t.moyCertC)}</span>`}</td>
       <td>${esc(t.lvShort[o.w.mecanisme]||ND())}</td></tr>`).join('')
     : `<tr><td colspan="6" style="color:var(--gris)">${ND()}</td></tr>`;
@@ -1612,7 +1610,7 @@ Trarza, Inchiri, Dakhlet Nouadhibou, Tiris Zemmour et Adrar n'entrent dans les c
 <li><b>Volume élevé</b> — la wilaya pèse au moins 15 % du besoin national alors que son taux reste sous la moyenne (33,1 %). Le problème est un problème de masse. Levier : capacité d'accueil.</li>
 </ul>
 
-<h3>5. Le simulateur : ce qu'il fait et ce qu'il ne fait pas</h3>
+<h3>5. Le simulateur</h3>
 <p>Le simulateur répond à une question de répartition, pas de budget. Vous fixez une <b>capacité exprimée en enfants</b> — le nombre d'enfants que vous pouvez scolariser — et vous choisissez une règle. L'outil montre où vont les places et ce qu'il reste après.</p>
 <ul>
 <li><b>Selon le nombre</b> — chaque wilaya reçoit une part proportionnelle à son nombre d'enfants hors école.</li>
@@ -1622,13 +1620,13 @@ Trarza, Inchiri, Dakhlet Nouadhibou, Tiris Zemmour et Adrar n'entrent dans les c
 <p>Dans les trois cas, aucune wilaya ne peut recevoir plus de places qu'elle n'a d'enfants hors école ; le surplus est redistribué aux autres.</p>
 <p class="card warn" style="margin-top:8px"><b>Un point à comprendre :</b> le taux national après simulation est <b>identique pour les trois règles</b>. C'est arithmétique — le nombre total d'enfants scolarisés ne dépend pas de la façon de les répartir. Ce qui change, c'est la distribution : combien de wilayas voient leur problème réglé, et à quel niveau reste la plus en retard. C'est pourquoi ces deux chiffres sont affichés. <b>Aucune des trois règles n'est « la bonne »</b> : concentrer règle quelques wilayas et en laisse d'autres intactes, étaler soulage tout le monde sans régler personne. L'arbitrage est politique, pas statistique. L'outil l'éclaire, il ne le tranche pas.</p>
 <p>Nous ne chiffrons volontairement <b>aucun coût</b>. Une place en école coûte autre chose qu'une passerelle depuis une mahadra, et nous n'avons pas de données de coût fiables. Convertir des enfants en ouguiyas serait une invention, pas une analyse.</p>
-<p><b>En revanche, nous convertissons les enfants en moyens matériels</b>, à partir de deux hypothèses seulement, toutes deux affichées à l'écran et modifiables : le nombre d'élèves par salle de classe (40 par défaut, maximum recommandé par les normes minimales de l'INEE pour le primaire) et le nombre de salles par école (6 par défaut). Le type de moyen dépend du mécanisme :</p>
+<p><b>En revanche, nous convertissons les enfants en moyens matériels</b>, à partir de deux hypothèses seulement, toutes deux affichées à l'écran et modifiables : le nombre d'élèves par salle de classe (40 par défaut, maximum recommandé par les normes minimales de l'INEE pour le primaire) et le nombre de salles par école (6 par défaut). Un enseignant est compté par salle.</p>
+<p>Le type de moyen dépend du mécanisme :</p>
 <ul>
-<li><b>Exclusion</b> — des salles neuves et les écoles qui les abritent, là où il n'existe aucune offre.</li>
-<li><b>Volume élevé</b> — des salles supplémentaires dans des écoles existantes : l'offre existe, elle est saturée.</li>
-<li><b>Substitution</b> — des classes passerelles et la certification de mahadras existantes. On ne construit pas une école pour un enfant qui apprend déjà.</li>
+<li><b>Exclusion</b> et <b>Volume élevé</b> — des salles neuves et les écoles qui les abritent. Nous comptons des constructions neuves dans les deux cas : nous ne disposons d'aucune donnée sur la capacité résiduelle des écoles existantes, et supposer qu'elles peuvent absorber ces enfants serait une hypothèse que rien ne soutient.</li>
+<li><b>Substitution</b> — des classes passerelles et la certification de mahadras existantes. On ne construit pas une école pour un enfant qui apprend déjà : il lui faut une équivalence, pas un bâtiment.</li>
 </ul>
-<p>Un enseignant est compté par salle. Si le ministère applique d'autres normes, il change les deux valeurs et tout se recalcule.</p>
+<p>Si le ministère connaît les places disponibles dans les écoles existantes, il obtiendra un besoin de construction inférieur au nôtre. Notre chiffre est donc un <b>majorant</b>, et c'est volontaire.</p>
 
 <h3>6. Les limites</h3>
 <p class="card warn" style="margin-top:8px">Ce que ces données <b>ne permettent pas</b> de dire :</p>
@@ -1704,7 +1702,7 @@ Trarza, Inchiri, Dakhlet Nouadhibou, Tiris Zemmour and Adrar reach the top five 
 <li><b>High volume</b> — the wilaya holds at least 15 % of the national need while its rate stays below average (33.1 %). The problem is one of scale. Lever: intake capacity.</li>
 </ul>
 
-<h3>5. The simulator: what it does and does not do</h3>
+<h3>5. The simulator</h3>
 <p>The simulator answers a question of distribution, not of budget. You set a <b>capacity expressed in children</b> — how many children you can put into school — and choose a rule. The tool shows where the places go and what remains afterwards.</p>
 <ul>
 <li><b>By numbers</b> — each wilaya receives a share proportional to its out-of-school children.</li>
@@ -1714,7 +1712,9 @@ Trarza, Inchiri, Dakhlet Nouadhibou, Tiris Zemmour and Adrar reach the top five 
 <p>In all three cases no wilaya can receive more places than it has out-of-school children; the surplus is redistributed.</p>
 <p class="card warn" style="margin-top:8px"><b>One thing to understand:</b> the national rate after simulation is <b>identical under all three rules</b>. This is arithmetic — the total number of children schooled does not depend on how they are spread. What changes is the distribution: how many wilayas see their problem settled, and how far behind the worst one remains. That is why those two figures are displayed. <b>None of the three rules is "the right one"</b>: concentrating settles a few wilayas and leaves others untouched, spreading eases everyone without settling anyone. The trade-off is political, not statistical. The tool illuminates it; it does not decide it.</p>
 <p>We deliberately put <b>no cost figures</b> on this. A school place costs something different from a bridge out of a mahadra, and we have no reliable cost data. Converting children into ouguiyas would be invention, not analysis.</p>
-<p><b>We do, however, convert children into physical resources</b>, from two assumptions only, both shown on screen and editable: pupils per classroom (40 by default, the maximum recommended by INEE minimum standards for primary) and classrooms per school (6 by default). The kind of resource follows the mechanism: new classrooms and the schools to house them under Exclusion; extra classrooms inside existing schools under High volume; bridging classes and certification of existing mahadras under Substitution. One teacher is counted per classroom. If the ministry applies other norms, it changes the two values and everything recomputes.</p>
+<p><b>We do, however, convert children into physical resources</b>, from two assumptions only, both shown on screen and editable: pupils per classroom (40 by default, the maximum recommended by INEE minimum standards for primary) and classrooms per school (6 by default). One teacher is counted per classroom.</p>
+<p>The kind of resource follows the mechanism. Under <b>Exclusion</b> and <b>High volume</b>: new classrooms and the schools to house them. We count new construction in both cases because we have no data on spare capacity in existing schools, and assuming they could absorb these children would rest on nothing. Under <b>Substitution</b>: bridging classes and certification of existing mahadras — a child already learning needs an equivalence, not a building.</p>
+<p>If the ministry knows the places available in existing schools, its construction need will be lower than ours. Our figure is therefore an <b>upper bound</b>, deliberately.</p>
 
 <h3>6. Limits</h3>
 <p class="card warn" style="margin-top:8px">What these data <b>cannot</b> tell us:</p>
@@ -1790,7 +1790,7 @@ volume = عدد الأطفال خارج المدرسة · intensity = نسبة �
 <li><b>الحجم المرتفع</b> — تمثل الولاية 15 % على الأقل من الحاجة الوطنية بينما تبقى نسبتها دون المعدل (33.1 %). المشكلة مشكلة حجم. الحل: الطاقة الاستيعابية.</li>
 </ul>
 
-<h3>5. المحاكي: ما يفعله وما لا يفعله</h3>
+<h3>5. المحاكي</h3>
 <p>يجيب المحاكي عن سؤال التوزيع لا عن سؤال الميزانية. تحدّد <b>طاقة معبّراً عنها بالأطفال</b> — عدد الأطفال الذين يمكنك إدخالهم إلى المدرسة — ثم تختار قاعدة. تُظهر الأداة أين تذهب المقاعد وما يتبقى بعد ذلك.</p>
 <ul>
 <li><b>حسب العدد</b> — تحصل كل ولاية على حصة تتناسب مع عدد أطفالها خارج المدرسة.</li>
@@ -1800,7 +1800,9 @@ volume = عدد الأطفال خارج المدرسة · intensity = نسبة �
 <p>في الحالات الثلاث، لا يمكن لأي ولاية أن تتلقى مقاعد أكثر من عدد أطفالها خارج المدرسة؛ ويُعاد توزيع الفائض.</p>
 <p class="card warn" style="margin-top:8px"><b>نقطة يجب فهمها:</b> النسبة الوطنية بعد المحاكاة <b>واحدة في القواعد الثلاث</b>. هذا أمر حسابي — فالعدد الإجمالي للأطفال المتمدرسين لا يتوقف على طريقة توزيعهم. ما يتغير هو التوزيع: كم ولاية حُلَّت مشكلتها، وعند أي مستوى تبقى الأكثر تأخراً. لهذا يُعرض هذان الرقمان. <b>لا توجد قاعدة «صحيحة» بين الثلاث</b>: التركيز يحل مشكلة بضع ولايات ويترك أخرى كما هي، والتوزيع يخفف عن الجميع دون أن يحل مشكلة أحد. المفاضلة سياسية لا إحصائية. الأداة تنيرها ولا تحسمها.</p>
 <p>لم نضع <b>أي أرقام للتكلفة</b> عن قصد. فمقعد في مدرسة يكلّف غير ما يكلّفه جسر انطلاقاً من المحظرة، ولا نملك بيانات تكلفة موثوقة. تحويل الأطفال إلى أوقية سيكون اختلاقاً لا تحليلاً.</p>
-<p><b>لكننا نحوّل الأطفال إلى موارد مادية</b>، انطلاقاً من فرضيتين فقط، معروضتين على الشاشة وقابلتين للتعديل: عدد التلاميذ لكل قاعة (40 افتراضياً، وهو الحد الأقصى الموصى به في المعايير الدنيا لشبكة INEE للتعليم الابتدائي) وعدد القاعات لكل مدرسة (6 افتراضياً). ونوع المورد يتبع الآلية: قاعات جديدة والمدارس التي تحتضنها في حالة الإقصاء؛ قاعات إضافية داخل مدارس قائمة في حالة الحجم المرتفع؛ أقسام جسر واعتماد المحاظر القائمة في حالة الإحلال. ويُحتسب مدرّس واحد لكل قاعة. وإذا طبّقت الوزارة معايير أخرى، فإنها تغيّر القيمتين ويُعاد الحساب بالكامل.</p>
+<p><b>لكننا نحوّل الأطفال إلى موارد مادية</b>، انطلاقاً من فرضيتين فقط، معروضتين على الشاشة وقابلتين للتعديل: عدد التلاميذ لكل قاعة (40 افتراضياً، وهو الحد الأقصى الموصى به في المعايير الدنيا لشبكة INEE للتعليم الابتدائي) وعدد القاعات لكل مدرسة (6 افتراضياً). ويُحتسب مدرّس واحد لكل قاعة.</p>
+<p>ونوع المورد يتبع الآلية. في حالتَي <b>الإقصاء</b> و<b>الحجم المرتفع</b>: قاعات جديدة والمدارس التي تحتضنها. نحتسب البناء الجديد في الحالتين لأننا لا نملك أي بيانات عن الطاقة المتبقية في المدارس القائمة، وافتراض قدرتها على استيعاب هؤلاء الأطفال لا يستند إلى شيء. وفي حالة <b>الإحلال</b>: أقسام جسر واعتماد المحاظر القائمة — فالطفل الذي يتعلم بالفعل يحتاج إلى معادلة لا إلى مبنى.</p>
+<p>وإذا كانت الوزارة تعرف المقاعد المتاحة في المدارس القائمة، فستحصل على حاجة بناء أقل من حاجتنا. ورقمنا إذن <b>حد أعلى</b>، وهذا مقصود.</p>
 
 <h3>6. حدود الدراسة</h3>
 <p class="card warn" style="margin-top:8px">ما <b>لا تسمح</b> هذه البيانات بقوله:</p>

@@ -430,12 +430,16 @@ body.push(ESPACE(140));
 body.push(P('Un enseignant est compté par salle. Le type de moyen dépend du mécanisme — c’est ce qui distingue ce dimensionnement d’un simple produit en croix.', { bold: true }));
 body.push(ESPACE(100));
 body.push(TAB(['Mécanisme', 'Moyen calculé', 'Raison'], [
-  ['Exclusion', 'Salles neuves et écoles pour les abriter', 'Aucune offre n’existe'],
-  ['Volume élevé', 'Salles supplémentaires, aucune école neuve', 'L’offre existe, elle est saturée'],
-  ['Substitution', 'Classes passerelles, mahadras à certifier', 'On ne construit pas une école pour un enfant qui apprend déjà']
-], [0.18, 0.40, 0.42], { boldCol: [0] }));
+  ['Exclusion et Volume élevé', 'Salles neuves et écoles pour les abriter', 'Voir la note ci-dessous'],
+  ['Substitution', 'Classes passerelles, mahadras à certifier', 'On ne construit pas une école pour un enfant qui apprend déjà : il lui faut une équivalence, pas un bâtiment']
+], [0.22, 0.36, 0.42], { boldCol: [0] }));
 body.push(ESPACE(140));
-body.push(P('À 100 000 places réparties au prorata : 2 508 salles, 2 508 enseignants, 140 écoles neuves, et 49 205 enfants à faire passer de la mahadra vers le formel. Si le ministère applique d’autres normes, il modifie les deux valeurs et l’ensemble se recalcule.'));
+body.push(CADRE([P([
+  new TextRun({ text: 'Pourquoi des constructions neuves dans les deux premiers cas.  ', size: 20, bold: true }),
+  new TextRun({ text: 'Nous ne disposons d’aucune donnée sur la capacité résiduelle des écoles existantes. Supposer qu’elles pourraient absorber ces enfants serait une hypothèse que rien ne soutient. Si le ministère connaît les places disponibles, son besoin de construction sera inférieur au nôtre : notre chiffre est un majorant, et c’est volontaire.', size: 20 })
+], { after: 0 })]));
+body.push(ESPACE(140));
+body.push(P('À 100 000 places réparties au prorata : 2 508 salles, 2 508 enseignants, 216 écoles neuves, et 49 205 enfants à faire passer de la mahadra vers le formel. Si le ministère applique d’autres normes, il modifie les deux valeurs et l’ensemble se recalcule.'));
 
 /* 8. Recommandations */
 body.push(H1('8. Les recommandations par wilaya'));
